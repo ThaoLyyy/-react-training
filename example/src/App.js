@@ -2,12 +2,19 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
+import FunctionClick from "./components/FunctionClick";
+import ClassClick from "./components/ClassClick";
+import EventBind from "./components/EventBind";
+import Lifecycle from "./components/Lifecycle";
 
 function App() {
   const [state, setState] = useState(0);
   return (
     <div className="App">
       <Header />
+      <FunctionClick />
+      <ClassClick />
+      <EventBind />
       <p> Edit {state} </p>
       <button onClick={() => setState(state + 1)}>Click</button>
       {/* thuat toan difing  */}

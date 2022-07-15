@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work-with-jsx</title>
+</head>
+
+<body>
+    <!--  work-with-jsx
+    I.
+    - Xử lí với  DOM event
+    - Component do chúng ta định nghĩa phải viết hoa kí tự đầu
+    - chọn component trong 1 object
+    - Booleans, Null & Undefined không được render
+    - Kết hợp toán tử logic để render theo điều kiện
+    II.
+    -Props trong JSX
+    - <YourComponent
+         propName1="String literals"
+         propName2={expression}
+         />
+         -Props default to "true"
+         - Spread/Rest props
+         -Children prop
+             -<YourComponent>String literals</YourComponent>
+             -<YourComponent>{expression}</YourComponent>
+        - Render props
+-->
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function App(){
+        return (
+        <div id="wrapper">
+          <button
+           onDoubleClick={(event) => console.log(event.target)
+           }
+          >
+          Click me!
+            
+            </button>
+        </div>
+      )
+    }
+    ReactDOM.render(<App />, document.getElementById("root"))
+    
+</script>
+</body>
+
+</html>
