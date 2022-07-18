@@ -5,13 +5,25 @@ import { useState } from "react";
 import FunctionClick from "./components/FunctionClick";
 import ClassClick from "./components/ClassClick";
 import EventBind from "./components/EventBind";
-import Lifecycle from "./components/Lifecycle";
+import { Test } from "./components/Test";
+import Lists from "./Lists";
+import Calculator from "./Calculator";
+
+// import Lifecycle from "./components/Lifecycle";
 
 function App() {
   const [state, setState] = useState(0);
+  const [isToggled, setIsToggled] = useState(false);
   return (
+    
     <div className="App">
       <Header />
+      {/* conditional rendering react js */}
+      <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
+      {isToggled && <Test />}
+       {isToggled ? <Test /> : <p>The value is false!</p>}
+      <Lists />
+      <Calculator />
       <FunctionClick />
       <ClassClick />
       <EventBind />
@@ -24,6 +36,7 @@ function App() {
         <Feature />
         <Feature />
         <Feature />
+        
 
         <YoutubeItem
           image="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGRlc2lnbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
@@ -46,14 +59,26 @@ function App() {
             adipisci eius vero placeat ex.
           </p>
         </div> */}
+        {/* <Notification msg="OK" />
+        <Alert msg="OK" /> */}
       </div>
       <Footer />
     </div>
   );
 
-  // example component function
+  // ReactJs Conditional Render
+  // const Notification = (props) => {
+  //   if (props.msg == "OK") {
+  //     return <div>OK</div>;
+  //   }
+  //   return <div>Fail</div>;
+  // };
 
+  // const Alert = (props) => (props.msg == "OK" ? <p>OK</p> : <p>Fail</p>);
+
+  // example component function
   function Feature() {
+    // const { id, ...other } = props;
     return (
       <div className="feature">
         <img
@@ -76,21 +101,33 @@ function App() {
     console.log(props);
     return (
       <div className="youtube__item">
-        <div className="youtube__img" style={{ height:"250px"}}>
-          <img src={props.image} alt="youtube__img" style={{ display:"block", maxWidth:"100%", width:"100%", height:"100%", objectFit:"cover"}}/>
+        <div className="youtube__img" style={{ height: "250px" }}>
+          <img
+            src={props.image}
+            alt="youtube__img"
+            style={{
+              display: "block",
+              maxWidth: "100%",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
         </div>
         <div className=" youtube__footer">
           <img
             src={props.avatar}
             alt="youtube__avatar"
             className="youtube__avatar"
-            style={{ height:"250px"}}
+            style={{ height: "250px" }}
           />
           <div className="youtube__info">
             <h3 className="youtube__title">
               {props.title || "this is example or title"}
             </h3>
-            <h4 className="youtube__author">{props.author || "this is example or author name"}</h4>
+            <h4 className="youtube__author">
+              {props.author || "this is example or author name"}
+            </h4>
           </div>
         </div>
       </div>
