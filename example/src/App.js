@@ -8,20 +8,56 @@ import EventBind from "./components/EventBind";
 import { Test } from "./components/Test";
 import Lists from "./Lists";
 import Calculator from "./Calculator";
+import TodoList from "./components/TodoList";
+import ColorBox from "./components/ColorBox";
+import TodoForm from "./components/TodoForm";
 
 // import Lifecycle from "./components/Lifecycle";
 
 function App() {
   const [state, setState] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
+
+  const [todoList, setTodoList] = useState([
+    { id: 1, title: "I love AA Frontend!! 😍😍" },
+    { id: 2, title: "We love AA Frontend!! 😍🥰" },
+    { id: 3, title: "They love AA Frontend!! 😍🚀" },
+  ]);
+
+  function handleTodoClick(todo) {
+    console.log(todo);
+    const index = todoList.findIndex(x => x.id == todo.id);
+    if (index < 0) return;
+
+    const newTodoList = [...todoList];
+    newTodoList.splice(index, 1);
+    setTodoList(newTodoList);
+  }
+  /**todoForm */
+  function handleTodoFormSubmit(formValues) {
+    console.log('Form submit: ', formValues);
+    // add new todo to current todo list
+    const newTodo = {
+      id: todoList.length + 1, /**ID TAM THỜI */
+      ...formValues
+    }
+    const newTodoList = [...todoList];
+    newTodoList.push(newTodo);
+    setTodoList(newTodoList);
+  }
+  /**todoForm */
+
   return (
-    
     <div className="App">
       <Header />
+      <ColorBox />
+      <h1>React hook - TodoList</h1>
+      <TodoForm onSubmit={handleTodoFormSubmit}/>
+      <TodoList todos={todoList} onTodoClick={handleTodoClick}/>
       {/* conditional rendering react js */}
       <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
       {isToggled && <Test />}
-       {isToggled ? <Test /> : <p>The value is false!</p>}
+      {isToggled ? <Test /> : <p>The value is false!</p>}
       <Lists />
       <Calculator />
       <FunctionClick />
@@ -36,7 +72,6 @@ function App() {
         <Feature />
         <Feature />
         <Feature />
-        
 
         <YoutubeItem
           image="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGRlc2lnbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
