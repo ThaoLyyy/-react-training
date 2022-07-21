@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FunctionClick from "./components/FunctionClick";
 import ClassClick from "./components/ClassClick";
 import EventBind from "./components/EventBind";
@@ -11,8 +11,11 @@ import Calculator from "./Calculator";
 import TodoList from "./components/TodoList";
 import ColorBox from "./components/ColorBox";
 import TodoForm from "./components/TodoForm";
+import PostList from "./components/PostList";
+import PostFilterForm from "./components/PostFiltersForm";
+import Content from "./hooks-example/ContentUseContext";
+import { ThemeContext } from './hooks-example/ThemeContext';
 
-// import Lifecycle from "./components/Lifecycle";
 
 function App() {
   const [state, setState] = useState(0);
@@ -24,9 +27,37 @@ function App() {
     { id: 3, title: "They love AA Frontend!! 😍🚀" },
   ]);
 
+  /**useEffect */
+  const [postList, setPostList] = useState([]);
+  useEffect(() => {
+    async function fetchPostList() {
+      // có thể lỗi xảy ra nên đặt vào try catch
+      try {
+        const requestUrl =
+          "http://js-post-api.herokuapp.com/api/posts?_limit=106_page=1";
+        const response = await fetch(requestUrl);
+        const responseJSON = await response.json();
+        console.log({ responseJSON });
+
+        const { data } = responseJSON;
+        setPostList(data);
+      } catch (error) {
+        console.log('Failed to fetch post list', error.message);
+      }
+    }
+
+    console.log('POST list effect');
+    fetchPostList();
+  }, []); 
+  
+  useEffect(() => {
+    console.log('TODO list effect');
+  })/**[]: là chạy đúng 1 lần :giống componentDidMount*/
+  /**useEffect */
+
   function handleTodoClick(todo) {
     console.log(todo);
-    const index = todoList.findIndex(x => x.id == todo.id);
+    const index = todoList.findIndex((x) => x.id == todo.id);
     if (index < 0) return;
 
     const newTodoList = [...todoList];
@@ -35,17 +66,30 @@ function App() {
   }
   /**todoForm */
   function handleTodoFormSubmit(formValues) {
-    console.log('Form submit: ', formValues);
+    console.log("Form submit: ", formValues);
     // add new todo to current todo list
     const newTodo = {
-      id: todoList.length + 1, /**ID TAM THỜI */
-      ...formValues
-    }
+      id: todoList.length + 1 /**ID TAM THỜI */,
+      ...formValues,
+    };
     const newTodoList = [...todoList];
     newTodoList.push(newTodo);
     setTodoList(newTodoList);
   }
   /**todoForm */
+
+  function handelFiltersChange(newFilters){
+    console.log('New Filters', newFilters);
+  }
+
+  // ==========UseContent===========
+  const [theme, setTheme] = useState('dark')
+
+  const toggleTheme = () => {
+    setTheme(theme ==='dark' ? 'light': 'dark')
+  }
+  // ==========UseContent===========
+ const context = useContext (ThemeContext)
 
   return (
     <div className="App">
@@ -55,6 +99,12 @@ function App() {
       <TodoForm onSubmit={handleTodoFormSubmit}/>
       <TodoList todos={todoList} onTodoClick={handleTodoClick}/>
       {/* conditional rendering react js */}
+
+      <h1>React hook - PostList</h1>
+      <PostFilterForm onSubmit={handelFiltersChange}/>
+
+      <PostList posts={postList} />
+
       <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
       {isToggled && <Test />}
       {isToggled ? <Test /> : <p>The value is false!</p>}
@@ -96,6 +146,11 @@ function App() {
         </div> */}
         {/* <Notification msg="OK" />
         <Alert msg="OK" /> */}
+        
+        <div style={{padding:20}}>
+          <button onClick={context.toggleTheme}>Toggle Theme</button>
+          <Content />
+        </div>
       </div>
       <Footer />
     </div>
@@ -114,6 +169,7 @@ function App() {
   // example component function
   function Feature() {
     // const { id, ...other } = props;
+
     return (
       <div className="feature">
         <img
@@ -164,7 +220,7 @@ function App() {
               {props.author || "this is example or author name"}
             </h4>
           </div>
-        </div>
+        </div>       
       </div>
     );
   }

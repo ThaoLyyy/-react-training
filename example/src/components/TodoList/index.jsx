@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-TodoListDemo.propTypes = {
+TodoList.propTypes = {
     todo: PropTypes.array,
     onTodoClick: PropTypes.func,
     
 };
 /**Neu cha ko truyen xuong thi  nhan mang rong */
-TodoListDemo.defaultProps = {
+TodoList.defaultProps = {
     todos: [],
     onTodoClick: null,/**Todo ko truyen xuong thi nhan gia tri: null */
 }
 
-function TodoListDemo(props) {
+function TodoList(props) {
     const {todos, onTodoClick} = props;
 
     function handleClick(todo) {
@@ -29,4 +29,4 @@ function TodoListDemo(props) {
     );
 }
 
-export default TodoListDemo;
+export default TodoList;
