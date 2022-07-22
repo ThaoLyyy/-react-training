@@ -3,8 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "./ThemeContext";
-import AppUseContext from "./hooks-example/AppUseContext";
+// import { ThemeProvider } from "./ThemeContext";
 
 // Phương thức chạy 1 lần duy nhất
 // và thường được implement 1 lần
@@ -23,10 +22,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <div className="init">Thao Lyy</div>,
   <React.StrictMode>
-    <ThemeProvider>
+    {/* <ThemeProvider> */}
       <App />
       {/* <AppUseContext /> */}
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
   </React.StrictMode>
 );
 

@@ -1,7 +1,8 @@
 import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useContext, useEffect, useState } from "react";
+// import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import FunctionClick from "./components/FunctionClick";
 import ClassClick from "./components/ClassClick";
 import EventBind from "./components/EventBind";
@@ -13,9 +14,13 @@ import ColorBox from "./components/ColorBox";
 import TodoForm from "./components/TodoForm";
 import PostList from "./components/PostList";
 import PostFilterForm from "./components/PostFiltersForm";
-import Content from "./hooks-example/ContentUseContext";
-import { ThemeContext } from './hooks-example/ThemeContext';
+import FocusInput from "./hooks-example/FocusInput";
+// import Content from "./hooks-example/Content";
 
+// import { ThemeContext } from "./hooks-example/ThemeContext";
+
+// const ThemeContext = createContext();
+// console.log(ThemeContext);
 
 function App() {
   const [state, setState] = useState(0);
@@ -42,17 +47,17 @@ function App() {
         const { data } = responseJSON;
         setPostList(data);
       } catch (error) {
-        console.log('Failed to fetch post list', error.message);
+        console.log("Failed to fetch post list", error.message);
       }
     }
 
-    console.log('POST list effect');
+    console.log("POST list effect");
     fetchPostList();
-  }, []); 
-  
+  }, []);
+
   useEffect(() => {
-    console.log('TODO list effect');
-  })/**[]: là chạy đúng 1 lần :giống componentDidMount*/
+    console.log("TODO list effect");
+  }); /**[]: là chạy đúng 1 lần :giống componentDidMount*/
   /**useEffect */
 
   function handleTodoClick(todo) {
@@ -78,30 +83,92 @@ function App() {
   }
   /**todoForm */
 
-  function handelFiltersChange(newFilters){
-    console.log('New Filters', newFilters);
+  function handelFiltersChange(newFilters) {
+    console.log("New Filters", newFilters);
   }
 
-  // ==========UseContent===========
-  const [theme, setTheme] = useState('dark')
+  // // ==========UseContent===========
+  // const [theme, setTheme] = useState("dark");
 
-  const toggleTheme = () => {
-    setTheme(theme ==='dark' ? 'light': 'dark')
-  }
-  // ==========UseContent===========
- const context = useContext (ThemeContext)
+  // const toggleTheme = () => {
+  //   setTheme(theme === "dark" ? "light" : "dark");
+  // };
+  // // ==========UseContent===========
+  // const context = useContext(ThemeContext);
 
+  // ==========useRef===========
+  const ref = useRef(null);
+  console.log({ref});
+  useEffect(() => {
+    ref.current.focus();
+  },[]);
+  // const countRef = useRef(0); /**useRef: dung count số lần component bị render lại => cải thiện proformance, Stale Clousure*/
+  // // const obj = {
+  // //   current: 0,
+  // // };
+
+  // const [count, setCount] = useState(0);
+  // /**
+  //  * {
+  //  * currrent: 0
+  //  * }
+  //  *
+  //  * countRef ...///...obj
+  //  */
+
+  // const handleClick = () => {
+  //   // setCount(count + 1);
+  //   countRef.current = countRef.current + 1;
+  //   // obj.current = obj.current + 1;
+  // };
+  // // console.log(count, countRef);
+
+  // // 
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     countRef.current = countRef.current + 1;
+  //     console.log({countRef:countRef.current});
+  //   },1000)
+  // },[])
+const inputRef = useRef()
+const outputRef = useRef()
+
+const handleSubmit = (e) =>{
+  e.preventDefault()
+  // console.log(inputRef.current.value);
+  // inputRef.current.value = 'Good bye!!'
+  inputRef.current.style.color = 'red'
+
+  outputRef.current.innerText = inputRef.current.value
+}
+
+  // ==========useRef===========
   return (
     <div className="App">
       <Header />
+      <h1>React hook - UseRef</h1>
+      <input type='text' ref={ref}/>
+      <button >CLICK BUTTON</button>
+      {/* <button onclick={handleClick}>CLICK BUTTON</button> */}
+      <FocusInput />
+      <br />
+      <h1>UseRef</h1>
+      <form onSubmit={handleSubmit}>
+        <label>UseName:</label>
+        <input type='text' id='username' name="username" ref={inputRef}/>
+        <button>Submit</button>
+      </form>
+      <p ref={outputRef}> This is a text</p>
+
+      <hr />
       <ColorBox />
       <h1>React hook - TodoList</h1>
-      <TodoForm onSubmit={handleTodoFormSubmit}/>
-      <TodoList todos={todoList} onTodoClick={handleTodoClick}/>
+      <TodoForm onSubmit={handleTodoFormSubmit} />
+      <TodoList todos={todoList} onTodoClick={handleTodoClick} />
       {/* conditional rendering react js */}
 
       <h1>React hook - PostList</h1>
-      <PostFilterForm onSubmit={handelFiltersChange}/>
+      <PostFilterForm onSubmit={handelFiltersChange} />
 
       <PostList posts={postList} />
 
@@ -146,11 +213,11 @@ function App() {
         </div> */}
         {/* <Notification msg="OK" />
         <Alert msg="OK" /> */}
-        
-        <div style={{padding:20}}>
-          <button onClick={context.toggleTheme}>Toggle Theme</button>
-          <Content />
-        </div>
+
+        {/* <div style={{ padding: 20 }}>
+            <button onClick={context.toggleTheme}>Toggle Theme</button>
+            <Content />
+          </div> */}
       </div>
       <Footer />
     </div>
@@ -220,7 +287,7 @@ function App() {
               {props.author || "this is example or author name"}
             </h4>
           </div>
-        </div>       
+        </div>
       </div>
     );
   }
