@@ -2,7 +2,14 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 // import { createContext, useContext, useEffect, useState } from "react";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import FunctionClick from "./components/FunctionClick";
 import ClassClick from "./components/ClassClick";
 import EventBind from "./components/EventBind";
@@ -21,6 +28,62 @@ import FocusInput from "./hooks-example/FocusInput";
 
 // const ThemeContext = createContext();
 // console.log(ThemeContext);
+
+// ==========================useReducer=======================
+
+const reducer = (state, action) => {
+  switch (action) {
+    case "TANG":
+      return state + 1;
+    case "GIAM":
+      return state - 1;
+    case "XOA_TAT_CA":
+      return 0;
+    default:
+      return state;
+  }
+};
+
+const reducer2 = (state, action) => {
+  switch (action.type) {
+    case "GAN_GIA_TRI":
+      return action.data;
+    default:
+      return state;
+  }
+};
+
+const initState = {
+  loading: false,
+  data: [],
+  error: null,
+};
+
+const userReducer = (state, action) => {
+  switch (action.type) {
+    case "GET_USER_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_USER_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        data: action.data,
+      };
+    case "GET_USER_ERROR":
+      return {
+        ...state,
+        data: [],
+        error: action.data,
+      };
+
+    default:
+  }
+};
+
+// ==========================useReducer=======================
 
 function App() {
   const [state, setState] = useState(0);
@@ -98,10 +161,10 @@ function App() {
 
   // ==========useRef===========
   const ref = useRef(null);
-  console.log({ref});
+  console.log({ ref });
   useEffect(() => {
     ref.current.focus();
-  },[]);
+  }, []);
   // const countRef = useRef(0); /**useRef: dung count số lần component bị render lại => cải thiện proformance, Stale Clousure*/
   // // const obj = {
   // //   current: 0,
@@ -123,44 +186,108 @@ function App() {
   // };
   // // console.log(count, countRef);
 
-  // // 
+  // //
   // useEffect(() => {
   //   setInterval(() => {
   //     countRef.current = countRef.current + 1;
   //     console.log({countRef:countRef.current});
   //   },1000)
   // },[])
-const inputRef = useRef()
-const outputRef = useRef()
+  const inputRef = useRef();
+  const outputRef = useRef();
 
-const handleSubmit = (e) =>{
-  e.preventDefault()
-  // console.log(inputRef.current.value);
-  // inputRef.current.value = 'Good bye!!'
-  inputRef.current.style.color = 'red'
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(inputRef.current.value);
+    // inputRef.current.value = 'Good bye!!'
+    inputRef.current.style.color = "red";
 
-  outputRef.current.innerText = inputRef.current.value
-}
+    outputRef.current.innerText = inputRef.current.value;
+  };
+  // ==========================useRef==========================
+  // ==========================useReducer=======================
+  /**
+   * ACTION 'ADD_NEW_ITEM'
+   * VIEW: mJAM LEN 1 BUTTON dispatch('ADD_NEW_ITEM')
+   *
+   * REDUCERS (state, action) =>{
+   * switch(action){
+   * case 'ADD_NEW_ITEM'}:
+   *  state = state + 1;
+   * case 'ABC'
+   * } * }
+   */
+  const [count, dipatch] = useReducer(reducer, 0);
+  const [count2, dipatch2] = useReducer(reducer2, 0);
+  const [user, userDispatch] = useReducer(userReducer, initState);
 
-  // ==========useRef===========
+  const getUsers = () => {
+    userDispatch({
+      type: "GET_USER_REQUEST",
+    });
+
+    setTimeout(() => {
+      fetch('https://reqres.in/api/users')
+        .then(res => res.json())
+        .then(res => {
+          userDispatch({
+            type: "GET_USER_SUCCESS",
+            data: res,
+          });
+        })
+        .catch((err) => {
+          userDispatch({
+            type: "GET_USER_ERROR",
+            data: err,
+          });
+        });
+    }, 2000);
+  };
+  // ==========================useReducer=======================
+
   return (
     <div className="App">
       <Header />
       <h1>React hook - UseRef</h1>
-      <input type='text' ref={ref}/>
-      <button >CLICK BUTTON</button>
+      <input type="text" ref={ref} />
+      <button>CLICK BUTTON</button>
       {/* <button onclick={handleClick}>CLICK BUTTON</button> */}
       <FocusInput />
       <br />
       <h1>UseRef</h1>
       <form onSubmit={handleSubmit}>
         <label>UseName:</label>
-        <input type='text' id='username' name="username" ref={inputRef}/>
+        <input type="text" id="username" name="username" ref={inputRef} />
         <button>Submit</button>
       </form>
       <p ref={outputRef}> This is a text</p>
 
+      <br />
+      <br />
+      <h1>React hook - useReducer</h1>
+      <button onClick={getUsers}>GET USERS</button>
+
+      {user.loading ? <p>Loading...</p> : <p>{JSON.stringify(user)}</p>}
+
+      <p>Count: {count}</p>
+      <button onClick={() => dipatch("TANG")}>Tang</button>
+      <button onClick={() => dipatch("GIAM")}>Giam</button>
+      <button onClick={() => dipatch("XOA_TAT_CA")}>Xoa Het Du Lieu</button>
+      <br />
+      <p>Count 2: {count2}</p>
+      <button
+        onClick={() =>
+          dipatch2({
+            type: "GAN_GIA_TRI",
+            data: 10,
+          })
+        }
+      >
+        GAN GIA TRI
+      </button>
+
       <hr />
+
       <ColorBox />
       <h1>React hook - TodoList</h1>
       <TodoForm onSubmit={handleTodoFormSubmit} />
