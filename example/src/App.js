@@ -22,6 +22,11 @@ import TodoForm from "./components/TodoForm";
 import PostList from "./components/PostList";
 import PostFilterForm from "./components/PostFiltersForm";
 import FocusInput from "./hooks-example/FocusInput";
+import ComponentA from "./components/ComponentA";
+import ComponentB from "./components/ComponentB";
+import MyCounter from "./components/MyCounter";
+import CounterContextProvider from "./contexts/CounterContext";
+import ComponentOne from "./components/ComponentOne";
 // import Content from "./hooks-example/Content";
 
 // import { ThemeContext } from "./hooks-example/ThemeContext";
@@ -227,9 +232,9 @@ function App() {
     });
 
     setTimeout(() => {
-      fetch('https://reqres.in/api/users')
-        .then(res => res.json())
-        .then(res => {
+      fetch("https://reqres.in/api/users")
+        .then((res) => res.json())
+        .then((res) => {
           userDispatch({
             type: "GET_USER_SUCCESS",
             data: res,
@@ -244,8 +249,13 @@ function App() {
     }, 2000);
   };
   // ==========================useReducer=======================
+  // ==========================useContext API=======================
+  const [name, setName] = useState("Lyy");
+
+  // ==========================useContext API=======================
 
   return (
+    <CounterContextProvider>
     <div className="App">
       <Header />
       <h1>React hook - UseRef</h1>
@@ -285,6 +295,13 @@ function App() {
       >
         GAN GIA TRI
       </button>
+
+      <br></br>
+      <h1>Context API</h1>
+      <MyCounter />
+      <br></br>
+      <ComponentA name={name} />
+      <ComponentB name={name} />
 
       <hr />
 
@@ -348,6 +365,8 @@ function App() {
       </div>
       <Footer />
     </div>
+
+    </CounterContextProvider>
   );
 
   // ReactJs Conditional Render
