@@ -1,6 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const CounterContext = createContext()
+export const useCounter = () => useContext(CounterContext)
 
 function CounterContextProvider(props) {
 

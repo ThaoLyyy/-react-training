@@ -1,18 +1,19 @@
 import React, { useContext, useState } from "react";
-import CounterContext from "../contexts/CounterContext";
+import CounterContext, { useCounter } from "../contexts/CounterContext";
+
 // import CounterContext from '../contexts/CounterContext'
 
 function MyCounter() {
-    const [count, setCount] = useState(0)
+    // const [count, setCount] = useState(0)
 
-    function increaseCount() {
-        setCount( count + 1)
-    }
+    // function increaseCount() {
+    //     setCount( count + 1)
+    // }
     
-    function decreaseCount() {
-        setCount( count - 1)
-    }
-//   const { count, increaseCount, decreaseCount } = useContext(CounterContext);
+    // function decreaseCount() {
+    //     setCount( count - 1)
+    // }
+  const { count, increaseCount, decreaseCount } = useCounter();
 
   return (
     <div>
