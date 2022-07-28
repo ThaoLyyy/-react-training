@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 // import { createContext, useContext, useEffect, useState } from "react";
-import {
+import React, {
   Children,
   createContext,
   useCallback,
@@ -41,6 +41,59 @@ import MyDefaultComponent from "./example/MyDefaultComponent";
 // const ThemeContext = createContext();
 // console.log(ThemeContext);
 
+// ==========================Error Boundaries=======================
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: false, errorInfo: null };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Catch errors in any components below and re-render with error message
+    this.setState({
+      error: error,
+      errorInfo: errorInfo,
+    });
+  }
+
+  render() {
+    if (this.state.errorInfo) {
+      return (
+        <div>
+          <h2>Something went wrong.</h2>
+          <details style={{ whiteSpace: "pre-wrap" }}>
+            {this.state.error && this.state.error.toString()}
+            <br />
+            {this.state.errorInfo.componentStack}
+          </details>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+class BuggyCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { counter: 0 };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(({ counter }) => ({
+      counter: counter + 1,
+    }));
+  }
+
+  render() {
+    if (this.state.counter === 3) {
+      throw new Error("I crashed!");
+    }
+    return <h1 onClick={this.handleClick}>{this.state.counter}</h1>;
+  }
+}
+// ==========================Error Boundaries=======================
 // ==========================useReducer=======================
 
 const reducer = (state, action) => {
@@ -358,7 +411,6 @@ function App() {
 
     // const MyDefaultComponent = (await import('./example/MyDefaultComponent')).default
     // setMyDefaultComponent(MyDefaultComponent)
-    
   };
   // ==========================Code-Splitting=======================
 
@@ -366,6 +418,29 @@ function App() {
     <CounterContextProvider>
       <div className="App">
         <Header />
+        <hr />
+        <div>
+          <p>
+            <b>Example of Error Boundaries</b>
+          </p>
+          <hr />
+          <ErrorBoundary>
+            <p>These two counters are inside the same error boundary.</p>
+            <BuggyCounter />
+            <BuggyCounter />
+          </ErrorBoundary>
+          <hr />
+          <p>
+            These two counters are inside of their individual error boundary.
+          </p>
+          <ErrorBoundary>
+            <BuggyCounter />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <BuggyCounter />
+          </ErrorBoundary>
+        </div>
+
         <hr />
         <div>Home App</div>
         <button onClick={onLoad}>Load</button>
@@ -385,14 +460,11 @@ function App() {
           <button>Submit</button>
         </form>
         <p ref={outputRef}> This is a text</p>
-
         <br />
         <hr />
         <h1>React hook - useReducer</h1>
         <button onClick={getUsers}>GET USERS</button>
-
         {user.loading ? <p>Loading...</p> : <p>{JSON.stringify(user)}</p>}
-
         <p>Count: {count}</p>
         <button onClick={() => dipatch("TANG")}>Tang</button>
         <button onClick={() => dipatch("GIAM")}>Giam</button>
@@ -430,22 +502,16 @@ function App() {
         <h1>useMemo</h1>
         <p>Count: {count_1}</p>
         <button onClick={() => setCount(count_1 + 1)}>ADD</button>
-
         <p>Number: {number}</p>
-
         <hr />
-
         <ColorBox />
         <h1>React hook - TodoList</h1>
         <TodoForm onSubmit={handleTodoFormSubmit} />
         <TodoList todos={todoList} onTodoClick={handleTodoClick} />
         {/* conditional rendering react js */}
-
         <h1>React hook - PostList</h1>
         <PostFilterForm onSubmit={handelFiltersChange} />
-
         <PostList posts={postList} />
-
         <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
         {isToggled && <Test />}
         {isToggled ? <Test /> : <p>The value is false!</p>}
