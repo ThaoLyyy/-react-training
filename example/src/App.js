@@ -34,6 +34,10 @@ import ComponentTwo from "./components/ComponentTwo";
 import ChildComponent from "./components/ChildComponent";
 import { makeUpperCase } from "./example/utilities";
 import MyDefaultComponent from "./example/MyDefaultComponent";
+import Button from "./components/Button/Button";
+import Card from "./components/card/Card";
+import CardList from "./components/card/CardList";
+
 // import Content from "./hooks-example/Content";
 
 // import { ThemeContext } from "./hooks-example/ThemeContext";
@@ -413,17 +417,34 @@ function App() {
     // setMyDefaultComponent(MyDefaultComponent)
   };
   // ==========================Code-Splitting=======================
+  // ==========================Higher Order Components In ReactJS=======================
 
   return (
     <CounterContextProvider>
       <div className="App">
         <Header />
         <hr />
+        <Button>Primary</Button>
+        {/* <Button className="button--secondary">Secondary</Button> */}
+        <Button secondary>Secondary</Button>
+        <hr />
+        <Card></Card>
+        <Card></Card>
+        <hr />
+        <CardList>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+        </CardList>
+        <hr />
+
         <div>
           <p>
             <b>Example of Error Boundaries</b>
           </p>
-          <hr />
           <ErrorBoundary>
             <p>These two counters are inside the same error boundary.</p>
             <BuggyCounter />
