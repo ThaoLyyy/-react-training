@@ -37,6 +37,15 @@ import MyDefaultComponent from "./example/MyDefaultComponent";
 import Button from "./components/Button/Button";
 import Card from "./components/card/Card";
 import CardList from "./components/card/CardList";
+import { ThemeProvider } from "styled-components";
+// import { GlobalStyles } from "./GlobalStyles";
+
+const theme = {
+  colors: {
+    blue: "#2979ff",
+  },
+  orange: "#ffa400"
+};
 
 // import Content from "./hooks-example/Content";
 
@@ -420,145 +429,148 @@ function App() {
   // ==========================Higher Order Components In ReactJS=======================
 
   return (
-    <CounterContextProvider>
-      <div className="App">
-        <Header />
-        <hr />
-        <Button>Primary</Button>
-        {/* <Button className="button--secondary">Secondary</Button> */}
-        <Button secondary>Secondary</Button>
-        <hr />
-        <Card></Card>
-        <Card></Card>
-        <hr />
-        <CardList>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-        </CardList>
-        <hr />
-
-        <div>
-          <p>
-            <b>Example of Error Boundaries</b>
-          </p>
-          <ErrorBoundary>
-            <p>These two counters are inside the same error boundary.</p>
-            <BuggyCounter />
-            <BuggyCounter />
-          </ErrorBoundary>
+    <ThemeProvider theme={theme}>
+      <CounterContextProvider>
+        <div className="App">
+          <Header />
           <hr />
-          <p>
-            These two counters are inside of their individual error boundary.
-          </p>
-          <ErrorBoundary>
-            <BuggyCounter />
-          </ErrorBoundary>
-          <ErrorBoundary>
-            <BuggyCounter />
-          </ErrorBoundary>
-        </div>
+          <Button>Primary</Button>
+          {/* <Button className="button--secondary">Secondary</Button> */}
+          <Button secondary>Secondary</Button>
+          <hr />
+          <Card></Card>
+          <Card></Card>
+          <hr />
+          {/* <GlobalStyles></GlobalStyles> */}
+          <hr />
+          <CardList>
+            <Card></Card>
+            <Card></Card>
+            <Card></Card>
+            <Card></Card>
+            <Card></Card>
+            <Card></Card>
+          </CardList>
+          <hr />
 
-        <hr />
-        <div>Home App</div>
-        <button onClick={onLoad}>Load</button>
-        <div>{JSON.stringify(names)}</div>
-        {MyDefaultComponent && <MyDefaultComponent />}
-        <hr />
-        <h1>React hook - UseRef</h1>
-        <input type="text" ref={ref} />
-        <button>CLICK BUTTON</button>
-        {/* <button onclick={handleClick}>CLICK BUTTON</button> */}
-        <FocusInput />
-        <hr />
-        <h1>UseRef</h1>
-        <form onSubmit={handleSubmit}>
-          <label>UseName:</label>
-          <input type="text" id="username" name="username" ref={inputRef} />
-          <button>Submit</button>
-        </form>
-        <p ref={outputRef}> This is a text</p>
-        <br />
-        <hr />
-        <h1>React hook - useReducer</h1>
-        <button onClick={getUsers}>GET USERS</button>
-        {user.loading ? <p>Loading...</p> : <p>{JSON.stringify(user)}</p>}
-        <p>Count: {count}</p>
-        <button onClick={() => dipatch("TANG")}>Tang</button>
-        <button onClick={() => dipatch("GIAM")}>Giam</button>
-        <button onClick={() => dipatch("XOA_TAT_CA")}>Xoa Het Du Lieu</button>
-        <br />
-        <p>Count 2: {count2}</p>
-        <button
-          onClick={() =>
-            dipatch2({
-              type: "GAN_GIA_TRI",
-              data: 10,
-            })
-          }
-        >
-          GAN GIA TRI
-        </button>
-        <br></br>
-        <hr />
-        <h1>Context API</h1>
-        <MyCounter />
-        {/* <ComponentTwo /> */}
-        {/* <ComponentOne /> */}
-        <br></br>
-        <ComponentA name={name} />
-        <ComponentB name={name} />
-        <br></br>
-        <hr />
-        <h1>useCallback</h1>
-        <p>Data:</p>
-        <button onClick={handleClick}>Get Users Data</button>
-        <p>{JSON.stringify(users)}</p>
-        <ChildComponent getData={getData} />
-        <hr />
-        <br />
-        <h1>useMemo</h1>
-        <p>Count: {count_1}</p>
-        <button onClick={() => setCount(count_1 + 1)}>ADD</button>
-        <p>Number: {number}</p>
-        <hr />
-        <ColorBox />
-        <h1>React hook - TodoList</h1>
-        <TodoForm onSubmit={handleTodoFormSubmit} />
-        <TodoList todos={todoList} onTodoClick={handleTodoClick} />
-        {/* conditional rendering react js */}
-        <h1>React hook - PostList</h1>
-        <PostFilterForm onSubmit={handelFiltersChange} />
-        <PostList posts={postList} />
-        <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
-        {isToggled && <Test />}
-        {isToggled ? <Test /> : <p>The value is false!</p>}
-        <Lists />
-        <Calculator />
-        <FunctionClick />
-        <ClassClick />
-        <EventBind />
-        <p> Edit {state} </p>
-        <button onClick={() => setState(state + 1)}>Click</button>
-        {/* thuat toan difing  */}
-        {/* <Props /> */}
-        <div>
-          {/* childern component */}
-          <Feature />
-          <Feature />
-          <Feature />
+          <div>
+            <p>
+              <b>Example of Error Boundaries</b>
+            </p>
+            <ErrorBoundary>
+              <p>These two counters are inside the same error boundary.</p>
+              <BuggyCounter />
+              <BuggyCounter />
+            </ErrorBoundary>
+            <hr />
+            <p>
+              These two counters are inside of their individual error boundary.
+            </p>
+            <ErrorBoundary>
+              <BuggyCounter />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <BuggyCounter />
+            </ErrorBoundary>
+          </div>
 
-          <YoutubeItem
-            image="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGRlc2lnbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            avatar="https://media.istockphoto.com/photos/social-networking-group-of-people-picture-id1029144458?b=1&k=20&m=1029144458&s=170667a&w=0&h=G48LvPXxsz9t6yEQS-c7wglWy8phg8_IvIgLAT0OAPk="
-            title="Learning Reactjs"
-            author="Lyy"
-          ></YoutubeItem>
+          <hr />
+          <div>Home App</div>
+          <button onClick={onLoad}>Load</button>
+          <div>{JSON.stringify(names)}</div>
+          {MyDefaultComponent && <MyDefaultComponent />}
+          <hr />
+          <h1>React hook - UseRef</h1>
+          <input type="text" ref={ref} />
+          <button>CLICK BUTTON</button>
+          {/* <button onclick={handleClick}>CLICK BUTTON</button> */}
+          <FocusInput />
+          <hr />
+          <h1>UseRef</h1>
+          <form onSubmit={handleSubmit}>
+            <label>UseName:</label>
+            <input type="text" id="username" name="username" ref={inputRef} />
+            <button>Submit</button>
+          </form>
+          <p ref={outputRef}> This is a text</p>
+          <br />
+          <hr />
+          <h1>React hook - useReducer</h1>
+          <button onClick={getUsers}>GET USERS</button>
+          {user.loading ? <p>Loading...</p> : <p>{JSON.stringify(user)}</p>}
+          <p>Count: {count}</p>
+          <button onClick={() => dipatch("TANG")}>Tang</button>
+          <button onClick={() => dipatch("GIAM")}>Giam</button>
+          <button onClick={() => dipatch("XOA_TAT_CA")}>Xoa Het Du Lieu</button>
+          <br />
+          <p>Count 2: {count2}</p>
+          <button
+            onClick={() =>
+              dipatch2({
+                type: "GAN_GIA_TRI",
+                data: 10,
+              })
+            }
+          >
+            GAN GIA TRI
+          </button>
+          <br></br>
+          <hr />
+          <h1>Context API</h1>
+          <MyCounter />
+          {/* <ComponentTwo /> */}
+          {/* <ComponentOne /> */}
+          <br></br>
+          <ComponentA name={name} />
+          <ComponentB name={name} />
+          <br></br>
+          <hr />
+          <h1>useCallback</h1>
+          <p>Data:</p>
+          <button onClick={handleClick}>Get Users Data</button>
+          <p>{JSON.stringify(users)}</p>
+          <ChildComponent getData={getData} />
+          <hr />
+          <br />
+          <h1>useMemo</h1>
+          <p>Count: {count_1}</p>
+          <button onClick={() => setCount(count_1 + 1)}>ADD</button>
+          <p>Number: {number}</p>
+          <hr />
+          <ColorBox />
+          <h1>React hook - TodoList</h1>
+          <TodoForm onSubmit={handleTodoFormSubmit} />
+          <TodoList todos={todoList} onTodoClick={handleTodoClick} />
+          {/* conditional rendering react js */}
+          <h1>React hook - PostList</h1>
+          <PostFilterForm onSubmit={handelFiltersChange} />
+          <PostList posts={postList} />
+          <button onclick={() => setIsToggled(!isToggled)}>Toggle</button>
+          {isToggled && <Test />}
+          {isToggled ? <Test /> : <p>The value is false!</p>}
+          <Lists />
+          <Calculator />
+          <FunctionClick />
+          <ClassClick />
+          <EventBind />
+          <p> Edit {state} </p>
+          <button onClick={() => setState(state + 1)}>Click</button>
+          {/* thuat toan difing  */}
+          {/* <Props /> */}
+          <div>
+            {/* childern component */}
+            <Feature />
+            <Feature />
+            <Feature />
 
-          {/* <div class="feature">
+            <YoutubeItem
+              image="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGRlc2lnbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              avatar="https://media.istockphoto.com/photos/social-networking-group-of-people-picture-id1029144458?b=1&k=20&m=1029144458&s=170667a&w=0&h=G48LvPXxsz9t6yEQS-c7wglWy8phg8_IvIgLAT0OAPk="
+              title="Learning Reactjs"
+              author="Lyy"
+            ></YoutubeItem>
+
+            {/* <div class="feature">
           <img
             src="https://images.unsplash.com/photo-1657545173746-ac305e81a5ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
             alt="feature__img"
@@ -572,17 +584,18 @@ function App() {
             adipisci eius vero placeat ex.
           </p>
         </div> */}
-          {/* <Notification msg="OK" />
+            {/* <Notification msg="OK" />
         <Alert msg="OK" /> */}
 
-          {/* <div style={{ padding: 20 }}>
+            {/* <div style={{ padding: 20 }}>
             <button onClick={context.toggleTheme}>Toggle Theme</button>
             <Content />
           </div> */}
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </CounterContextProvider>
+      </CounterContextProvider>
+    </ThemeProvider>
   );
 
   // ReactJs Conditional Render

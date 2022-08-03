@@ -62,7 +62,8 @@ const UserAvatar = styled.img`
 const UserName = styled.span`
   font-weight: 300;
   font-size: 16px;
-  color: #333;
+  /* color: #333; */
+  color: ${props => props.theme.orange};;
 `;
 
 const CardFooter = styled.div`
@@ -74,7 +75,8 @@ const CardFooter = styled.div`
 const CardTitle = styled.h3`
   font-size: 18px;
   font-weight: 500;
-  color: black;
+  /* color: black; */
+  color: ${props => props.theme.colors.blue};;
 `;
 
 const CardAmount = styled.span`
