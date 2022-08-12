@@ -3,7 +3,7 @@ import SideBar from ".";
 
 
 export default {
-  title: "Components/Sidebar",
+  title: "Components/SideBar",
   component: SideBar,
 };
 

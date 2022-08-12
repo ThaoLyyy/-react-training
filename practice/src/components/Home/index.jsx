@@ -1,10 +1,10 @@
 import React from "react";
 import Search from "../Search";
-import SideBar from "../Sidebar";
+import SideBar from "../SideBar";
 import Users from "../Users";
 import { Line, Wrapper } from "./style";
 
-let Home = () => {
+const Home = () => {
   return (
     <Wrapper>
       <SideBar />
@@ -12,7 +12,6 @@ let Home = () => {
       <Line>List Item User</Line>
       {/* <Button className='add' text='Add New' icon='fas fa-plus-square' >ADD</Button> */}
       <Users />
-      
     </Wrapper>
   );
 };

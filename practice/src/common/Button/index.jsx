@@ -1,5 +1,6 @@
 import {CommonButton} from './style'
-function Button ({icon, inputColor}) {
+
+const Button =  ({icon, inputColor}) =>{
 	return (
 		<CommonButton inputColor={inputColor}>
 			 <i className={icon}></i>

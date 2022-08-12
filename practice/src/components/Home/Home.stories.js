@@ -1,7 +1,8 @@
 import React from 'react'
 import Home from '.'
+import ListUserInfor from '../../common/ListUserInfor'
 import Search from '../Search'
-import Sidebar from '../Sidebar'
+import SideBar from '../SideBar'
 import Users from '../Users'
 import { Line, Wrapper } from './style'
 
@@ -13,10 +14,11 @@ export default {
 export const Default = () =>{
   return (
     <Wrapper>
-      <Sidebar />
+      <SideBar />
       <Search />
       <Line>List Item User</Line>
       <Users />
+      <ListUserInfor />
     </Wrapper>
   )
 }
