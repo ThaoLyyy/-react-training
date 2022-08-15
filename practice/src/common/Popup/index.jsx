@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Button from "../Button";
 import { ButtonWrapper } from "./style";
@@ -10,30 +9,27 @@ import {
   Label,
   InputUser,
   Errors,
- 
-} from "./styles";
+} from "./style";
 
 const Popup = ({ text, defaultValue = {} }) => {
-    const [inputs, setInputs] = useState(defaultValue);
-     // get value input
+  const [inputs, setInputs] = useState(defaultValue);
+  // get value input
   const handleChange = (event) => {
     const username = event.target.username;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [username]: value }));
   };
 
-
-
-return (
-    // <ModalWrapper>
+  return (
+    <ModalWrapper>
       <Modal>
-        <Title> {text}</Title>
+        <Title> Create Users{text}</Title>
         {/* {errors.map((error) => (
           <Errors key={error}>Error: {error}</Errors>
         ))} */}
 
         {/* <Errors notice>{msg}</Errors> */}
-        {/* <FormSubmit onSubmit={handleSubmit}> */}
+        <FormSubmit>
           <Label>Image</Label>
           <InputUser
             name="image"
@@ -64,19 +60,16 @@ return (
             onChange={handleChange}
           />
 
-          
           <ButtonWrapper>
             <Button save type="submit" value="Submit">
               Save Users
             </Button>
-            <Button type="button" >
-              Cancel
-            </Button>
+            <Button type="button">Cancel</Button>
           </ButtonWrapper>
-        {/* </FormSubmit> */}
+        </FormSubmit>
       </Modal>
-
+    </ModalWrapper>
   );
-}
+};
 
 export default Popup;
