@@ -13,7 +13,7 @@ const Modal = styled.div`
   position: absolute;
   width: 518px;
   height: 551px;
-  background: #83bdc9;
+  background: #FFAFAF;
   font-family: "Inter";
   z-index: 39;
   border-radius: 20px;
@@ -62,7 +62,7 @@ const Button = styled.button`
   font-size: 16px;
   border-radius: 10px;
   background-color: ${(props) =>
-    props.save ? "#78E2F3" : "#CCCCCC"};
+    props.save ? "#78E2F3" : "#C6C5CC"};
 `;
 export {
   ModalWrapper,
