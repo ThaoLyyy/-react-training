@@ -4,7 +4,8 @@ import UserImage from "../../assets/images/logo-users.png";
 
 const UserSidebar = styled.header`
   background-color: #ffdede;
-  width: 300px;
+  /* width: 300px; */
+  width: 245px;
   height: 100%;
   padding: 20px;
   left: 0px;
@@ -22,6 +23,7 @@ const SidebarTitle = styled.h1`
   margin: 5px 70px;
   font-size: 26px;
   line-height: 28px;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
@@ -38,5 +40,6 @@ const UserLogo = styled.image`
   object-fit: cover;
   /* background-image: url(../../assets/images/logo-users.png); */
   background-image: url(${UserImage}); 
+  flex-shrink: 0;
 `;
 export { UserSidebar, ContainerSidebar, SidebarTitle, UserLogo };

@@ -8,7 +8,7 @@ let SideBar = () =>  {
         <UserLogo src={UserLogo} alt="UserLogo" />
         {/* <img src="../../assets/images/logo-users.png" alt="logo" /> */}
         {/* <img src="/" alt="logo" /> */}
-        <SidebarTitle>users management</SidebarTitle>
+        <SidebarTitle>users manager</SidebarTitle>
       </ContainerSidebar>
     </UserSidebar>
   );

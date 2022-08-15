@@ -1,20 +1,22 @@
 import React from "react";
-import { NavHeader, SearchHeader } from "./style";
-import { FaSearch} from "react-icons/fa";
+import { Nav, SearchHeader, BtnIconSearch } from "./style";
+import { FaSearch } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 const Search = () => {
   return (
-    <IconContext.Provider value={{ size:"16px" }}>
-    
-    <div>
-      <NavHeader>
-        <SearchHeader type="text" placeholder="Search..." />
-        <FaSearch />
-      </NavHeader>
-    </div>
+    <IconContext.Provider value={{ size: "16px"}}>
+      <div>
+        <Nav>
+            
+          <SearchHeader type="text" placeholder="Search..."></SearchHeader>
+          <BtnIconSearch>
+              <FaSearch />
+            </BtnIconSearch>
+        </Nav>
+      </div>
     </IconContext.Provider>
   );
-}
+};
 
 export default Search;
