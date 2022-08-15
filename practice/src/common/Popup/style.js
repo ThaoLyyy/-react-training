@@ -18,8 +18,9 @@ const Modal = styled.div`
   z-index: 39;
   border-radius: 20px;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
+  line-height: 45px;
 `;
 const Title = styled.p`
   text-align: center;
