@@ -21,7 +21,7 @@ const ContainerSidebar = styled.div`
 const SidebarTitle = styled.h1`
   position: absolute;
   margin: 5px 70px;
-  font-size: 26px;
+  font-size: 28px;
   line-height: 28px;
   font-weight: 700;
   text-transform: uppercase;
@@ -40,6 +40,9 @@ const UserLogo = styled.image`
   object-fit: cover;
   /* background-image: url(../../assets/images/logo-users.png); */
   background-image: url(${UserImage}); 
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
+  background-size: cover;
+  background-position: center;
+  
 `;
 export { UserSidebar, ContainerSidebar, SidebarTitle, UserLogo };

@@ -10,7 +10,6 @@ import IconAddUser from "../../assets/images/add.png";
 //   background-image: url(${IconAddUser});
 // `;
 const BtnAdd = styled.button`
-  opacity: 0.9;
   font-size: 16px;
   margin: 5px;
   background-color: #fff;

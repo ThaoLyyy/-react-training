@@ -9,6 +9,9 @@ const Line = styled.h2`
     margin-left: 350px;
     margin-top: 110px;
     font-family: 'Roboto';
+    text-transform: capitalize;
+    color: #ee4fa4b3;
+    font-weight: 600;
 `
 
 export {Wrapper,Line}
