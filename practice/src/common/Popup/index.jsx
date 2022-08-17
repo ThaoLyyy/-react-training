@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { AddNewUser } from "../../components/Users/style";
-import Button from "../Button";
-// import { ButtonWrapper } from "./style";
+import { useContext, useState } from "react";
+import { StoreContext } from '../../store'
+// import { AddNewUser } from "../../components/Users/style";
 import {
   ModalWrapper,
   ModalUser,
@@ -11,11 +10,19 @@ import {
   InputUser,
   Errors,
   BtnWrapper,
-  Btn,
+  Button,
 } from "./style";
 
-const Popup = ({ text, defaultValue = {} }) => {
-  const [inputs, setInputs] = useState(defaultValue);
+const Popup = ({ onCancelPopup, text  }) => {
+  const { addUser, users } = useContext(StoreContext)
+
+   /**  error message */
+   const [errors, setErrors] = useState([]);
+
+   /** success message*/
+   const [message, setMessage] = useState("");
+ 
+   const [inputs, setInputs] = useState({});
 
   // const [values, setValues] = useState({
   //   imageurl: "",
@@ -79,7 +86,7 @@ const Popup = ({ text, defaultValue = {} }) => {
   const handleChange = (e) => {
     const username = e.target.username;
     const value = e.target.value;
-    setInputs((values) => ({ ...values, [username]: value }));
+    setInputs(values => ({ ...values, [username]: value }));
   };
 
   const validate = () => {
@@ -90,16 +97,20 @@ const Popup = ({ text, defaultValue = {} }) => {
     }
 
     if (inputs.username === "") {
-      errors.push("Please enter email");
+      errors.push("Please enter username");
     }
-
-    if (Number(inputs.phone) === "") {
-      errors.push("Wrong type of phone");
-    }
-
     if (inputs.email === "") {
       errors.push("Please enter email");
     }
+
+    if (inputs.phone === '') {
+      errors.push("Please enter phone");
+
+  } else {
+      if (Number(inputs.phone) < 0) {
+          errors.push("Wrong phone number");
+      }
+  }
 
     if (inputs.address === "") {
       errors.push("Please enter address");
@@ -114,30 +125,30 @@ const Popup = ({ text, defaultValue = {} }) => {
     const errors = validate();
 
     if (errors.length > 0) {
-      // setErrors(errors);
-      return;
+      setErrors(errors)
+      return
     }
 
     /**submit data */
     if (inputs.id) {
     } else {
-      AddNewUser({ ...inputs });
+      addUser({ ...inputs })
 
-      setInputs("");
-      // setMsg("Create successful user ");
+      setInputs("")
+      setMessage("Create successful user ");
     }
   };
 
   return (
     <ModalWrapper>
       <ModalUser>
-        <Title> Create Users{text}</Title>
-        {/* {errors.map((error) => (
+        <Title>Create User{text}</Title>
+        {errors.map((error) => (
           <Errors key={error}>Error: {error}</Errors>
-        ))} */}
+        ))}
 
-        {/* <Errors notice>{msg}</Errors> */}
-        <FormSubmit>
+        <Errors notice>{message}</Errors>
+        <FormSubmit onSubmit={handleSubmit} >
           <Label>Image Url:</Label>
           <InputUser
             name="image"
@@ -177,12 +188,12 @@ const Popup = ({ text, defaultValue = {} }) => {
           />
 
           <BtnWrapper>
-            <Btn save type="submit" value="Submit">
+            <Button save type="submit" value="Submit">
               Save Users
-            </Btn>
-            <Btn type="button" onClick={""}>
+            </Button>
+            <Button type="button" onClick={onCancelPopup}>
               Cancel
-            </Btn>
+            </Button>
           </BtnWrapper>
         </FormSubmit>
       </ModalUser>

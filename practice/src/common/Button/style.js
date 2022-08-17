@@ -17,8 +17,7 @@
 
 import styled from 'styled-components'
 
-
-const CommonButton = styled.div.attrs((/* props */) => ({ tabIndex: 0 }))`
+const CommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
     background: bottom;
     border:none;
     cursor: pointer;

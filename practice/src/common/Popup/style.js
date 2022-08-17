@@ -49,11 +49,11 @@ const Errors = styled.p`
 
 const BtnWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+    margin-right: 50px;
   margin-top: 30px;
 `;
-const Btn = styled.button`
+const Button = styled.button`
   cursor: pointer;
   width: 100px;
   height: 40px;
@@ -72,5 +72,5 @@ export {
   InputUser,
   Errors,
   BtnWrapper,
-  Btn,
+  Button,
 };

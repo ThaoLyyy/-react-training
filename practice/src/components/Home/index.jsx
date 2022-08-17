@@ -14,7 +14,7 @@ const Home = () => {
       <Line>list item user</Line>
       {/* <Button className='add' text='Add New' icon='fas fa-plus-square' >ADD</Button> */}
       <Users />
-      <ListUserInfor />
+      <ListUserInfor/>
       <Popup />
     </Wrapper>
   );

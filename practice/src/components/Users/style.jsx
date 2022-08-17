@@ -9,7 +9,7 @@ import IconAddUser from "../../assets/images/add.png";
 //   object-fit: cover;
 //   background-image: url(${IconAddUser});
 // `;
-const BtnAdd = styled.button`
+const Button = styled.button`
   font-size: 16px;
   margin: 5px;
   background-color: #fff;
@@ -25,7 +25,7 @@ const AddNewUser = styled.p`
   background-color: #78e2f3;
   color: #fff;
   border-radius: 10px;
-  margin-left: 1235px;
+  margin-left: 1230px;
   vertical-align: middle;
 `;
 
@@ -40,4 +40,4 @@ const BtnAddUser = styled.button`
 const MdPersonAdd = styled.p`
   margin: 20px;
 `;
-export { BtnAdd, AddNewUser, IconAddUser, BtnAddUser, MdPersonAdd };
+export { Button, AddNewUser, IconAddUser, BtnAddUser, MdPersonAdd };

@@ -1,11 +1,14 @@
-import {CommonButton} from './style'
+import { CommonButton } from "./style";
 
-const Button =  ({icon, inputColor}) =>{
-	return (
-		<CommonButton inputColor={inputColor}>
-			 <i className={icon}></i>
-		</CommonButton>
-	)
-}
+const Button = ({ onClicked, text, className, icon }) => {
+  return (
+    // <CommonButton inputColor={inputColor}>
+    // 	 <i className={icon}></i>
+    // </CommonButton>
+    <CommonButton onClick={onClicked} className={className}>
+      {text} <i className={icon}></i>
+    </CommonButton>
+  );
+};
 
-export default Button
+export default Button;

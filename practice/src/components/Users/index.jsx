@@ -1,25 +1,31 @@
-import React from "react";
-import { BtnAdd, AddNewUser, IconAddUser, BtnAddUser } from "./style";
-import { MdPersonAdd } from "react-icons/md";
+import React, { useState } from "react";
+import {  AddNewUser, BtnAddUser } from "./style";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { IconContext } from "react-icons";
-// import Button from "../../Common/Button";
+import Popup from "../../common/Popup";
+import Button from "../../common/Button";
+
 
 const Users = () => {
+  const [show, setShow] = useState(false);
+
+  const handleCancelPopup = () => {
+    setShow(false);
+  };
+
   return (
-    <IconContext.Provider value={{ color:"#000", size:"18px"}}>
+    <IconContext.Provider value={{ color: "#000", size: "18px" }}>
       <>
         <AddNewUser>
-          <BtnAdd>
-            {/* <MdPersonAdd /> */}
+          <Button onClicked={() => setShow(!show)}>
             <AiOutlineUsergroupAdd />
-          </BtnAdd>
+          </Button>
+          {show && (
+            <Popup text="Create Users" onCancelPopup={handleCancelPopup} />
+          )}
           Add new
         </AddNewUser>
-        <BtnAddUser>
-          {/* <Button icon="fas fa-plus-square"></Button> */}
-          {/* <Button icon="fa-solid fa-file-pen"></Button> */}
-        </BtnAddUser>
+        <BtnAddUser></BtnAddUser>
       </>
     </IconContext.Provider>
   );
