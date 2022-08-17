@@ -61,7 +61,7 @@ const ListUserInfor = () => {
   // let InforUsers = [].concat(listUsers, state.users)
   // console.log(InforUsers)
 
-  // localStorage.setItem('listProduct', JSON.stringify(InforUsers))
+  // localStorage.setItem('listUser', JSON.stringify(InforUsers))
   // let listUser = JSON.parse(localStorage.getItem('listUser'))
   // console.log(listUser)
 
