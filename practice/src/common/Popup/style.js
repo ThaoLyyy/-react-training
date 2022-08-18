@@ -6,8 +6,10 @@ const ModalWrapper = styled.div`
   height: 1000px;
   width: 100%;
   z-index: 10;
-  right: 1px;
-  top: 2px;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  /* display: none; */
 `;
 const ModalUser = styled.div`
   position: absolute;
@@ -25,8 +27,9 @@ const ModalUser = styled.div`
 `;
 const Title = styled.p`
   text-align: center;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 36px;
+  text-transform: capitalize;
 `;
 const FormSubmit = styled.form`
   margin-left: 55px;
@@ -50,7 +53,7 @@ const Errors = styled.p`
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-    margin-right: 50px;
+  margin-right: 50px;
   margin-top: 30px;
 `;
 const Button = styled.button`

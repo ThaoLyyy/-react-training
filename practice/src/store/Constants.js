@@ -1,4 +1,4 @@
-export const Add_User = "add_user";
+export const ADD_USER = "add_user";
 
 export const Set_Input_ID = "set_input_id";
 export const Set_Input_Image = "set_input_image";

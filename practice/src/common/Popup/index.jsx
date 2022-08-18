@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import { StoreContext } from '../../store'
-// import { AddNewUser } from "../../components/Users/style";
+import { StoreContext } from "../../store";
 import {
   ModalWrapper,
   ModalUser,
@@ -13,16 +12,16 @@ import {
   Button,
 } from "./style";
 
-const Popup = ({ onCancelPopup, text  }) => {
-  const { addUser, users } = useContext(StoreContext)
+const Popup = ({ text, handleClosePopup }) => {
+  const { addUser, users } = useContext(StoreContext);
 
-   /**  error message */
-   const [errors, setErrors] = useState([]);
+  /**  error message */
+  const [errors, setErrors] = useState([]);
 
-   /** success message*/
-   const [message, setMessage] = useState("");
- 
-   const [inputs, setInputs] = useState({});
+  /** success message*/
+  const [message, setMessage] = useState("");
+
+  const [inputs, setInputs] = useState({});
 
   // const [values, setValues] = useState({
   //   imageurl: "",
@@ -86,7 +85,7 @@ const Popup = ({ onCancelPopup, text  }) => {
   const handleChange = (e) => {
     const username = e.target.username;
     const value = e.target.value;
-    setInputs(values => ({ ...values, [username]: value }));
+    setInputs((values) => ({ ...values, [username]: value }));
   };
 
   const validate = () => {
@@ -103,14 +102,13 @@ const Popup = ({ onCancelPopup, text  }) => {
       errors.push("Please enter email");
     }
 
-    if (inputs.phone === '') {
+    if (inputs.phone === "") {
       errors.push("Please enter phone");
-
-  } else {
+    } else {
       if (Number(inputs.phone) < 0) {
-          errors.push("Wrong phone number");
+        errors.push("Wrong phone number");
       }
-  }
+    }
 
     if (inputs.address === "") {
       errors.push("Please enter address");
@@ -125,41 +123,39 @@ const Popup = ({ onCancelPopup, text  }) => {
     const errors = validate();
 
     if (errors.length > 0) {
-      setErrors(errors)
-      return
-    }
-
-    /**submit data */
-    if (inputs.id) {
+      setErrors(errors);
+      return;
     } else {
-      addUser({ ...inputs })
-
-      setInputs("")
-      setMessage("Create successful user ");
+    /**submit data */
+      addUser({ ...inputs });
+      setInputs("");
+      setMessage("Create successful users ");
     }
   };
 
   return (
     <ModalWrapper>
+    
       <ModalUser>
-        <Title>Create User{text}</Title>
-        {errors.map((error) => (
+      {errors.map((error) => (
           <Errors key={error}>Error: {error}</Errors>
         ))}
 
         <Errors notice>{message}</Errors>
-        <FormSubmit onSubmit={handleSubmit} >
+        <Title>create user{text}</Title>
+        
+        <FormSubmit onSubmit={handleSubmit}>
           <Label>Image Url:</Label>
           <InputUser
             name="image"
-            value={inputs.image || ""}
+            // value={inputs.image || ""}
             onChange={handleChange}
           />
           <Label>Username:</Label>
           <InputUser
             type="text"
             name="name"
-            value={inputs.Username || ""}
+            // value={inputs.Username || ""}
             onChange={handleChange}
           />
 
@@ -167,7 +163,7 @@ const Popup = ({ onCancelPopup, text  }) => {
           <InputUser
             type="text"
             name="phone"
-            value={inputs.phone || ""}
+            // value={inputs.phone || ""}
             onChange={handleChange}
           />
 
@@ -175,7 +171,7 @@ const Popup = ({ onCancelPopup, text  }) => {
           <InputUser
             type="text"
             name="email"
-            value={inputs.email || ""}
+            // value={inputs.email || ""}
             onChange={handleChange}
           />
 
@@ -183,7 +179,7 @@ const Popup = ({ onCancelPopup, text  }) => {
           <InputUser
             type="text"
             name="address"
-            value={inputs.address || ""}
+            // value={inputs.address || ""}
             onChange={handleChange}
           />
 
@@ -191,8 +187,8 @@ const Popup = ({ onCancelPopup, text  }) => {
             <Button save type="submit" value="Submit">
               Save Users
             </Button>
-            <Button type="button" onClick={onCancelPopup}>
-              Cancel
+            <Button type="button" onClick={handleClosePopup}>
+              Close
             </Button>
           </BtnWrapper>
         </FormSubmit>

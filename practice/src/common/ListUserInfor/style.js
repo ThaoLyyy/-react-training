@@ -1,77 +1,62 @@
+
 import styled from "styled-components";
 
-const ConstactList = styled.div`
-  position: absolute;
-  width: 450px;
-  height: 225px;
-  left: 350px;
-  top: 271px;
+const ListItem = styled.div`
+  width: 900px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 300px;
+  margin: 70px 0px 0px 364px;
+`;
+const Item = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 325px;
+  margin-bottom: 30px;
+  margin-left: 79px;
   background: #ffdede;
   border: 1px solid #fff;
-  border-radius: 15px;
-  padding: 15px 15px;
-`;
-const CarBody = styled.div`
-  display: grid;
-  /* grid-template-columns: auto auto auto auto auto auto;
-  padding: 10px; */
+  padding: 15px;
 `;
 const ImageWrapper = styled.div`
-  /* grid-row: 1 / 4; */
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
 `;
-const Image = styled.img`
-  width: 165px;
-  height: 165px;
-  object-fit: fill;
-  /* width: 197px;
-  height: 204px;
-  left: 383px;
-  top: 288px; */
+const ImageItem = styled.img`
+  width: 170px;
+  height: 215px;
+
+   object-fit: fill;
 `;
-const ItemInfo = styled.thead`
-  list-style: none;
-  position: absolute;
-  left: 40.6%;
-  right: 40.6%;
-  top: 1%;
-  line-height: 48px;
-  font-family: "Roboto";
-  font-style: normal;
+const InforItem  = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  line-height: 50px;
+`;
+const NameItem = styled.p`
+  font-size: 28px;
   font-weight: 700;
-  font-size: 16px;
-  color: #000000;
-  padding: 10px;
-  /* list-style: none;
-    position: absolute;
-    list-style: none;
-    position: absolute;
-    left: 46.6%;
-    right: 40.6%;
-    top: 3%;
-    line-height: 55px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    color: #000000; */
+  color: #0f1a42;
 `;
-const NameItem = styled.tr`
-  /* padding: 18px; */
-  font-size: 16px;
-  font-weight: 700;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 16ch;
+const DescrItem = styled.p`
+  font-size: 19px;
+  font-weight: 600;
 `;
-const InforItem = styled.span`
-  font-weight: 300;
+
+const BtnIcon = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `;
+
 const BtnEdit = styled.button`
   position: absolute;
   font-size: 30px;
   color: #efc83f;
-  margin-left: 112px;
+  /* margin-left: 112px; */
   border: none;
   cursor: pointer;
 `;
@@ -82,14 +67,16 @@ const BtnDel = styled.button`
   border: none;
   cursor: pointer;
 `;
+
 export {
-  ConstactList,
-  CarBody,
+  ListItem,
+  Item,
   ImageWrapper,
-  Image,
-  ItemInfo,
+  ImageItem,
+  InforItem ,
   NameItem,
-  InforItem,
+  DescrItem,
+  BtnIcon,
   BtnEdit,
   BtnDel,
 };

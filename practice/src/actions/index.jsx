@@ -1,6 +1,6 @@
-import { Add_User } from "../store/Constants";
+import { ADD_USER } from "../store/constants";
 
-export const addUser = (payload) => ({
-  type: Add_User,
+export const addUser = payload => ({
+  type: ADD_USER,
   payload,
 });

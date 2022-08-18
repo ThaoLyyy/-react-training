@@ -1,16 +1,30 @@
 import { useState, useContext } from "react";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { listUsers } from "../../../data";
+// import { listUsers } from "../../../data";
 import { StoreContext } from "../../store";
+import Button from "../Button";
+// import {
+//   ListItem,
+//   ConstactList,
+//   CarBody,
+//   ImageWrapper,
+//   Image,
+//   ItemInfo,
+//   NameItem,
+//   InforItem,
+//   BtnEdit,
+//   BtnDel,
+// } from "./style";
+
 import {
-  ConstactList,
-  CarBody,
+  ListItem,
+  Item,
   ImageWrapper,
-  Image,
-  ItemInfo,
-  NameItem,
-  InforItem,
+  ImageItem,
+  InforItem ,
+  DescrItem,
+  BtnIcon,
   BtnEdit,
   BtnDel,
 } from "./style";
@@ -61,7 +75,7 @@ const ListUserInfor = () => {
   // let InforUsers = [].concat(listUsers, state.users)
   // console.log(InforUsers)
 
-  // localStorage.setItem('listUser', JSON.stringify(InforUsers))
+  // localStorage.setItem('listProduct', JSON.stringify(InforUsers))
   // let listUser = JSON.parse(localStorage.getItem('listUser'))
   // console.log(listUser)
 
@@ -73,44 +87,87 @@ const ListUserInfor = () => {
   const handleOpen = () => {
     setShow(!show);
   };
+  // Close DeletePopup
+  const handleClose = () => {
+    setShow(false);
+  };
 
+  // return (
+  // <h1>aaaa</h1>
+
+  // <ListItem>
+  //   {users.map((user, index) => (
+  //     <ConstactList key={index}>
+  //       {/* <CarBody>
+  //         <ImageWrapper>
+  //           <Image src={user.userImg} />
+  //         </ImageWrapper>
+  //         <ItemInfo>
+  //           <NameItem>
+  //             Username:
+  //             <InforItem> Nguyen Van A</InforItem>
+  //           </NameItem>
+  //           <NameItem>
+  //             Phone:
+  //             <InforItem> 0123456789</InforItem>
+  //           </NameItem>
+  //           <NameItem>
+  //             Email:
+  //             <InforItem> anguyen@123gmail.com</InforItem>
+  //           </NameItem>
+  //           <NameItem>
+  //             Address:
+  //             <InforItem> Da Nang</InforItem>
+  //           </NameItem>
+  //           <BtnEdit>
+  //             <FaEdit />
+  //           </BtnEdit>
+  //           <BtnDel onClicked={handleOpen}>
+  //             <RiDeleteBinLine />
+  //           </BtnDel>
+
+  //         </ItemInfo>
+  //       </CarBody> */}
+  //     </ConstactList>
+  //   ))}
+  // </ListItem>
+  // );
+
+  // ====
   return (
-    <>
-      {listUsers.map((user, index) => (
-        <ConstactList key={index}>
-          <CarBody>
-            <ImageWrapper>
-              <Image src={user.userImg} />
-            </ImageWrapper>
-            <ItemInfo>
-              <NameItem>
-                Username:
-                <InforItem> Nguyen Van A</InforItem>
-              </NameItem>
-              <NameItem>
-                Phone:
-                <InforItem> 0123456789</InforItem>
-              </NameItem>
-              <NameItem>
-                Email:
-                <InforItem> anguyen@123gmail.com</InforItem>
-              </NameItem>
-              <NameItem>
-                Address:
-                <InforItem> Da Nang</InforItem>
-              </NameItem>
-              <BtnEdit>
+    <ListItem>
+      {users.map((user, index) => (
+        <Item key={index}>
+          <ImageWrapper>
+            <ImageItem src={user.userImage} />         
+          </ImageWrapper>
+          <InforItem >
+            <DescrItem>Username: {user.userName} </DescrItem>
+            <DescrItem>Phone: {user.userPhone}</DescrItem>
+            <DescrItem>Email: {user.userEmail}</DescrItem>
+            <DescrItem>Address: {user.userAddress}</DescrItem>
+            <BtnIcon>
+              <BtnEdit className="edit">
                 <FaEdit />
               </BtnEdit>
-              <BtnDel onClicked={handleOpen}>
+              <BtnDel className='delete'>
                 <RiDeleteBinLine />
               </BtnDel>
-              {/* {show && <DeletePopup onCancelPopup={handleClose} />} */}
-            </ItemInfo>
-          </CarBody>
-        </ConstactList>
+              {/* <Button className='edit' icon='fas fa-edit'>  */}
+              {/* </Button> */}
+              {/* <Button
+                            onClicked={handleOpen}
+                            className='delete'
+                            icon='fas fa-trash-alt'
+                        > */}
+
+              {/* </Button> */}
+              {/* {show && <DeletePopup onClosePopup={handleClose} />} */}
+            </BtnIcon>
+          </InforItem>
+        </Item>
       ))}
-    </>
+    </ListItem>
   );
 };
 

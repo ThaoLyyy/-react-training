@@ -1,5 +1,5 @@
 import { actions } from "../store";
-import { Add_User } from "../store/Constants";
+import { ADD_USER } from "../store/constants";
 
 const listUser = JSON.parse(localStorage.getItem("listUser")) || [];
 
@@ -12,7 +12,7 @@ const initState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case Add_User: {
+    case ADD_USER: {
       return {
         ...state,
         id: new Date().getTime().toString(),

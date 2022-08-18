@@ -1,31 +1,68 @@
 import React, { useState } from "react";
-import {  AddNewUser, BtnAddUser } from "./style";
+import { AddNewUser, BtnAddUser, BtnImgAdd } from "./style";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import Popup from "../../common/Popup";
 import Button from "../../common/Button";
 
-
 const Users = () => {
   const [show, setShow] = useState(false);
 
-  const handleCancelPopup = () => {
+  // show popup
+  const handleOpenPopup = () => {
+    setShow(!show);
+  };
+  // close popup
+  const handleClosePopup = () => {
     setShow(false);
   };
 
+  //   return (
+  //     <IconContext.Provider value={{ color: "#000", size: "18px" }}>
+  //       <>
+  //        <BtnAddUser>
+  //         <AddNewUser>
+  //           {/* <Button onClicked={() => setShow(!show)}> */}
+  //           <Button >
+  //             <AiOutlineUsergroupAdd />
+  //         <BtnImgAdd src={BtnImgAdd} alt="BtnImgAdd" />
+
+  //           </Button>
+  //           {/* {show && ( */}
+  //             {/* <Popup text="Create Users" onCancelPopup={handleCancelPopup} /> */}
+  //           {/* )} */}
+  //           Add new
+  //         </AddNewUser>
+
+  //         </BtnAddUser>
+  //       </>
+  //     </IconContext.Provider>
+  //   );
+  // };
+
+  // export default Users;
+
   return (
-    <IconContext.Provider value={{ color: "#000", size: "18px" }}>
+    <IconContext.Provider
+      value={{
+        color: "#000",
+        size: "25px",
+        padding: "20px",
+        background: "red",
+      }}
+    >
       <>
-        <AddNewUser>
-          <Button onClicked={() => setShow(!show)}>
-            <AiOutlineUsergroupAdd />
-          </Button>
+        <BtnAddUser onClicked={handleOpenPopup}>
+          <AddNewUser>
+            <AiOutlineUsergroupAdd  />
+            Add new
+          </AddNewUser>
+          {/* <Button></Button> */}
+
           {show && (
-            <Popup text="Create Users" onCancelPopup={handleCancelPopup} />
+            <Popup text="Create User" onClosePopup={handleClosePopup} />
           )}
-          Add new
-        </AddNewUser>
-        <BtnAddUser></BtnAddUser>
+        </BtnAddUser>
       </>
     </IconContext.Provider>
   );
