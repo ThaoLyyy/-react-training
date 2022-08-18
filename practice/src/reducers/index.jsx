@@ -1,5 +1,5 @@
 import { actions } from "../store";
-import { ADD_USER } from "../store/constants";
+import { ADD_USER } from "../store/Constants";
 
 const listUser = JSON.parse(localStorage.getItem("listUser")) || [];
 
