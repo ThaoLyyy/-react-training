@@ -3,7 +3,7 @@ import { AddNewUser, BtnAddUser, BtnImgAdd } from "./style";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import Popup from "../../common/Popup";
-import Button from "../../common/Button";
+import { Button } from "../../common/Popup/style";
 
 const Users = () => {
   const [show, setShow] = useState(false);
@@ -51,19 +51,15 @@ const Users = () => {
         background: "red",
       }}
     >
-      <>
+      <Button onClicked={handleOpenPopup}>
         <BtnAddUser onClicked={handleOpenPopup}>
-          <AddNewUser>
-            <AiOutlineUsergroupAdd  />
-            Add new
-          </AddNewUser>
-          {/* <Button></Button> */}
-
-          {show && (
-            <Popup text="Create User" onClosePopup={handleClosePopup} />
-          )}
-        </BtnAddUser>
-      </>
+        <AddNewUser> 
+        <AiOutlineUsergroupAdd></AiOutlineUsergroupAdd>
+        Add new</AddNewUser>
+      </BtnAddUser>
+      </Button>
+      {show && <Popup text="Create users" onClosePopup={handleClosePopup} />}
+      
     </IconContext.Provider>
   );
 };
