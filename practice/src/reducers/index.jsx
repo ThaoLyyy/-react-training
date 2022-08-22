@@ -1,13 +1,12 @@
-import { actions } from "../store";
 import { ADD_USER } from "../store/Constants";
 
-const listUser = JSON.parse(localStorage.getItem("listUser")) || [];
+const listUsers = JSON.parse(localStorage.getItem("listUser")) || [];
 
 const initState = {
-  users: listUser,
-  user: {
-    id: new Date().getTime().toString(),
-  },
+  users: listUsers,
+  // user: {
+  //   id: new Date().getTime().toString(),
+  // },
 };
 
 const reducer = (state, action) => {

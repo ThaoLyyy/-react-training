@@ -17,8 +17,8 @@ export const Default = () =>{
       <SideBar />
       <Search />
       <Line>List Item User</Line>
-      <Users />
-      <ListUserInfor />
+      {/* <Users /> */}
+      {/* <ListUserInfor /> */}
       {/* <Popup /> */}
     </Wrapper>
   )

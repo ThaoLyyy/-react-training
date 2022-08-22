@@ -1,13 +1,12 @@
-import { CommonButton } from "./style";
+import { CommonBtn } from "./style";
 
 const Button = ({ onClicked, text, className, icon }) => {
   return (
-    // <CommonButton inputColor={inputColor}>
-    // 	 <i className={icon}></i>
-    // </CommonButton>
-    <CommonButton onClick={onClicked} className={className}>
-      {text} <i className={icon}></i>
-    </CommonButton>
+
+    <CommonBtn onClick={onClicked} className={className}>
+      {text} 
+      <i className={icon}></i>
+    </CommonBtn>
   );
 };
 

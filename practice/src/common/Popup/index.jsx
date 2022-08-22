@@ -1,19 +1,19 @@
-import { useContext, useState } from "react";
-import { StoreContext } from "../../store";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import {
   ModalWrapper,
   ModalUser,
+  Error,
   Title,
   FormSubmit,
   Label,
   InputUser,
-  Errors,
   BtnWrapper,
   Button,
 } from "./style";
 
-const Popup = ({ text, handleClosePopup }) => {
-  const { addUser, users } = useContext(StoreContext);
+const Popup = ({ text, onSubmit, onClosePopup, OnIsUpdate }) => {
+  // const { addUser, users } = useContext(StoreContext);
 
   /**  error message */
   const [errors, setErrors] = useState([]);
@@ -81,7 +81,9 @@ const Popup = ({ text, handleClosePopup }) => {
   //     required: true,
   //   },
   // ];
+
   // get value input
+
   const handleChange = (e) => {
     const username = e.target.username;
     const value = e.target.value;
@@ -125,9 +127,16 @@ const Popup = ({ text, handleClosePopup }) => {
     if (errors.length > 0) {
       setErrors(errors);
       return;
+    }
+    // update data
+    if (inputs.id) {
+      OnIsUpdate(inputs);
+      onClosePopup();
     } else {
-    /**submit data */
-      addUser({ ...inputs });
+      inputs.id = uuidv4();
+      onSubmit({ ...inputs });
+      /**submit data */
+      // addUser({ ...inputs });
       setInputs("");
       setMessage("Create successful users ");
     }
@@ -135,21 +144,20 @@ const Popup = ({ text, handleClosePopup }) => {
 
   return (
     <ModalWrapper>
-    
       <ModalUser>
-      {errors.map((error) => (
-          <Errors key={error}>Error: {error}</Errors>
+        <Title>{text}</Title>
+        {errors.map((error, index) => (
+          <Error key={index}>Error: {error}</Error>
         ))}
+        <Error notice>{message}</Error>
 
-        <Errors notice>{message}</Errors>
-        <Title>create user{text}</Title>
-        
         <FormSubmit onSubmit={handleSubmit}>
           <Label>Image Url:</Label>
           <InputUser
             name="image"
             // value={inputs.image || ""}
             onChange={handleChange}
+            accept="image/png, image/jpg, image/webp"
           />
           <Label>Username:</Label>
           <InputUser
@@ -187,8 +195,8 @@ const Popup = ({ text, handleClosePopup }) => {
             <Button save type="submit" value="Submit">
               Save Users
             </Button>
-            <Button type="button" onClick={handleClosePopup}>
-              Close
+            <Button type="button" onClick={onClosePopup}>
+              Cancel
             </Button>
           </BtnWrapper>
         </FormSubmit>

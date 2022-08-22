@@ -2,19 +2,23 @@ import styled from "styled-components";
 
 const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  height: 1000px;
-  width: 100%;
-  z-index: 10;
-  right: 0px;
-  left: 0px;
-  top: 0px;
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 130vh;
   /* display: none; */
+`;
+const Errors = styled.p`
+  color: red;
+  text-align: center;
+  line-height: 8px;
 `;
 const ModalUser = styled.div`
   position: absolute;
   width: 450px;
-  height: 575px;
+  height: 600px;
   background: #ffafaf;
   font-family: "Roboto";
   z-index: 39;
@@ -22,20 +26,26 @@ const ModalUser = styled.div`
   left: 55%;
   top: 45%;
   transform: translate(-50%, -50%);
-  line-height: 44px;
-  padding: 10px;
+  line-height: 18px;
+  /* padding: 10px; */
+`;
+const Error = styled.p`
+  color: red;
+  text-align: center;
+  line-height: 8px;
 `;
 const Title = styled.p`
   text-align: center;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 40px;
   text-transform: capitalize;
 `;
 const FormSubmit = styled.form`
-  margin-left: 55px;
+  margin-left: 60px;
 `;
 const Label = styled.p`
   font-size: 16px;
+  font-weight: 500;
 `;
 const InputUser = styled.input`
   width: 323px;
@@ -44,17 +54,13 @@ const InputUser = styled.input`
   border: none;
 `;
 
-const Errors = styled.p`
-  color: red;
-  text-align: center;
-  line-height: 8px;
-`;
+
 
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-right: 50px;
-  margin-top: 30px;
+  margin-top: 50px;
 `;
 const Button = styled.button`
   cursor: pointer;
@@ -69,11 +75,13 @@ const Button = styled.button`
 export {
   ModalWrapper,
   ModalUser,
+  Errors,
   Title,
   FormSubmit,
   Label,
   InputUser,
-  Errors,
+  Error,
   BtnWrapper,
   Button,
 };
+

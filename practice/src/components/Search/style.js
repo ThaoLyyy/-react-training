@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Nav = styled.div`
+const Wrapper = styled.div`
   /* position: fixed;
   width: calc(100% - 340px);
   height: auto;   
@@ -33,4 +33,4 @@ const BtnIconSearch = styled.button`
   /* margin: 0 5px; */
 `;
 
-export { Nav, SearchHeader, BtnIconSearch };
+export { Wrapper, SearchHeader, BtnIconSearch };

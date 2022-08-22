@@ -1,6 +1,6 @@
-let listUsers = [
+export const listUsers = [
     {
-        id: '1',
+        userId: '1',
         userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9TWM_nrDVbD9KfkgG4kcJkRjxo35bI18E3g&usqp=CAU",
         userName: "Nguyen Van A",
         userPhone: "(+84)5555-2222",
@@ -8,7 +8,7 @@ let listUsers = [
         userAddress: "89 HC, DN",
       },
       {
-        id: '2',
+        userId: '2',
         userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_hqSzT5t3D_kOETTSAE8HVE5Kbx6_HPKtw&usqp=CAU",
         userName: "Le Thi B",
         userPhone: "(+84)4555-5735",
@@ -16,7 +16,7 @@ let listUsers = [
         userAddress: "57 DD, HN",
       },
       {
-        id: '3',
+        userId: '3',
         userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_hqSzT5t3D_kOETTSAE8HVE5Kbx6_HPKtw&usqp=CAU",
         userName: "Phan Thi C",
         userPhone: "(+84)6555-9931",
@@ -24,7 +24,7 @@ let listUsers = [
         userAddress: "25 BT,HCM",
       },
       {
-        id: '4',
+        userId: '4',
         userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_hqSzT5t3D_kOETTSAE8HVE5Kbx6_HPKtw&usqp=CAU",
         userName: "Dang Van D",
         userPhone: "(+84)6619-5731",
@@ -32,7 +32,7 @@ let listUsers = [
         userAddress: "67 TT, QN",
       },
       {
-        id: '5',
+        userId: '5',
         userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH_hqSzT5t3D_kOETTSAE8HVE5Kbx6_HPKtw&usqp=CAU",
         userName: "Tran Van E",
         userPhone: "(+84)6631-2097",
@@ -40,4 +40,4 @@ let listUsers = [
         userAddress: "73 LD, DL",
       }
 ]
-export {listUsers}
+// export {listUsers}

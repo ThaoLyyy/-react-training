@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import UserImage from "../../assets/images/logo-users.png";
-
+// import UserImage from "../../assets/images/add.png";
 
 const UserSidebar = styled.header`
   background-color: #ffdede;
@@ -31,7 +31,6 @@ const SidebarTitle = styled.h1`
   letter-spacing: 1px;
   font-style: italic, bold;
 `;
-
 const UserLogo = styled.image`
   width: 60px;
   height: 60px;
@@ -43,6 +42,5 @@ const UserLogo = styled.image`
   /* flex-shrink: 0; */
   background-size: cover;
   background-position: center;
-  
 `;
 export { UserSidebar, ContainerSidebar, SidebarTitle, UserLogo };

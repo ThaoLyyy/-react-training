@@ -1,37 +1,35 @@
-// import styled from 'styled-components'
+import styled from "styled-components";
 
-// export const CommonButton = styled.button`
-// 	&.add {
-// 	position: absolute;
-// 	width: 100px;
-// 	height: 40px;
-// 	top: 115px;
-// 	right: 130px;
-// 	font-size: 15px;
-// 	cursor: pointer;
-// 	background-color: #0066CC;
-// 	color: #FFF;
-// 	border: none;
-// 	border-radius: 10px;
-// }`
+const CommonBtn = styled.div.attrs(() => ({ tabIndex: 0 }))`
+  cursor: pointer;
+  font-size: 20px;
 
-import styled from 'styled-components'
+  &.add {
+    margin-left: 1250px;
+    padding: 10px;
+    background-color: #78e2f3;
+    width: 30px;
+    border-radius: 8px;
+    /* margin-top: 90px; */
+  }
 
-const CommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
-    background: bottom;
-    border:none;
+  &.edit {
+    position: absolute;
+    font-size: 30px;
+    color: #efc83f;
+    /* margin-left: 112px; */
+    border: none;
     cursor: pointer;
-    font-size :22px;
-    &.edit {
-    margin-top: 10px;
-    background: #DAE5D0;
-    color:#A3A0C2;
-    }
-    &.delete {
-    margin-top: 10px;
-    color:#C36C1C;
-    }
-`
-export {
-    CommonButton,
-}
+  }
+
+  &.delete {
+    /* margin-top: 10px;
+    color: #c36c1c; */
+    font-size: 30px;
+    color: #f61212;
+    margin-left: 160px;
+    border: none;
+    cursor: pointer;
+  }
+`;
+export { CommonBtn };
