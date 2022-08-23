@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
-// import { AiOutlineUsergroupAdd } from "react-icons/ai";
-// import ListUserInfor from "../../common/ListUserInfor";
+import { useContext, useState } from "react";
+import Button from "../../common/Button";
 import Popup from "../../common/Popup";
+import Search from "../Search";
+import { Container, Line, ListItem, Row, Section, TitleList, Wrapper } from "./style";
 import { StoreContext } from "../../store";
 import SideBar from "../SideBar";
-import Search from "../Search";
-import Users from "../Users";
-// import { AddNewUser, BtnAddUser, Button } from "../Users/style";
-import { Content, Section, TitleList, Wrapper } from "./style";
-import Button from "../../common/Button";
+
+
 
 const Home = () => {
   const {
@@ -17,28 +15,37 @@ const Home = () => {
   } = useContext(StoreContext);
 
   const [show, setShow] = useState(false);
-  // show popup
+  /**show popup */
   const handleOpenPopup = () => {
     setShow(!show);
   };
-  // close popup
+  /**close popup */
   const handleClosePopup = () => {
     setShow(false);
   };
 
   return (
-    <Section>     
-        <Content>
+    <Section>
+      <Container>
+        <Wrapper>
+          <SideBar />
           <Search />
-          {/* <Line> */}
-            {/* <TitleText>List item user</TitleText> */}
-            <TitleList>list item user</TitleList>
-          {/* </Line> */}
-          <Wrapper>
+        </Wrapper>
+
+        <Line>
+
+        <TitleList>list item user</TitleList>
+        </Line>
         {/* <Title>users</Title> */}
 
         {/* <AddNew>Add new User</AddNew> */}
-        <Button className="add" onClicked={handleOpenPopup} icon="fa fa-user-plus" >Add new User</Button>
+        <Button
+          className="add"
+          onClicked={handleOpenPopup}
+          icon="fa fa-user-plus"
+        >
+        </Button>
+        {/* <AddNew>Add new User</AddNew> */}
         {/* <Button onClicked={handleOpenPopup} >
           <ImUserPlus/>
           <FaRegAddressCard />
@@ -50,19 +57,12 @@ const Home = () => {
             onSubmit={addUser}
           />
         )}
-          {/* <Row> */}
-            <SideBar />
-            {/* <ListItem> */}
-
-              {/* <ItemInList
-                users={filteredList.length === 0 ? users : filteredList}
-                onDelete={deleteUser}
-                onUpdate={updateUser}
-              /> */}
-            {/* </ListItem> */}
-          {/* </Row> */}
-      </Wrapper>
-        </Content>
+        <Row>
+          <ListItem>
+           
+          </ListItem>
+        </Row>
+      </Container>
     </Section>
   );
 };

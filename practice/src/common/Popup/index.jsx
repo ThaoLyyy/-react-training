@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
 import {
   ModalWrapper,
   ModalUser,
@@ -22,65 +22,6 @@ const Popup = ({ text, onSubmit, onClosePopup, OnIsUpdate }) => {
   const [message, setMessage] = useState("");
 
   const [inputs, setInputs] = useState({});
-
-  // const [values, setValues] = useState({
-  //   imageurl: "",
-  //   username: "",
-  //   phone: "",
-  //   email: "",
-  //   address: "",
-  // });
-
-  // const inputs = [
-  //   {
-  //     id: 1,
-  //     name: "password",
-  //     type: "password",
-  //     placeholder: "Password",
-  //     errorMessage:
-  //       "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
-  //     label: "Password",
-  //     pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-  //     required: true,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "username",
-  //     type: "text",
-  //     placeholder: "username",
-  //     errorMessage:
-  //       "Username should be 3-16 characters and shouldn't include any special character!",
-  //     label: "Username",
-  //     pattern: "^[A-Za-z0-9]{3,16}$",
-  //     required: true,
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "phone",
-  //     type: "date",
-  //     placeholder: "Phone",
-  //     errorMessage: "",
-  //     label: "Phone",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "email",
-  //     type: "email",
-  //     placeholder: "Email",
-  //     errorMessage: "It should be a valid email address!",
-  //     label: "Email",
-  //     required: true,
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "address",
-  //     type: "address",
-  //     placeholder: "Address",
-  //     errorMessage: "",
-  //     label: "address",
-  //     required: true,
-  //   },
-  // ];
 
   // get value input
 
@@ -136,7 +77,6 @@ const Popup = ({ text, onSubmit, onClosePopup, OnIsUpdate }) => {
       inputs.id = uuidv4();
       onSubmit({ ...inputs });
       /**submit data */
-      // addUser({ ...inputs });
       setInputs("");
       setMessage("Create successful users ");
     }
@@ -163,7 +103,7 @@ const Popup = ({ text, onSubmit, onClosePopup, OnIsUpdate }) => {
           <InputUser
             type="text"
             name="name"
-            // value={inputs.Username || ""}
+            // value={inputs.name || ""}
             onChange={handleChange}
           />
 

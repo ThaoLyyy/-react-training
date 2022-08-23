@@ -1,25 +1,28 @@
-import styled from "styled-components";
-import UserImage from "../../assets/images/logo-users.png";
-// import UserImage from "../../assets/images/add.png";
 
-const UserSidebar = styled.header`
+import styled from "styled-components";
+import UserImage from "../../assets/images/logo-users.png";;
+
+const UserSideBar = styled.header`
   background-color: #ffdede;
   /* width: 300px; */
-  width: 245px;
+  /* width: 245px; */
+  width: 20%;
   height: 100%;
   padding: 20px;
   left: 0px;
   top: 0px;
-  position: fixed;
+  /* position: fixed; */
+  /* display: none; */
 `;
-const ContainerSidebar = styled.div`
-  max-width: 1200px;
+const ContainerSideBar = styled.div`
+  /* max-width: 1200px;
   margin: 0 auto;
   padding: 0 0;
-  width: 100%;
+  width: 100%; */
+  display: inline-flex;
 `;
-const SidebarTitle = styled.h1`
-  position: absolute;
+const SideBarTitle = styled.h1`
+  /* position: absolute; */
   margin: 5px 70px;
   font-size: 28px;
   line-height: 28px;
@@ -43,4 +46,4 @@ const UserLogo = styled.image`
   background-size: cover;
   background-position: center;
 `;
-export { UserSidebar, ContainerSidebar, SidebarTitle, UserLogo };
+export { UserSideBar, ContainerSideBar, SideBarTitle, UserLogo };

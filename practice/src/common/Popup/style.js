@@ -3,11 +3,11 @@ import styled from "styled-components";
 const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1040;
-    width: 100vw;
-    height: 130vh;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 130vh;
   /* display: none; */
 `;
 const Errors = styled.p`
@@ -54,8 +54,6 @@ const InputUser = styled.input`
   border: none;
 `;
 
-
-
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -84,4 +82,3 @@ export {
   BtnWrapper,
   Button,
 };
-

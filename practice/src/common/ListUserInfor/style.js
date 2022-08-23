@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ListItem = styled.div`
-  width: 1020px;
+  width: 1024px;
   height: auto;
   display: flex;
   flex-flow: row wrap;
@@ -44,7 +44,7 @@ const DetailInfor = styled.p`
   text-transform: capitalize;
 `;
 
-const IconBtn = styled.div`
+const Icon = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -63,6 +63,6 @@ export {
   ImageItem,
   InforItem,
   DetailInfor,
-  IconBtn,
+  Icon,
   FontAwesomeIcon,
 };
