@@ -1,12 +1,12 @@
 import { ADD_USER, UPDATE_USER } from "../store/Constants";
 
-export const addUser = payload => ({
+export const addUser = data => ({
   type: ADD_USER,
-  payload,
+  data,
 });
 
-export const updateUser = payload => ({
+export const updateUser = data => ({
   type: UPDATE_USER,
-  payload,
+  data,
 });
 

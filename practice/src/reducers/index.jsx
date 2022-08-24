@@ -10,7 +10,7 @@ const initState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_USER: {
-      const users = [...state.users, action.payload];
+      const users = [...state.users, action.data];
       localStorage.setItem("listUser", JSON.stringify(users));
       return {
         ...state,
@@ -19,7 +19,7 @@ const reducer = (state, action) => {
     }
 
     case UPDATE_USER: {
-      const updatedUser = action.payload;
+      const updatedUser = action.data;
       const updatedUsers = state.users.map((user) => {
         if (user.id === updatedUser.id) {
           return updatedUser;

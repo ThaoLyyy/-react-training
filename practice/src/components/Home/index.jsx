@@ -1,18 +1,24 @@
 import { useContext, useState } from "react";
 import Button from "../../common/Button";
 import Popup from "../../common/Popup";
+// import ListUserInfor from "../../common/ListUserInfor";
 import Search from "../Search";
-import { Container, Line, ListItem, Row, Section, TitleList, Wrapper } from "./style";
+import {
+  Section,
+  Container,
+  Wrapper,
+  Row,
+  Layout,
+  ListItem,
+  TitleList,
+} from "./style";
 import { StoreContext } from "../../store";
 import SideBar from "../SideBar";
-
-
+import Header from "../Header";
+import ListUserInfor from "../ListUserInfor";
 
 const Home = () => {
-  const {
-    addUser,
-    updateUser,
-  } = useContext(StoreContext);
+  const { addUser, updateUser } = useContext(StoreContext);
 
   const [show, setShow] = useState(false);
   /**show popup */
@@ -25,46 +31,39 @@ const Home = () => {
   };
 
   return (
-    <Section>
-      <Container>
-        <Wrapper>
-          <SideBar />
-          <Search />
-        </Wrapper>
+    <>
+      <Header />
+      <Section>
+        <Container>
+          <Wrapper>
+            <SideBar />
+            <Row>
+              <Search />
 
-        <Line>
+              <Layout>
+                <TitleList>list item user</TitleList>
+              </Layout>
+              <Button
+                className="add"
+                onClicked={handleOpenPopup}
+                icon="fa fa-user-plus"
+              ></Button>
+              {show && (
+                <Popup
+                  text="Create user"
+                  onClosePopup={handleClosePopup}
+                  onSubmit={addUser}
+                />
+              )}
 
-        <TitleList>list item user</TitleList>
-        </Line>
-        {/* <Title>users</Title> */}
-
-        {/* <AddNew>Add new User</AddNew> */}
-        <Button
-          className="add"
-          onClicked={handleOpenPopup}
-          icon="fa fa-user-plus"
-        >
-        </Button>
-        {/* <AddNew>Add new User</AddNew> */}
-        {/* <Button onClicked={handleOpenPopup} >
-          <ImUserPlus/>
-          <FaRegAddressCard />
-          </Button> */}
-        {show && (
-          <Popup
-            text="Create user"
-            onClosePopup={handleClosePopup}
-            onSubmit={addUser}
-          />
-        )}
-        <Row>
-          <ListItem>
-           
-          </ListItem>
-        </Row>
-      </Container>
-    </Section>
+              <ListItem>
+                {/* <ListUserInfor onUpdate={updateUser} /> */}
+              </ListItem>
+            </Row>
+          </Wrapper>
+        </Container>
+      </Section>
+    </>
   );
 };
 export default Home;
-

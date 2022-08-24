@@ -6,7 +6,7 @@ const ListItem = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  margin-left: 330px;
+  margin-left: 20px;
   margin-top: 40px;
 `;
 const Item = styled.div`
@@ -54,7 +54,6 @@ const FontAwesomeIcon = styled.button`
   border: none;
   margin-top: 10px;
   cursor: pointer;
-  color: ${(props) => (props.edit ? "#A3A0C2" : "#efc83f")};
 `;
 export {
   ListItem,

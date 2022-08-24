@@ -1,15 +1,17 @@
 
 
 import { useState } from "react";
-import Button from "../Button";
-import Popup from "../Popup";
+import Button from "../../common/Button";
+import Popup from "../../common/Popup";
+// import Button from "../Button";
+// import Popup from "../Popup";
 import {
   ListItem,
   Item,
   ImageWrapper,
   ImageItem,
   InforItem ,
-  IconBtn,
+  Icon,
   DetailInfor,
 } from "./style";
 
@@ -38,7 +40,7 @@ const ListUserInfor = (users, onUpdate) => {
             <DetailInfor>Phone: {user.phone}</DetailInfor>
             <DetailInfor>Email: {user.email}</DetailInfor>
             <DetailInfor>Address: {user.address}</DetailInfor>
-            <IconBtn>
+            <Icon>
               <Button
                 className="edit"
                 icon="fas fa-edit"
@@ -49,7 +51,7 @@ const ListUserInfor = (users, onUpdate) => {
                 className="delete"
                 icon="fas fa-trash-alt"
               ></Button>
-            </IconBtn>
+            </Icon>
           </InforItem>
         </Item>
       ))}

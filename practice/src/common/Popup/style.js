@@ -53,7 +53,6 @@ const InputUser = styled.input`
   border-radius: 5px;
   border: none;
 `;
-
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
