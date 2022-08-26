@@ -30,7 +30,7 @@ const ModalUser = styled.div`
   /* padding: 10px; */
 `;
 const Error = styled.p`
-  color: red;
+  color: yellow;
   text-align: center;
   line-height: 8px;
 `;
@@ -64,10 +64,10 @@ const Button = styled.button`
   width: 100px;
   height: 40px;
   border: none;
-  font-family: "Roboto";
   font-size: 16px;
+  font-family: "Roboto";
   border-radius: 10px;
-  background-color: ${(props) => (props.save ? "#78E2F3" : "#C6C5CC")};
+  background-color: ${(props) => (props.save ? "#78E2F3" : "#CFC5C5")};
 `;
 export {
   ModalWrapper,

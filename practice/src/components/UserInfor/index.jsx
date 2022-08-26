@@ -1,10 +1,7 @@
-
-
 import { useState } from "react";
-import Button from "../../common/Button";
-import Popup from "../../common/Popup";
-// import Button from "../Button";
-// import Popup from "../Popup";
+import Button from "../common/Button";
+import ConfirmModal from "../common/ConfirmModal";
+import Modal from "../common/Modal";
 import {
   ListItem,
   Item,
@@ -15,8 +12,9 @@ import {
   DetailInfor,
 } from "./style";
 
-const ListUserInfor = (users, onUpdate) => {
+const UserInfor = (users, onUpdate, onDelete) => {
   const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null);
+  const [selectedDelUser, setSelectedDelUserId] = useState(null);
  
   /** close mode user */ 
   const handleClose = () => {
@@ -26,6 +24,17 @@ const ListUserInfor = (users, onUpdate) => {
   /** update user */ 
   const handleUpdate = (user) => {
     onUpdate(user);
+  };
+
+  /**show DeleteModal */
+  const handleOpen = (id) => {
+    setSelectedDelUserId(id);
+  };
+
+   /**Delete users */ 
+   const handleDelete = () => {
+    onDelete(selectedDelUser);
+    setSelectedDelUserId(null);
   };
 
   return (
@@ -47,7 +56,7 @@ const ListUserInfor = (users, onUpdate) => {
                 onClicked={() => setSelectedUpdateUserId(user)}
               ></Button>
               <Button
-                onClicked={''}
+                onClicked={() => handleOpen(user.id)}
                 className="delete"
                 icon="fas fa-trash-alt"
               ></Button>
@@ -58,15 +67,20 @@ const ListUserInfor = (users, onUpdate) => {
       
       {/* show update popup */}
       {!!selectedUpdateUserId && (
-        <Popup
+        <Modal
           text="Edit Users"
           defaultValue={selectedUpdateUserId}
           OnIsUpdate={handleUpdate}
-          onClosePopup={handleClose}
+          onCloseModal={handleClose}
         />
+      )}
+
+      {/* show delete popup */}
+      {!!selectedDelUser && (
+        <ConfirmModal onOK={handleDelete} onCloseModal={handleClose} />
       )}
     </ListItem>
   );
 };
 
-export default ListUserInfor;
+export default UserInfor;

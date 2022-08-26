@@ -14,9 +14,9 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
 `;
-const Row = styled.div`
+const LayoutWrapper = styled.div`
   min-height: 100vh;
-  width: 75%;
+  width: 100%;
   position: relative;
 `;
 
@@ -26,11 +26,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   padding-bottom: 20px; */
 `;
-const ListItem = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  width: 900px; */
-`;
+
 const Layout = styled.div`
   /* min-height: 100wh; */
 `;
@@ -62,9 +58,9 @@ export {
   Wrapper,
   Title,
   Container,
-  Row,
+  LayoutWrapper,
   TitleList,
-  ListItem,
+  // ListItem,
   Layout,
   AddNew,
 };

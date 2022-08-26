@@ -1,10 +1,17 @@
-import { ADD_USER, UPDATE_USER} from "../store/Constants";
+import {
+  ADD_USER,
+  UPDATE_USER,
+  DELETE_USER,
+  SEARCH_USER,
+} from "../constants";
 
 /**get item localStorage */
 const listUsers = JSON.parse(localStorage.getItem("listUser")) || [];
 
 const initState = {
   users: listUsers,
+  isSearchActive: false,
+  filteredList: [],
 };
 
 const reducer = (state, action) => {
@@ -34,9 +41,29 @@ const reducer = (state, action) => {
       };
     }
 
+    case DELETE_USER: {
+      // localStorage.removeItem("listUser", JSON.stringify(action.data));
+      return {
+        ...state,
+        // Delete by id
+        users: state.users.filter((user) => user.id !== action.data),
+      };
+    }
+
+    case SEARCH_USER: {
+      return {
+        ...state,
+        // convert to lowcase
+        users: state.users.filter(
+          (user) =>
+            user.name.toLowerCase().search(action.data.toLowerCase().trim()) !==
+            -1
+        ),
+      };
+    }
+
     default:
-    // throw new Error("Invalid action");
-    throw new Error(`Unknown action type: ${action.type}`);
+      return state;
   }
 };
 

@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 const CommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
-  /* background: bottom;
-    border:none; */
   cursor: pointer;
   font-size: 22px;
 
   &.add {
     margin-left: 970px;
     padding: 10px;
-    background-color: #78e2f3;
     width: 30px;
     border-radius: 8px;
+    color: #fff;
+    background-color: #78e2f3;
+    &:hover {
+      background-color: #ed9696;
+      color: #fff;
+    }
   }
 
   &.edit {

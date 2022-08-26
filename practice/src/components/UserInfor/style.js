@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ListItem = styled.div`
   width: 1024px;
-  height: auto;
+  /* height: auto; */
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -35,7 +35,6 @@ const InforItem = styled.div`
   flex-direction: column;
   line-height: 18px;
   width: 270px;
-  /* margin-left: 20px; */
 `;
 
 const DetailInfor = styled.p`
