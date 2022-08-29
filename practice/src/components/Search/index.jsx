@@ -1,6 +1,4 @@
 import { Wrapper, SearchHeader, BtnIconSearch } from "./style";
-import { FaSearch } from "react-icons/fa";
-import { IconContext } from "react-icons";
 
 const Search = () => {
   return (

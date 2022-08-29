@@ -1,23 +1,21 @@
-// import { Button, ButtonWrapper, Content, Modal, ModalWrapper, Title } from "./style";
-
 import {
   Button,
-  ButtonWrapper,
-  Content,
-  Modal,
   ModalWrapper,
+  Modal,
   Title,
+  Content,
+  ButtonWrapper,
 } from "./style";
 
-const ConfirmModal = ({ onCloseModal, onOK }) => {
+const ConfirmModal = ({ onCloseModal, onDel }) => {
   return (
     <ModalWrapper>
       <Modal>
-        <Title>Delete</Title>
-        <Content>Are you sure you want to delete users?</Content>
+        <Title>Delete User</Title>
+        <Content>Are you sure delete this users ?</Content>
         <ButtonWrapper>
-          <Button yes onClick={onOK}>
-          Delete
+          <Button yes onClick={onDel}>
+            Delete
           </Button>
           <Button onClick={onCloseModal}>Cancel</Button>
         </ButtonWrapper>

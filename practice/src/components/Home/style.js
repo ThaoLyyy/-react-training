@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 const Section = styled.section`
   min-height: 100vh;
+  /* position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto; */
+  /* width: 1200px;
+  max-width: 100%;
+  margin: 0 auto; */
 `;
 const Container = styled.div`
   max-width: 1600px;
@@ -14,9 +21,9 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
 `;
-const LayoutWrapper = styled.div`
+const Row = styled.div`
   min-height: 100vh;
-  width: 100%;
+  width: 110%;
   position: relative;
 `;
 
@@ -26,19 +33,22 @@ const Title = styled.h1`
   text-transform: uppercase;
   padding-bottom: 20px; */
 `;
-
+const ListItem = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  width: 900px; */
+`;
 const Layout = styled.div`
   /* min-height: 100wh; */
 `;
 
 const TitleList = styled.h2`
-  font-size: 24px;
-  margin-left: 30px;
-  font-family: "Roboto";
-  text-transform: capitalize;
-  color: #6d7475;
-  font-weight: 600;
-  margin-top: 10px;
+    font-size: 25px;
+    font-family: "Roboto";
+    text-transform: capitalize;
+    color: #6d7475;
+    font-weight: 600;
+    margin: 15px 0 0 35px;
 `;
 
 const AddNew = styled.p`
@@ -58,9 +68,9 @@ export {
   Wrapper,
   Title,
   Container,
-  LayoutWrapper,
+  Row,
   TitleList,
-  // ListItem,
+  ListItem,
   Layout,
   AddNew,
 };

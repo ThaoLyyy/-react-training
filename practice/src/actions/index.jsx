@@ -1,31 +1,26 @@
-// import {
-//   ADD_USER,
-//   UPDATE_USER,
-//   DELETE_USER,
-//   SEARCH_USER,
-// } from "../Constants/Constants";
+import {
+  ADD_USER,
+  DELETE_USER,
+  UPDATE_USER,
+  SEARCH_USER,
+} from "../constants";
 
-import { ADD_USER,  UPDATE_USER, DELETE_USER, SEARCH_USER} from "../constants";
-
-export const addUser = (data) => ({
+export const addUser = (payload) => ({
   type: ADD_USER,
-  data,
+  payload,
 });
 
-export const updateUser = (data) => ({
-  type: UPDATE_USER,
-  data,
-});
-
-export const deleteUser = (data) => ({
+export const deleteUser = (payload) => ({
   type: DELETE_USER,
-  data,
+  payload,
 });
 
-export const searchUser = (data) => ({
-  type: SEARCH_USER,
-  data,
+export const updateUser = (payload) => ({
+  type: UPDATE_USER,
+  payload,
 });
-//   type: FILTER_USER,
-//   data,
-// });
+
+export const searchUser = (payload) => ({
+  type: SEARCH_USER,
+  payload,
+});

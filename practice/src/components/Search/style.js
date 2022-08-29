@@ -1,9 +1,10 @@
+
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background-color: #e3e3e396;
-  position: relative;
   width: 100%;
+  background-color: #e3e3e396;
+  /* position: relative; */
   /* width: 75%; */
   /* left: 205px; */
 `;

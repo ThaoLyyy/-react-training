@@ -2,89 +2,89 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import {
   ModalWrapper,
-  ModalUser,
-  Error,
   Title,
   FormSubmit,
   Label,
   InputUser,
-  BtnWrapper,
   Button,
-  Errors,
+  BtnWrapper,
+  ModalUser,
+  Error,
 } from "./style";
 
-const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) => {
+const Modal = ({
+  onCloseModal,
+  text,
+  defaultValue = {},
+  onSubmit,
+  OnIsUpdate,
+}) => {
+  // error message
+  const [errors, setErrors] = useState([]);
 
-  /**  error message */
-  const [errors, setErrors] = useState("");
-  const [message, setmessage] = useState("");
-  /** success message*/
-  // const [message, setMessage] = useState("");
-
+  // success messgage
+  const [message, setMsg] = useState("");
 
   const [inputs, setInputs] = useState(defaultValue);
 
-  // get value input
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+  /**get value input */
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  /** validate form */ 
   const validate = () => {
-    const message = {};
+    const errors = [];
 
-    if (!inputs.image === "") {
-      message.push("Please enter an image");
+    if (inputs.image === "") {
+      errors.push("Please enter image");
     }
 
-    if (!inputs.name === "") {
-      message.push("Please enter username");
+    if (inputs.username === "") {
+      errors.push("Please enter username");
     }
-    if (!inputs.email === "") {
-      message.push("Please enter email");
+    if (inputs.email === "") {
+      errors.push("Please enter email");
     }
 
-    if (!inputs.phone === "") {
-      message.push("Please enter phone");
+    if (inputs.phone === "") {
+      errors.push("Please enter phone");
     } else {
-      if (Number(inputs.phone) > 0) {
-        message.push("Wrong phone number");
+      if (Number(inputs.phone) < 0) {
+        errors.push("Wrong phone number");
       }
     }
 
-    if (!inputs.address === "") {
-      message.push("Please enter address");
+    if (inputs.address === "") {
+      errors.push("Please enter address");
     }
 
-    setErrors(message);
-    if (Object.keys(message).length > 0) return false;
-    return true;
-    // return message;
+    return errors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const errors = validate();
 
-    const isValid  = validate();
-    if (!isValid) return;
+    if (errors.length > 0) {
+      setErrors(errors);
+      return;
+    }
 
-    // if (message.length > 0) {
-    //   setmessage(message);
-    //   return;
-    // }
-
-    // update data
+    /**update data */
     if (inputs.id) {
       OnIsUpdate(inputs);
       onCloseModal();
-    } else {
+    }
+    /**submit data */
+    else {
       inputs.id = uuidv4();
       onSubmit({ ...inputs });
-      /**submit data */
+
       setInputs("");
-      // setMessage("Create successful users ");
+      setMsg("Create successful users ");
     }
   };
 
@@ -92,9 +92,10 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
     <ModalWrapper>
       <ModalUser>
         <Title>{text}</Title>
-        {/* {message.map((error, index) => (
+        {errors.map((error, index) => (
           <Error key={index}>Error: {error}</Error>
-        ))} */}
+        ))}
+        <Error notice>{message}</Error>
 
         <FormSubmit onSubmit={handleSubmit}>
           <Label>Image Url:</Label>
@@ -104,8 +105,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
             onChange={handleChange}
             accept="image/png, image/jpg, image/webp"
           />
-           <Errors>{errors.image}</Errors>
-
           <Label>Username:</Label>
           <InputUser
             type="text"
@@ -113,7 +112,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
             value={inputs.name || ""}
             onChange={handleChange}
           />
-          <Errors>{errors.name}</Errors>
 
           <Label>Phone:</Label>
           <InputUser
@@ -122,8 +120,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
             value={inputs.phone || ""}
             onChange={handleChange}
           />
-          <Errors>{errors.phone}</Errors>
-
 
           <Label>Email:</Label>
           <InputUser
@@ -132,8 +128,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
             value={inputs.email || ""}
             onChange={handleChange}
           />
-          <Errors>{errors.email}</Errors>
-
 
           <Label>Address:</Label>
           <InputUser
@@ -142,8 +136,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
             value={inputs.address || ""}
             onChange={handleChange}
           />
-          <Errors>{errors.address}</Errors>
-
 
           <BtnWrapper>
             <Button save type="submit" value="Submit">
@@ -157,6 +149,6 @@ const Modal = ({ text, onSubmit, onCloseModal, OnIsUpdate, defaultValue = {},}) 
       </ModalUser>
     </ModalWrapper>
   );
-};
+}
 
 export default Modal;

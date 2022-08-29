@@ -1,15 +1,16 @@
 import {
   ADD_USER,
-  UPDATE_USER,
   DELETE_USER,
+  UPDATE_USER,
   SEARCH_USER,
+  FILTER_USER,
 } from "../constants";
 
-/**get item localStorage */
-const listUsers = JSON.parse(localStorage.getItem("listUser")) || [];
+/**  get from localStorage */
+const listUser = JSON.parse(localStorage.getItem("listUser")) || [];
 
 const initState = {
-  users: listUsers,
+  users: listUser,
   isSearchActive: false,
   filteredList: [],
 };
@@ -17,16 +18,28 @@ const initState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ADD_USER: {
-      const users = [...state.users, action.data];
+      const users = [...state.users, action.payload];
       localStorage.setItem("listUser", JSON.stringify(users));
+
       return {
         ...state,
         users: users,
       };
     }
 
+    case DELETE_USER: {
+      // localStorage.removeItem("listUser", JSON.stringify(action.payload));
+      return {
+        ...state,
+        // Delete by id
+        users: state.users.filter(
+          (user) => user.id !== action.payload
+        ),
+      };
+    }
+
     case UPDATE_USER: {
-      const updatedUser = action.data;
+      const updatedUser = action.payload;
       const updatedUsers = state.users.map((user) => {
         if (user.id === updatedUser.id) {
           return updatedUser;
@@ -41,31 +54,25 @@ const reducer = (state, action) => {
       };
     }
 
-    case DELETE_USER: {
-      // localStorage.removeItem("listUser", JSON.stringify(action.data));
-      return {
-        ...state,
-        // Delete by id
-        users: state.users.filter((user) => user.id !== action.data),
-      };
-    }
-
     case SEARCH_USER: {
       return {
         ...state,
         // convert to lowcase
         users: state.users.filter(
           (user) =>
-            user.name.toLowerCase().search(action.data.toLowerCase().trim()) !==
-            -1
+            user.name
+              .toLowerCase()
+              .search(action.payload.toLowerCase().trim()) !== -1
         ),
       };
     }
 
     default:
       return state;
+    // throw new Error(`Unknown action type: ${action.type}`);
+
   }
-};
+}
 
 export { initState };
 export default reducer;

@@ -40,7 +40,7 @@ const Title = styled.h1`
   letter-spacing: 1px;
   font-style: italic, bold;
 `;
-const UserLogo = styled.image`
+const UserLogo = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;

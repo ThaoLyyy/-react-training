@@ -18,7 +18,7 @@ const Item = styled.div`
   border: 1px solid #fff;
   padding: 15px;
   border-radius: 10px;
-  flex: 0.2 1;
+  /* flex: 0.2 1; */
 `;
 const ImageWrapper = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ const ImageItem = styled.img`
 const InforItem = styled.div`
   display: flex;
   flex-direction: column;
-  line-height: 18px;
+  line-height: 1;
   width: 270px;
 `;
 
@@ -41,6 +41,7 @@ const DetailInfor = styled.p`
   font-size: 16px;
   font-weight: 600;
   text-transform: capitalize;
+  line-height: 3;
 `;
 
 const Icon = styled.div`
@@ -53,6 +54,7 @@ const FontAwesomeIcon = styled.button`
   border: none;
   margin-top: 10px;
   cursor: pointer;
+  color: ${(props) => (props.edit ? "#A3A0C2" : "#efc83f")};
 `;
 export {
   ListItem,

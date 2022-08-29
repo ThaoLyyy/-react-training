@@ -1,42 +1,40 @@
-import { useState } from "react";
-import Button from "../common/Button";
-import ConfirmModal from "../common/ConfirmModal";
-import Modal from "../common/Modal";
+import { useState} from "react";
+import ConfirmDeletePopup from "../ConfirmModal";
+// import Button from "../Button";
 import {
-  ListItem,
   Item,
-  ImageWrapper,
   ImageItem,
-  InforItem ,
   Icon,
+  ListItem,
+  ImageWrapper,
+  InforItem,
   DetailInfor,
 } from "./style";
+import Modal from "../Modal";
+import Button from "../Button";
 
-const UserInfor = (users, onUpdate, onDelete) => {
+const ListInfor = ({ onDelete, users, onUpdate }) => {
   const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null);
-  const [selectedDelUser, setSelectedDelUserId] = useState(null);
- 
-  /** close mode user */ 
-  const handleClose = () => {
-    setSelectedUpdateUserId(null);
-  };
-  
-  /** update user */ 
-  const handleUpdate = (user) => {
-    onUpdate(user);
-  };
+  const [selectedDelUserId, setSelectedDelUserId] = useState(null);
 
-  /**show DeleteModal */
+  // Show DeleteModal
   const handleOpen = (id) => {
     setSelectedDelUserId(id);
   };
-
-   /**Delete users */ 
-   const handleDelete = () => {
-    onDelete(selectedDelUser);
+  // Close Modal
+  const handleClose = () => {
+    setSelectedUpdateUserId(null);
     setSelectedDelUserId(null);
   };
-
+  // Delete users
+  const handleDelete = () => {
+    onDelete(selectedDelUserId);
+    setSelectedDelUserId(null);
+  };
+  // Update user
+  const handleUpdate = (user) => {
+    onUpdate(user);
+  };
   return (
     <ListItem>
       {users.map((user) => (
@@ -76,11 +74,10 @@ const UserInfor = (users, onUpdate, onDelete) => {
       )}
 
       {/* show delete popup */}
-      {!!selectedDelUser && (
-        <ConfirmModal onOK={handleDelete} onCloseModal={handleClose} />
+      {!!selectedDelUserId && (
+        <ConfirmDeletePopup onDel={handleDelete} onCloseModal={handleClose} />
       )}
     </ListItem>
   );
-};
-
-export default UserInfor;
+}
+export default ListInfor;
