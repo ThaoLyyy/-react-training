@@ -3,7 +3,6 @@ import {
   DELETE_USER,
   UPDATE_USER,
   SEARCH_USER,
-  FILTER_USER,
 } from "../constants";
 
 /**  get from localStorage */

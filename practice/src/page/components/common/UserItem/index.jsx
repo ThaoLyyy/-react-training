@@ -1,6 +1,5 @@
 import { useState} from "react";
 import ConfirmDeletePopup from "../ConfirmModal";
-// import Button from "../Button";
 import {
   Item,
   ImageItem,

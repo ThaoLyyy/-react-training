@@ -1,20 +1,18 @@
 import { useContext, useState } from "react";
-import { StoreContext } from "../../store";
+import { StoreContext } from "../../../store";
 import SearchUsers from "../Search";
 import SideBar from "../SideBar";
 import Header from "../Header";
 import {
   Wrapper,
   TitleList,
-  Layout,
   Row,
-  ListItem,
   Container,
   Section,
 } from "./style";
 import Button from "../common/Button";
 import Modal from "../common/Modal";
-import ListInfor from "../common/ListInfor";
+import UserItem from "../common/UserItem";
 
 const Home = () => {
   
@@ -40,21 +38,12 @@ const Home = () => {
             <SideBar />
             <Row>
               <SearchUsers onSearch={searchUser} />
-
-              <Layout>
                 <TitleList>list item user</TitleList>
-              </Layout>
-              {/* <AddNew>Add new User</AddNew> */}
               <Button
                 className="add"
                 onClicked={handleOpenModal}
                 icon="fa fa-user-plus"
               ></Button>
-              {/* <AddNew>Add new User</AddNew> */}
-              {/* <Button onClicked={handleOpenModal} >
-          <ImUserPlus/>
-          <FaRegAddressCard />
-          </Button> */}
               {show && (
                 <Modal
                   text="Create user"
@@ -62,14 +51,11 @@ const Home = () => {
                   onSubmit={addUser}
                 />
               )}
-
-              <ListItem>
-                <ListInfor
+                <UserItem
                   users={filteredList.length === 0 ? users : filteredList}
                   onUpdate={updateUser}
                   onDelete={deleteUser}
                 />
-              </ListItem>
             </Row>
           </Wrapper>
         </Container>

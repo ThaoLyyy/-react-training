@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { Wrapper, SearchHeader, BtnIconSearch } from "./style";
 
-const Search = () => {
+const Search = ( {onSearch}) => {
+  const [inputs, setInputs] = useState("");
+
+  const handleChange = (e) => {
+    setInputs(() => e.target.value);
+  };
   return (
-    // <IconContext.Provider value={{ size: "16px" }}>
     <Wrapper>
       <SearchHeader type="text" placeholder="Search..."></SearchHeader>
-      <BtnIconSearch>
-        {/* <FaSearch /> */}
+      <BtnIconSearch onClick={() => {
+          onSearch(inputs);
+        }}>
         <i className="fas fa-search"></i>
       </BtnIconSearch>
     </Wrapper>
-    // </IconContext.Provider>
   );
 };
 

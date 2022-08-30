@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerHeader, PageHeader, Title, UserLogo, WrapperLogo } from "./styles";
+import { ContainerHeader, PageHeader, Title, UserLogo, WrapperLogo } from "./style";
 
 const Header = () => {
   return (

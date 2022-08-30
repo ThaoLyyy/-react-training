@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import UserImage from "../../assets/images/logo-users.png";
+import UserImage from "../../../assets/images/logo-users.png";
 
 const PageHeader = styled.header`
   /* background-color: #ffdede;
