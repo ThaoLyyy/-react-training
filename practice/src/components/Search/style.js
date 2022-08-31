@@ -1,14 +1,14 @@
 
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const StyleWrapper = styled.div`
   width: 100%;
   background-color: #e3e3e396;
   /* position: relative; */
   /* width: 75%; */
   /* left: 205px; */
 `;
-const SearchHeader = styled.input`
+const StyleSearchHeader = styled.input`
   width: 350px;
   margin: 30px 20px 30px 600px;
   padding: 10px 20px 10px 20px;
@@ -18,7 +18,7 @@ const SearchHeader = styled.input`
       border: 1px solid #78e2f3;
     }
 `;
-const BtnIconSearch = styled.button`
+const StyleBtnIconSearch = styled.button`
   background-color: #ed9696;
   color: #fff;
   border: none;
@@ -33,4 +33,4 @@ const BtnIconSearch = styled.button`
     }
 `;
 
-export { Wrapper, SearchHeader, BtnIconSearch };
+export { StyleWrapper, StyleSearchHeader, StyleBtnIconSearch };

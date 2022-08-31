@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
+const StyleCommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
   cursor: pointer;
   font-size: 22px;
 
@@ -27,10 +27,10 @@ const CommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
 
   &.delete {
     font-size: 30px;
-    color: #f61212;
+    color: #f23636;
     margin-left: 160px;
     border: none;
     cursor: pointer;
   }
 `;
-export { CommonButton };
+export { StyleCommonButton };

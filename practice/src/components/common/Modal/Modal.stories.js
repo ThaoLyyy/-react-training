@@ -1,12 +1,12 @@
 import React from "react";
-import Popup from ".";
+import Modal from ".";
 
 
 export default {
-  title: "Popup",
-  common: Popup,
+  title: "Modal",
+  common: Modal,
 };
 
 export const Default = () => {
-  return <Popup />;
+  return <Modal />;
 };

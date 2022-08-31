@@ -1,18 +1,18 @@
 import { useState} from "react";
-import ConfirmDeletePopup from "../ConfirmModal";
 import {
-  Item,
-  ImageItem,
-  Icon,
-  ListItem,
-  ImageWrapper,
-  InforItem,
-  DetailInfor,
+  StyleListItem,
+  StyleItem,
+  StyleImageWrapper,
+  StyleImageItem,
+  StyleIcon,
+  StyleInforItem,
+  StyleDetailInfor,
 } from "./style";
-import Modal from "../Modal";
-import Button from "../Button";
+import ConfirmModal from "../common/ConfirmModal";
+import Button from "../common/Button";
+import Modal from "../common/Modal";
 
-const ListInfor = ({ onDelete, users, onUpdate }) => {
+const UserItem = ({ onDelete, users, onUpdate }) => {
   const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null);
   const [selectedDelUserId, setSelectedDelUserId] = useState(null);
 
@@ -35,18 +35,18 @@ const ListInfor = ({ onDelete, users, onUpdate }) => {
     onUpdate(user);
   };
   return (
-    <ListItem>
+    <StyleListItem>
       {users.map((user) => (
-        <Item key={user.id}>
-          <ImageWrapper>
-            <ImageItem src={user.image} />
-          </ImageWrapper>
-          <InforItem>
-            <DetailInfor>Username: {user.name} </DetailInfor>
-            <DetailInfor>Phone: {user.phone}</DetailInfor>
-            <DetailInfor>Email: {user.email}</DetailInfor>
-            <DetailInfor>Address: {user.address}</DetailInfor>
-            <Icon>
+        <StyleItem key={user.id}>
+          <StyleImageWrapper>
+            <StyleImageItem src={user.image} />
+          </StyleImageWrapper>
+          <StyleInforItem>
+            <StyleDetailInfor>Username: {user.name} </StyleDetailInfor>
+            <StyleDetailInfor>Phone: {user.phone}</StyleDetailInfor>
+            <StyleDetailInfor>Email: {user.email}</StyleDetailInfor>
+            <StyleDetailInfor>Address: {user.address}</StyleDetailInfor>
+            <StyleIcon>
               <Button
                 className="edit"
                 icon="fas fa-edit"
@@ -57,9 +57,9 @@ const ListInfor = ({ onDelete, users, onUpdate }) => {
                 className="delete"
                 icon="fas fa-trash-alt"
               ></Button>
-            </Icon>
-          </InforItem>
-        </Item>
+            </StyleIcon>
+          </StyleInforItem>
+        </StyleItem>
       ))}
       
       {/* show update popup */}
@@ -74,9 +74,9 @@ const ListInfor = ({ onDelete, users, onUpdate }) => {
 
       {/* show delete popup */}
       {!!selectedDelUserId && (
-        <ConfirmDeletePopup onDel={handleDelete} onCloseModal={handleClose} />
+        <ConfirmModal onDel={handleDelete} onCloseModal={handleClose} />
       )}
-    </ListItem>
+    </StyleListItem>
   );
 }
-export default ListInfor;
+export default UserItem;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import UserImage from "../../../assets/images/logo-users.png";
+import UserImage from "../../assets/images/logo-users.png";
 
-const PageHeader = styled.header`
+const StylePageHeader = styled.header`
   /* background-color: #ffdede;
   width: 20%;
   height: 100%;
@@ -13,14 +13,13 @@ const PageHeader = styled.header`
   /* position: fixed; */
   /* display: none; */
 `;
-const ContainerHeader = styled.div`
+const StyleContainerHeader = styled.div`
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  /* display: inline-flex; */
 `;
-const WrapperLogo = styled.div`
+const StyleWrapperLogo = styled.div`
   width: 300px;
   vertical-align: middle;
   justify-content: space-between;
@@ -28,8 +27,7 @@ const WrapperLogo = styled.div`
   margin: 22px 0 0 20px;
   position: fixed;
 `;
-const Title = styled.h1`
-  /* position: absolute; */
+const StyleTitle = styled.h1`
   margin: 5px 70px;
   font-size: 28px;
   line-height: 28px;
@@ -40,15 +38,14 @@ const Title = styled.h1`
   letter-spacing: 1px;
   font-style: italic, bold;
 `;
-const UserLogo = styled.div`
+const StyleUserLogo = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
   position: absolute;
   object-fit: cover;
-  /* background-image: url(../../assets/images/logo-users.png); */
   background-image: url(${UserImage});
   background-size: cover;
   background-position: center;
 `;
-export { PageHeader, ContainerHeader, WrapperLogo, Title, UserLogo };
+export { StylePageHeader, StyleContainerHeader, StyleWrapperLogo, StyleTitle, StyleUserLogo };

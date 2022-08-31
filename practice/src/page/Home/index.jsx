@@ -1,21 +1,14 @@
 import { useContext, useState } from "react";
-import { StoreContext } from "../../../store";
-import SearchUsers from "../Search";
-import SideBar from "../SideBar";
-import Header from "../Header";
-import {
-  Wrapper,
-  TitleList,
-  Row,
-  Container,
-  Section,
-} from "./style";
-import Button from "../common/Button";
-import Modal from "../common/Modal";
-import UserItem from "../common/UserItem";
+import { StoreContext } from "../../store";
+import Search from "../../components/Search";
+import SideBar from "../../components/SideBar";
+import Header from "../../components/Header";
+import { Section, Container, Wrapper, Row, TitleList } from "./style";
+import Button from "../../components/common/Button";
+import Modal from "../../components/common/Modal";
+import UserItem from "../../components/UserItem";
 
 const Home = () => {
-  
   const { addUser, updateUser, deleteUser, searchUser, users, filteredList } =
     useContext(StoreContext);
 
@@ -37,8 +30,8 @@ const Home = () => {
           <Wrapper>
             <SideBar />
             <Row>
-              <SearchUsers onSearch={searchUser} />
-                <TitleList>list item user</TitleList>
+              <Search onSearch={searchUser} />
+              <TitleList>list item user</TitleList>
               <Button
                 className="add"
                 onClicked={handleOpenModal}
@@ -51,11 +44,11 @@ const Home = () => {
                   onSubmit={addUser}
                 />
               )}
-                <UserItem
-                  users={filteredList.length === 0 ? users : filteredList}
-                  onUpdate={updateUser}
-                  onDelete={deleteUser}
-                />
+              <UserItem
+                users={filteredList.length === 0 ? users : filteredList}
+                onUpdate={updateUser}
+                onDelete={deleteUser}
+              />
             </Row>
           </Wrapper>
         </Container>

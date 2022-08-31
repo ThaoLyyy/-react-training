@@ -26,17 +26,6 @@ const reducer = (state, action) => {
       };
     }
 
-    case DELETE_USER: {
-      // localStorage.removeItem("listUser", JSON.stringify(action.payload));
-      return {
-        ...state,
-        // Delete by id
-        users: state.users.filter(
-          (user) => user.id !== action.payload
-        ),
-      };
-    }
-
     case UPDATE_USER: {
       const updatedUser = action.payload;
       const updatedUsers = state.users.map((user) => {
@@ -53,17 +42,43 @@ const reducer = (state, action) => {
       };
     }
 
+    case DELETE_USER: {
+      // // localStorage.removeItem("listUser", JSON.stringify(action.payload));
+      // return {
+      //   ...state,
+      //   // Delete by id
+      //   users: state.users.filter(
+      //     (user) => user.id !== action.payload
+      //   ),
+      // };
+      const filtered = state.users.filter(
+        (user) => user.id !== action.id
+      );
+      localStorage.removeItem("listUser", JSON.stringify(action.id))(filtered);
+      return {
+        ...state,
+        users: filtered,
+      };
+    }
+
     case SEARCH_USER: {
       return {
         ...state,
-        // convert to lowcase
         users: state.users.filter(
           (user) =>
             user.name
               .toLowerCase()
-              .search(action.payload.toLowerCase().trim()) !== -1
+              .search(action.name.toLowerCase().trim()) !== -1
         ),
       };
+
+      // return {
+      //   ...state,
+      //   //if search input has value
+      //   isSearchActive: !!action.input.length,
+      //   //create new user to not change the default state
+      //   filterUser: state.users.filter(user => user.name.toLowerCase().search(action.input.toLowerCase().trim()) !== -1)    
+      // }
     }
 
     default:

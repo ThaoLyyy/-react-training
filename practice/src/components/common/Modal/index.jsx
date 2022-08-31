@@ -1,15 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import {
-  ModalWrapper,
-  Title,
-  FormSubmit,
-  Label,
-  InputUser,
-  Button,
-  BtnWrapper,
-  ModalUser,
-  Error,
+  StyleModalWrapper,
+  StyleModalUser,
+  StyleTitle,
+  StyleFormSubmit,
+  StyleLabel,
+  StyleInputUser,
+  StyleError,
+  StyleBtnWrapper,
+  StyleButton,
 } from "./style";
 
 const Modal = ({
@@ -34,7 +34,7 @@ const Modal = ({
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  /** validate form */ 
+  /** validate form */
   const validate = () => {
     const errors = [];
 
@@ -77,9 +77,8 @@ const Modal = ({
     if (inputs.id) {
       OnIsUpdate(inputs);
       onCloseModal();
-    }
-    /**submit data */
-    else {
+    } else {
+      /**submit data */
       inputs.id = uuidv4();
       onSubmit({ ...inputs });
 
@@ -89,66 +88,61 @@ const Modal = ({
   };
 
   return (
-    <ModalWrapper>
-      <ModalUser>
-        <Title>{text}</Title>
+    <StyleModalWrapper>
+      <StyleModalUser>
+        <StyleTitle>{text}</StyleTitle>
         {errors.map((error, index) => (
-          <Error key={index}>Error: {error}</Error>
+          <StyleError key={index}>Error: {error}</StyleError>
         ))}
-        <Error notice>{message}</Error>
-
-        <FormSubmit onSubmit={handleSubmit}>
-          <Label>Image Url:</Label>
-          <InputUser
+        <StyleError notice>{message}</StyleError>
+        <StyleFormSubmit onSubmit={handleSubmit}>
+          <StyleLabel>Image Url:</StyleLabel>
+          <StyleInputUser
             name="image"
             value={inputs.image || ""}
             onChange={handleChange}
             accept="image/png, image/jpg, image/webp"
           />
-          <Label>Username:</Label>
-          <InputUser
+          <StyleLabel>Username:</StyleLabel>
+          <StyleInputUser
             type="text"
             name="name"
             value={inputs.name || ""}
             onChange={handleChange}
           />
-
-          <Label>Phone:</Label>
-          <InputUser
+          <StyleLabel>Phone:</StyleLabel>
+          <StyleInputUser
             type="text"
             name="phone"
             value={inputs.phone || ""}
             onChange={handleChange}
           />
-
-          <Label>Email:</Label>
-          <InputUser
+          <StyleLabel>Email:</StyleLabel>
+          <StyleInputUser
             type="text"
             name="email"
             value={inputs.email || ""}
             onChange={handleChange}
           />
-
-          <Label>Address:</Label>
-          <InputUser
+          <StyleLabel>Address:</StyleLabel>
+          <StyleInputUser
             type="text"
             name="address"
             value={inputs.address || ""}
             onChange={handleChange}
           />
-
-          <BtnWrapper>
-            <Button save type="submit" value="Submit">
+          <StyleBtnWrapper>
+            <StyleButton save type="submit" value="Submit">
               Save Users
-            </Button>
-            <Button type="button" onClick={onCloseModal}>
+            </StyleButton>
+            <StyleButton type="button" onClick={onCloseModal}>
               Cancel
-            </Button>
-          </BtnWrapper>
-        </FormSubmit>
-      </ModalUser>
-    </ModalWrapper>
+            </StyleButton>
+          </StyleBtnWrapper>
+        </StyleFormSubmit>
+      </StyleModalUser>
+    </StyleModalWrapper>
   );
-}
+};
 
 export default Modal;
