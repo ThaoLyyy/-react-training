@@ -1,69 +1,74 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const StyleModalWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--cl--gray-200);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1040;
   width: 100vw;
   height: 130vh;
-`;
+`
 const StyleModalUser = styled.div`
   position: absolute;
-  width: 450px;
+  width: 470px;
   height: 600px;
-  background: #ffafaf;
-  font-family: "Roboto";
+  background: var(--cl--light-pink-200);
+  font-family: 'Roboto-Regular';
   z-index: 39;
   border-radius: 10px;
   left: 55%;
-  top: 45%;
+  top: 35%;
   transform: translate(-50%, -50%);
   line-height: 18px;
-`;
+`
+const StyleFormSubmit = styled.form`
+  line-height: 4;
+  margin: 0 60px;
+`
 const StyleError = styled.p`
-  color: yellow;
-  text-align: center;
-  line-height: 8px;
-`;
+  color: #f71e1e;
+  line-height: 7px;
+`
 const StyleTitle = styled.p`
   text-align: center;
-  font-weight: 600;
-  font-size: 40px;
+  font-weight: 900;
+  font-size: var(--font-size-3xlg);
   text-transform: capitalize;
   line-height: 2;
-`;
+  padding: 10px;
+`
 const StyleLabel = styled.p`
-  font-size: 16px;
+  font-size: var(--font-size-md);
   line-height: 40px;
-`;
+`
 const StyleInputUser = styled.input`
-  width: 323px;
+  width: 338px;
   height: 30px;
   border-radius: 5px;
   border: none;
-`;
+  padding: 8px;
+  font-size: var(--font-size-md);
+`
 const StyleBtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-right: 50px;
   margin-top: 50px;
-`;
+`
 const StyleButton = styled.button`
   cursor: pointer;
   width: 100px;
   height: 40px;
   border: none;
-  font-size: 16px;
-  font-family: "Roboto";
   border-radius: 10px;
-  background-color: ${(props) => (props.save ? "#78E2F3" : "#CFC5C5")};
-`;
-const StyleFormSubmit = styled.form`
-  margin-left: 60px;
-  line-height: 40px;
-`;
+  font-family: 'Roboto-Regular';
+  font-size: var(--font-size-md);
+  background-color: ${props => (props.save ? 'var( --cl--light-blue-100)' : 'var( --cl--gray)')};
+  &:hover {
+    background: var(--cl--red-100);
+  }
+`
+
 export {
   StyleModalWrapper,
   StyleModalUser,
@@ -73,5 +78,5 @@ export {
   StyleInputUser,
   StyleError,
   StyleBtnWrapper,
-  StyleButton,
-};
+  StyleButton
+}

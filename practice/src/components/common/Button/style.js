@@ -1,36 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const StyleCommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
-  cursor: pointer;
-  font-size: 22px;
-
   &.add {
     margin-left: 970px;
     padding: 10px;
     width: 30px;
     border-radius: 8px;
-    color: #fff;
-    background-color: #78e2f3;
+    color: var(--cl--white-100);
+    background-color: var(--cl--light-blue-100);
+    font-size: var(--font-size-2xlg);
     &:hover {
-      background-color: #ed9696;
-      color: #fff;
+      background-color: var(--cl--light-pink-300);
+      color: var(--cl--white-100);
     }
   }
 
   &.edit {
     position: absolute;
-    font-size: 30px;
-    color: #efc83f;
+    font-size: var(--font-size-3xl);
+    color: var(--cl--light-yellow-100);
     border: none;
     cursor: pointer;
   }
 
   &.delete {
-    font-size: 30px;
-    color: #f23636;
+    font-size: var(--font-size-3xl);
+    color: var(--cl--red-200);
     margin-left: 160px;
     border: none;
     cursor: pointer;
   }
-`;
-export { StyleCommonButton };
+`
+export { StyleCommonButton }

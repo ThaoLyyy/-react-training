@@ -1,11 +1,4 @@
-import {
-  StyleModalWrapper,
-  StyleModal,
-  StyleContent,
-  StyleButtonWrapper,
-  StyleTitle,
-  StyleButton,
-} from "./style";
+import { StyleModalWrapper, StyleModal, StyleContent, StyleButtonWrapper, StyleTitle, StyleButton } from './style'
 
 const ConfirmModal = ({ onCloseModal, onDel }) => {
   return (
@@ -21,6 +14,6 @@ const ConfirmModal = ({ onCloseModal, onDel }) => {
         </StyleButtonWrapper>
       </StyleModal>
     </StyleModalWrapper>
-  );
-};
-export default ConfirmModal;
+  )
+}
+export default ConfirmModal

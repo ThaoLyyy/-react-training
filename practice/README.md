@@ -24,6 +24,54 @@ This document provides information about ReactJS practice. Build List of product
 
 - [Figma](https://www.figma.com/file/HPmgynGqF3ioAsQGSPzVtB/Design-UI?node-id=0%3A1)
 
+## FOLDER STRUCTURE
+```
+|-- src/
+    |-- actions/
+        |-- index.js
+    |-- assets/
+        |-- fonts/
+        |-- images/
+        |-- styles/
+            |-- index.css
+            |-- reset.css
+            |-- variables.css
+    |-- components/
+        |-- common/
+            |-- Button/
+            |-- ConfirmModal/
+            |-- Modal/
+        |-- Header/
+        |-- Search/
+        |-- SideBar/
+        |-- UserItem/
+    |-- constants/
+        |-- index.js
+    |-- page/
+        |-- Home/
+            |-- Home.stories.js
+            |-- index.jsx
+            |-- style.js      
+    |-- reducers/
+        |-- index.js
+    |-- store/
+        |-- Context.js
+        |-- Hooks.js
+        |-- index.js
+        |-- Provider.js
+    |-- utils/
+        |-- helper.js
+    |-- .editorconfig
+    |-- .eslintrc
+    |-- .prettierrc
+    |-- App.css    
+    |-- App.js    
+    |-- index.js
+|-- .gitignore
+|-- package.json
+|-- README.md
+```
+
 ## Installation
 
 - Step 1:clone repository
@@ -32,7 +80,7 @@ git clone https://github.com/ThaoLyyy/react-training
 ```
 - Step 2: Checkout branch
 ```bash
-git checkout branch feature/practice
+git checkout branch develop
 ```
 - Step 3:cd folder practice
 ```bash
@@ -45,6 +93,14 @@ npm install
 - step 5 : run project
 ```bash
 npm start
+```
+- step 6: Open in browser:
+```
+~http://localhost:3000~
+```
+- step 7 : run storybook
+```bash
+npm run storybook
 ```
 ## Author
 

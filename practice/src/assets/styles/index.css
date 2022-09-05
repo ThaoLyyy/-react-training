@@ -1,13 +1,19 @@
 @import url(./reset.css);
+@import url(./variables.css);
 
 @font-face {
-  /* font-family: "Roboto"; */
-  /* src: url("../assets/fonts/Roboto/Roboto-Regular.ttf"); */
-  /* src: url("../assets/fonts/Roboto-Bold.ttf"); */
-  /* font-family: Roboto-BoldItalic;
-    src: url("../assets/fonts/Roboto/Roboto-BoldItalic.ttf"); */
+  font-family: "Roboto-Bold";
+  src: url("../../assets/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../../assets/fonts/Roboto-Light.ttf");
 }
 
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../../assets/fonts/Roboto-Regular.ttf");
+}
 /* *{
     font-family:"Roboto" ;
 } */
@@ -23,4 +29,7 @@ body {
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    background-color: #f62682 -4.45%;
+    background-color: #6f5cf1 -4.45%;
 } */
+

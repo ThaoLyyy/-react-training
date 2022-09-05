@@ -1,29 +1,32 @@
-import { useReducer } from "react";
-import Context from "./Context";
-import reducer, { initState } from "../reducers";
-import { actions } from ".";
+// import { useReducer } from "react";
+// import Context from "./Context";
+// import reducer, { initState } from "../reducers";
+import { actions } from '.'
+import { useReducer } from 'react'
+import { initState, reducer } from '../reducers'
+import Context from './Context'
 
 const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initState);
+  const [state, dispatch] = useReducer(reducer, initState)
 
   const value = {
     users: state.users,
     filteredList: state.filteredList,
     addUser: ({ ...user }) => {
-      dispatch(actions.addUser(user));
+      dispatch(actions.addUser(user))
     },
-    updateUser: (user) => {
-      dispatch(actions.updateUser(user));
+    updateUser: user => {
+      dispatch(actions.updateUser(user))
     },
-    deleteUser: (id) => {
-      dispatch(actions.deleteUser(id));
+    deleteUser: id => {
+      dispatch(actions.deleteUser(id))
     },
-    searchUser: (name) => {
-      dispatch(actions.searchUser(name));
-    },
-  };
+    searchUser: name => {
+      dispatch(actions.searchUser(name))
+    }
+  }
 
-  return <Context.Provider value={value}>{children}</Context.Provider>;
-};
+  return <Context.Provider value={value}>{children}</Context.Provider>
+}
 
-export default Provider;
+export default Provider

@@ -1,4 +1,4 @@
-import { StyleCommonButton } from "./style";
+import { StyleCommonButton } from './style'
 
 const Button = ({ onClicked, text, className, icon }) => {
   return (
@@ -7,7 +7,7 @@ const Button = ({ onClicked, text, className, icon }) => {
         {text} <i className={icon}></i>
       </StyleCommonButton>
     </>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

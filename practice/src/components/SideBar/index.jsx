@@ -1,6 +1,6 @@
-import { StyleSideBarBackground } from "./style";
+import { StyleSideBarBackground } from './style'
 
 const SideBar = () => {
-  return <StyleSideBarBackground></StyleSideBarBackground>;
-};
-export default SideBar;
+  return <StyleSideBarBackground></StyleSideBarBackground>
+}
+export default SideBar
