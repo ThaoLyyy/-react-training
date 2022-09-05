@@ -1,13 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const StyleSideBarBackground = styled.aside`
   z-index: -1;
-  /* min-width: 330px; */
   min-height: 100wh;
   width: 25%;
-  background: #ffdede;
-`;
+  background: var(--cl--light-pink-100);
+`
 
-export {
-  StyleSideBarBackground,
-};
+export { StyleSideBarBackground }
