@@ -19,14 +19,6 @@ const UserItem = ({ users }) => {
   const { deleteUser, updateUser } = useContext(StoreContext)
   const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null)
   const [selectedDelUserId, setSelectedDelUserId] = useState(null)
-  // const [showAlert, setShowAlert] = useState(false);
-
-  // const handleShowAlert = () => {
-  //   setShowAlert(true);
-  //   setTimeout(() => {
-  //     setShowAlert(false);
-  //   }, 2000);
-  // };
 
   useEffect(() => {
     handleClose()

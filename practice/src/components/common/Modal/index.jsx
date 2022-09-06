@@ -15,11 +15,9 @@ import { StoreContext } from '../../../store'
 
 const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
   const { addUser, updateUser } = useContext(StoreContext)
-  // error message
-  const [errors, setErrors] = useState([])
 
-  // success messgage
-  const [message, setMessage] = useState('')
+  /**error message*/
+  const [errors, setErrors] = useState([])
 
   const [inputs, setInputs] = useState(defaultValue)
 
@@ -58,7 +56,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       message.address = 'Please enter address'
     }
 
-    // return errors;
     setErrors(message)
     if (Object.keys(message).length > 0) return false
     return true
@@ -68,26 +65,16 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     e.preventDefault()
     const isValid = validate()
     if (!isValid) return
-    // const errors = validate();
-
-    // if (errors.length > 0) {
-    //   setErrors(errors);
-    //   return;
-    // }
 
     /**update data */
     if (inputs.id) {
-      // OnIsUpdate(inputs);
       updateUser(inputs)
       onCloseModal()
     } else {
-      /**submit data */
       inputs.id = uuidv4()
       addUser({ ...inputs })
-      // onSubmit({ ...inputs });
       onCloseModal()
       setInputs('')
-      // setMsg("Create successful users ");
     }
   }
 
@@ -98,10 +85,8 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
         {errors.map((error, index) => (
           <StyleError key={index}>Error: {error}</StyleError>
         ))}
-        <StyleError notice>{message}</StyleError>
 
         <StyleFormSubmit onSubmit={handleSubmit}>
-          {/* <StyleLabel>Image Url:</StyleLabel> */}
           <StyleInputUser
             name="image"
             placeholder="Image Url*"
@@ -111,7 +96,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.image}</StyleError>
 
-          {/* <StyleLabel>Username:</StyleLabel> */}
           <StyleInputUser
             type="text"
             name="name"
@@ -121,7 +105,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.name}</StyleError>
 
-          {/* <StyleLabel>Phone:</StyleLabel> */}
           <StyleInputUser
             type="number"
             // type="text"
@@ -132,7 +115,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.phone}</StyleError>
 
-          {/* <StyleLabel>Email:</StyleLabel> */}
           <StyleInputUser
             type="email"
             name="email"
@@ -142,7 +124,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.email}</StyleError>
 
-          {/* <StyleLabel>Address:</StyleLabel> */}
           <StyleInputUser
             type="text"
             name="address"
