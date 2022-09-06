@@ -1,20 +1,20 @@
-import { ADD_USER, DELETE_USER, UPDATE_USER, SEARCH_USER } from "../constants";
+import { USER_FUNCTION_LIST } from '../constants'
 
-export const addUser = (payload) => ({
-  type: ADD_USER,
-  payload,
-});
+export const addUser = inputs => ({
+  type: USER_FUNCTION_LIST.ADD_USER,
+  inputs
+})
 
-export const updateUser = (payload) => ({
-  type: UPDATE_USER,
-  payload,
-});
-export const deleteUser = (id) => ({
-  type: DELETE_USER,
-  id,
-});
+export const updateUser = item => ({
+  type: USER_FUNCTION_LIST.UPDATE_USER,
+  item
+})
+export const deleteUser = id => ({
+  type: USER_FUNCTION_LIST.DELETE_USER,
+  id
+})
 
-export const searchUser = (name) => ({
-  type: SEARCH_USER,
-  name,
-});
+export const searchUser = name => ({
+  type: USER_FUNCTION_LIST.SEARCH_USER,
+  name
+})

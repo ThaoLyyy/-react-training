@@ -10,74 +10,84 @@ import {
   StyleBtnWrapper,
   StyleButton
 } from './style'
+import { useContext } from 'react'
+import { StoreContext } from '../../../store'
 
-const Modal = ({ onCloseModal, text, defaultValue = {}, onSubmit, OnIsUpdate }) => {
+const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
+  const { addUser, updateUser } = useContext(StoreContext)
   // error message
   const [errors, setErrors] = useState([])
 
   // success messgage
-  const [message, setMsg] = useState('')
+  const [message, setMessage] = useState('')
 
   const [inputs, setInputs] = useState(defaultValue)
 
   /**get value input */
-  const handleChange = event => {
-    const name = event.target.name
-    const value = event.target.value
+  const handleChange = e => {
+    const name = e.target.name
+    const value = e.target.value
     setInputs(values => ({ ...values, [name]: value }))
   }
 
   /** validate form */
   const validate = () => {
-    const errors = []
+    const message = {}
 
-    if (inputs.image === '') {
-      errors.push('Please enter image')
-    }
-
-    if (inputs.username === '') {
-      errors.push('Please enter username')
-    }
-    if (inputs.email === '') {
-      errors.push('Please enter email')
+    if (!inputs.image) {
+      message.image = 'Please enter image'
     }
 
-    if (inputs.phone === '') {
-      errors.push('Please enter phone')
+    if (!inputs.name) {
+      message.name = 'Please enter username'
     }
-    // else {
-    //   if (Number(inputs.phone) < 0) {
-    //     errors.push("Wrong phone number");
+    if (!inputs.email) {
+      message.email = 'Please input your email'
+    }
+
+    if (!inputs.phone) {
+      message.phone('Please enter phone')
+    }
+    //  else {
+    //   if (Number(!inputs.phone) <= 0) {
+    //     message.phone = "Wrong phone number";
     //   }
     // }
 
-    if (inputs.address === '') {
-      errors.push('Please enter address')
+    if (!inputs.address) {
+      message.address = 'Please enter address'
     }
 
-    return errors
+    // return errors;
+    setErrors(message)
+    if (Object.keys(message).length > 0) return false
+    return true
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    const errors = validate()
+    const isValid = validate()
+    if (!isValid) return
+    // const errors = validate();
 
-    if (errors.length > 0) {
-      setErrors(errors)
-      return
-    }
+    // if (errors.length > 0) {
+    //   setErrors(errors);
+    //   return;
+    // }
 
     /**update data */
     if (inputs.id) {
-      OnIsUpdate(inputs)
+      // OnIsUpdate(inputs);
+      updateUser(inputs)
       onCloseModal()
     } else {
       /**submit data */
       inputs.id = uuidv4()
-      onSubmit({ ...inputs })
-
+      addUser({ ...inputs })
+      // onSubmit({ ...inputs });
+      onCloseModal()
       setInputs('')
-      setMsg('Create successful users ')
+      // setMsg("Create successful users ");
     }
   }
 
@@ -89,6 +99,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {}, onSubmit, OnIsUpdate }) 
           <StyleError key={index}>Error: {error}</StyleError>
         ))}
         <StyleError notice>{message}</StyleError>
+
         <StyleFormSubmit onSubmit={handleSubmit}>
           {/* <StyleLabel>Image Url:</StyleLabel> */}
           <StyleInputUser

@@ -4,10 +4,10 @@ const Section = styled.section`
   min-height: 100vh;
 `
 const Container = styled.div`
-  max-width: 1600px;
+  max-width: 1440px;
   width: 100%;
-  margin: 0 auto;
-  padding: 0;
+  margin: var(--margin) auto;
+  padding: var(--padding);
 `
 const Wrapper = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const TitleList = styled.h2`
   font-family: 'Roboto-Bold';
   text-transform: capitalize;
   font-weight: 600;
-  margin: 15px 0 0 35px;
+  margin: var(--margin-md) 0 0 var(--margin-3x-lg);
 `
 
 export { Section, Wrapper, Container, Row, TitleList }

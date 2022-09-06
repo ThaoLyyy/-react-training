@@ -1,8 +1,10 @@
-const ADD_USER = 'add_user'
-const UPDATE_USER = 'update_user'
-const DELETE_USER = 'delete_user'
-const SEARCH_USER = 'search_user'
+const USER_FUNCTION_LIST = {
+  ADD_USER: 'add_user',
+  UPDATE_USER: 'update_user',
+  DELETE_USER: 'delete_user',
+  SEARCH_USER: 'search_user'
+}
+const KEY = 'listUser'
+const listUser = JSON.parse(localStorage.getItem(KEY)) || []
 
-const ListUsers = JSON.parse(localStorage.getItem('listUser')) || []
-
-export { ADD_USER, UPDATE_USER, DELETE_USER, SEARCH_USER, ListUsers }
+export { KEY, USER_FUNCTION_LIST, listUser }

@@ -11,28 +11,48 @@ import {
 import ConfirmModal from '../common/ConfirmModal'
 import Button from '../common/Button'
 import Modal from '../common/Modal'
+import { useContext } from 'react'
+import { useEffect } from 'react'
+import { StoreContext } from '../../store'
 
-const UserItem = ({ onDelete, users, onUpdate }) => {
+const UserItem = ({ users }) => {
+  const { deleteUser, updateUser } = useContext(StoreContext)
   const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null)
   const [selectedDelUserId, setSelectedDelUserId] = useState(null)
+  // const [showAlert, setShowAlert] = useState(false);
+
+  // const handleShowAlert = () => {
+  //   setShowAlert(true);
+  //   setTimeout(() => {
+  //     setShowAlert(false);
+  //   }, 2000);
+  // };
+
+  useEffect(() => {
+    handleClose()
+
+    // return () => {
+    //     handleShowAlert();
+    // }
+  }, [])
 
   // Show DeleteModal
   const handleOpen = id => {
     setSelectedDelUserId(id)
   }
-  // Close Modal
+  /**Close Modal*/
   const handleClose = () => {
     setSelectedUpdateUserId(null)
     setSelectedDelUserId(null)
   }
-  // Delete users
+  /**Delete users*/
   const handleDelete = () => {
-    onDelete(selectedDelUserId)
+    deleteUser(selectedDelUserId)
     setSelectedDelUserId(null)
   }
-  // Update user
+  /**Update user*/
   const handleUpdate = user => {
-    onUpdate(user)
+    updateUser(user)
   }
   return (
     <StyleListItem>
