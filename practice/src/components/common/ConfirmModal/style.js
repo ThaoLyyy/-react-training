@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyleModalWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--cl--gray-200);
   position: fixed;
   top: 0;
   left: 0;
@@ -36,7 +36,7 @@ const StyleButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 22px;
+  margin: var(--margin-2x-lg);
 `
 const StyleButton = styled.button`
   cursor: pointer;
@@ -46,7 +46,7 @@ const StyleButton = styled.button`
   font-family: 'Roboto-Regular';
   font-size: var(--font-size-md);
   border-radius: 10px;
-  margin: 5px;
+  margin: var(--margin-xx-sm);
   border-radius: 10px;
   background-color: ${props => (props.yes ? 'var(  --cl--red-200)' : 'var( --cl--gray)')};
 `

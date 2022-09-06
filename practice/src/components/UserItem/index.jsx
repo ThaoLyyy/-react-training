@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from 'react'
 import {
   StyleListItem,
   StyleItem,
@@ -6,37 +6,37 @@ import {
   StyleImageItem,
   StyleIcon,
   StyleInforItem,
-  StyleDetailInfor,
-} from "./style";
-import ConfirmModal from "../common/ConfirmModal";
-import Button from "../common/Button";
-import Modal from "../common/Modal";
+  StyleDetailInfor
+} from './style'
+import ConfirmModal from '../common/ConfirmModal'
+import Button from '../common/Button'
+import Modal from '../common/Modal'
 
 const UserItem = ({ onDelete, users, onUpdate }) => {
-  const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null);
-  const [selectedDelUserId, setSelectedDelUserId] = useState(null);
+  const [selectedUpdateUserId, setSelectedUpdateUserId] = useState(null)
+  const [selectedDelUserId, setSelectedDelUserId] = useState(null)
 
   // Show DeleteModal
-  const handleOpen = (id) => {
-    setSelectedDelUserId(id);
-  };
+  const handleOpen = id => {
+    setSelectedDelUserId(id)
+  }
   // Close Modal
   const handleClose = () => {
-    setSelectedUpdateUserId(null);
-    setSelectedDelUserId(null);
-  };
+    setSelectedUpdateUserId(null)
+    setSelectedDelUserId(null)
+  }
   // Delete users
   const handleDelete = () => {
-    onDelete(selectedDelUserId);
-    setSelectedDelUserId(null);
-  };
+    onDelete(selectedDelUserId)
+    setSelectedDelUserId(null)
+  }
   // Update user
-  const handleUpdate = (user) => {
-    onUpdate(user);
-  };
+  const handleUpdate = user => {
+    onUpdate(user)
+  }
   return (
     <StyleListItem>
-      {users.map((user) => (
+      {users.map(user => (
         <StyleItem key={user.id}>
           <StyleImageWrapper>
             <StyleImageItem src={user.image} />
@@ -47,21 +47,13 @@ const UserItem = ({ onDelete, users, onUpdate }) => {
             <StyleDetailInfor>Email: {user.email}</StyleDetailInfor>
             <StyleDetailInfor>Address: {user.address}</StyleDetailInfor>
             <StyleIcon>
-              <Button
-                className="edit"
-                icon="fas fa-edit"
-                onClicked={() => setSelectedUpdateUserId(user)}
-              ></Button>
-              <Button
-                onClicked={() => handleOpen(user.id)}
-                className="delete"
-                icon="fas fa-trash-alt"
-              ></Button>
+              <Button className="edit" icon="fas fa-edit" onClicked={() => setSelectedUpdateUserId(user)}></Button>
+              <Button onClicked={() => handleOpen(user.id)} className="delete" icon="fas fa-trash-alt"></Button>
             </StyleIcon>
           </StyleInforItem>
         </StyleItem>
       ))}
-      
+
       {/* show update popup */}
       {!!selectedUpdateUserId && (
         <Modal
@@ -73,10 +65,8 @@ const UserItem = ({ onDelete, users, onUpdate }) => {
       )}
 
       {/* show delete popup */}
-      {!!selectedDelUserId && (
-        <ConfirmModal onDel={handleDelete} onCloseModal={handleClose} />
-      )}
+      {!!selectedDelUserId && <ConfirmModal onDel={handleDelete} onCloseModal={handleClose} />}
     </StyleListItem>
-  );
+  )
 }
-export default UserItem;
+export default UserItem

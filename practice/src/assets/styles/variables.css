@@ -3,15 +3,15 @@
   --cl--white-100: #ffffff;
   --cl--red-100: #ff4e50;
   --cl--red-200: #f23636;
-  --cl--light-pink-100: #ffdede;
-  --cl--light-pink-100: #ffdede;
+  --cl--light-pink-primary: #ffdede;
   --cl--light-pink-200: #ffafaf;
   --cl--light-pink-300: #ed9696;
+  --cl--light-pink-500: #ff66cc;
   --cl--light-yellow-100: #efc83f;
   --cl--light-purple-100: #6f5cf1;
   --cl--light-blue-100: #78e2f3;
   --cl--light-orange-100: #ff9966;
-  --cl--gray: #CFC5C5;
+  --cl--gray: #cfc5c5;
   --cl--gray-100: #e3e3e396;
   --cl--gray-200: #00000080;
   --cl--gray-400: #6d7475;
@@ -32,4 +32,41 @@
   --font-size-4xlg: 40px;
   --font-size-4xl: 46px;
   --font-size-5xl: 52px;
+
+  /* margin */
+  --margin: 0px;
+  --margin-xxx-sm: -16px;
+  --margin-xx-sm: 8px;
+  --margin-x-sm: 10px;
+  --margin-sm: 12px;
+  --margin-x-md: 14px;
+  --margin-md: 16px;
+  --margin-lg: 18px;
+  --margin-x-lg: 20px;
+  --margin-2x-lg: 24px;
+  --margin-2x-l: 28px;
+  --margin-3x-l: 30px;
+  --margin-3x-lg: 36px;
+  --margin-4x-l: 40px;
+  --margin-4x-lg: 46px;
+  --margin-5x-l: 50px;
+  --margin-6x-l: 60px;
+  --margin-7x-l: 70px;
+  --margin-x6x-lg: 160px;
+  --margin-6xx-lg: 600px;
+
+  /* padding */
+  --padding: 0px;
+  --padding-xx-sm: 8px;
+  --padding-x-sm: 10px;
+  --padding-sm: 12px;
+  --padding-x-md: 14px;
+  --padding-md: 16px;
+  --padding-lg: 18px;
+  --padding-x-lg: 20px;
+  --padding-2x-lg: 24px;
+  --padding-2x-l: 28px;
+  --padding-3x-l: 30px;
+  --padding-3x-lg: 36px;
+  --padding-6xx-lg: 600px;
 }

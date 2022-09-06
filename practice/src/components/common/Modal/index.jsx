@@ -5,7 +5,6 @@ import {
   StyleModalUser,
   StyleTitle,
   StyleFormSubmit,
-  StyleLabel,
   StyleInputUser,
   StyleError,
   StyleBtnWrapper,

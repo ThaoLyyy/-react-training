@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyleCommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
   &.add {
     margin-left: 970px;
-    padding: 10px;
+    padding: var(--padding-x-sm);
     width: 30px;
     border-radius: 8px;
     color: var(--cl--white-100);
@@ -26,7 +26,7 @@ const StyleCommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
   &.delete {
     font-size: var(--font-size-3xl);
     color: var(--cl--red-200);
-    margin-left: 160px;
+    margin-left: var(--margin-x6x-lg);
     border: none;
     cursor: pointer;
   }

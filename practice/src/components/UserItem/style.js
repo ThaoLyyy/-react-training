@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 const StyleListItem = styled.div`
   width: 1024px;
-  margin: 35px auto 26px;
-  padding: 0px;
+  margin: var(--margin-3x-lg) auto var(--margin-2x-lg);
+  padding: var(--padding);
   justify-content: space-around;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -11,9 +11,9 @@ const StyleListItem = styled.div`
 `
 const StyleItem = styled.div`
   display: flex;
-  background: var(--cl--light-pink-100);
+  background: var(--cl--light-pink-primary);
   border: 1px solid var(--cl--white);
-  padding: 15px;
+  padding: var(--padding-md);
   border-radius: 10px;
 `
 const StyleImageWrapper = styled.div`
@@ -24,7 +24,7 @@ const StyleImageItem = styled.img`
   width: 165px;
   height: 165px;
   object-fit: fill;
-  padding: 15px;
+  padding: var(--padding-md);
 `
 const StyleInforItem = styled.div`
   display: flex;
@@ -52,7 +52,7 @@ const StyleIcon = styled.div`
 const FontAwesomeIcon = styled.button`
   font-size: var(--font-size-2xlg);
   border: none;
-  margin-top: 10px;
+  margin-top: var(--margin-x-sm);
   cursor: pointer;
 `
 const Alert = styled.p``

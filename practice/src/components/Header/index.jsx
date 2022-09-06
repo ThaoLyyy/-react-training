@@ -1,11 +1,5 @@
-import React from "react";
-import {
-  StylePageHeader,
-  StyleContainerHeader,
-  StyleWrapperLogo,
-  StyleUserLogo,
-  StyleTitle,
-} from "./style";
+import React from 'react'
+import { StylePageHeader, StyleContainerHeader, StyleWrapperLogo, StyleUserLogo, StyleTitle } from './style'
 
 const Header = () => {
   return (
@@ -17,7 +11,7 @@ const Header = () => {
         </StyleWrapperLogo>
       </StyleContainerHeader>
     </StylePageHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

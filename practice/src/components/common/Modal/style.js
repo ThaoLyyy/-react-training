@@ -24,7 +24,7 @@ const StyleModalUser = styled.div`
 `
 const StyleFormSubmit = styled.form`
   line-height: 4;
-  margin: 0 60px;
+  margin: var(--margin) var(--margin-6x-l);
 `
 const StyleError = styled.p`
   color: #f71e1e;
@@ -36,7 +36,7 @@ const StyleTitle = styled.p`
   font-size: var(--font-size-3xlg);
   text-transform: capitalize;
   line-height: 2;
-  padding: 10px;
+  padding: var(--padding-x-sm);
 `
 const StyleLabel = styled.p`
   font-size: var(--font-size-md);
@@ -47,13 +47,13 @@ const StyleInputUser = styled.input`
   height: 30px;
   border-radius: 5px;
   border: none;
-  padding: 8px;
+  padding: var(--padding-xx-sm);
   font-size: var(--font-size-md);
 `
 const StyleBtnWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: var(--margin-5x-l);
 `
 const StyleButton = styled.button`
   cursor: pointer;
