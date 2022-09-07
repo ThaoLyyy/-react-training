@@ -15,8 +15,8 @@ const Template = args => <Button {...args} />
 export const Default = Template.bind({})
 Default.args = {
   label: 'Default',
-  backgroundColor: '#fff',
-  textColor: '#000'
+  backgroundColor: '#ffffff',
+  textColor: '#78e2f3'
 }
 
 export const Edit = Template.bind({})

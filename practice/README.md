@@ -59,12 +59,33 @@ This document provides information about ReactJS practice. Build List of user ma
     |-- components/
         |-- common/
             |-- Button/
+                |-- Button.stories.js
+                |-- index.jsx
+                |-- style.js
             |-- ConfirmModal/
+                |-- ConfirmModal.stories.js
+                |-- index.jsx
+                |-- style.js
             |-- Modal/
+                |-- Modal.stories.js
+                |-- index.jsx
+                |-- style.js
         |-- Header/
+            |-- Header.stories.js
+            |-- index.jsx
+            |-- style.js 
         |-- Search/
+            |-- Search.stories.js
+            |-- index.jsx
+            |-- style.js 
         |-- SideBar/
+            |-- SideBar.stories.js
+            |-- index.jsx
+            |-- style.js 
         |-- UserItem/
+            |-- UserItem.stories.js
+            |-- index.jsx
+            |-- style.js 
     |-- constants/
         |-- index.js
     |-- page/
@@ -83,6 +104,7 @@ This document provides information about ReactJS practice. Build List of user ma
     |-- utils/
         |-- helper.js
     |-- .editorconfig
+    |-- .eslintignore
     |-- .eslintrc
     |-- .prettierrc
     |-- App.css    
