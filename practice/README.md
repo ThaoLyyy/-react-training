@@ -3,20 +3,27 @@
 
 This document provides information about ReactJS practice. Build List of user manager website
 
-## Technical
+### Technical
 
 - HTML5/CSS3
+- Javascript (ES6 syntax)
 - ReactJS
 
-## Timeline	
+### Information:
 
-19 working days 
+- Timeline:
+    - Estimate time: 14 days.
+    - Actual time: 19 days
 
-## Plan
+- Editor: Visual Studio Code.
+- Support browsers: Chrome 104, Microsoft Edge, Opera 90.
+- Responsive: Not support responsive yet.
+
+###  Plan
 - Plan on github [project](https://github.com/users/ThaoLyyy/projects/2)
 - [Estimation](https://docs.google.com/document/d/1-vAGM7GAmrTsaTKkDvfb64OcWUQphWblpl53Vl_I-R4/edit)
 
-## Targets
+###  Targets
 
 - Build an application for manager using React
 - Apply knowledge of React/ React hooks
@@ -24,28 +31,29 @@ This document provides information about ReactJS practice. Build List of user ma
 - Apply styled-components
 - Apply Storybook
 
-## Development environment:
+###  Development environment:
 
 - Node: v16.15.1
 - react: v18.2.0
 - npm: v8.14.0
+- eslint: v8.14.0
 
-## Main app features:
+###  Main app features:
 
 - Users could create new user manager
 - Users could update user
 - Users could delete user by id
 - Users could search the list of user by name
 
-## References
+###  References
 - [ReactJS](https://reactjs.org/docs/thinking-in-react.html)
 - [Styled-Component](https://styled-components.com/docs)
 
-## Design
+###  Design
 
 - [Figma](https://www.figma.com/file/HPmgynGqF3ioAsQGSPzVtB/Design-UI?node-id=0%3A1)
 
-## FOLDER STRUCTURE
+###  FOLDER STRUCTURE
 
 ```
 |-- src/
@@ -115,13 +123,19 @@ This document provides information about ReactJS practice. Build List of user ma
 |-- README.md
 ```
 
-## Installation
+###  Getting started:
 
-- Step 1:clone repository
+- Step 1:clone repository 
+  - Main repo: git clone
+    + HTTPS:
 ```bash
-git clone https://github.com/ThaoLyyy/react-training
+https://github.com/ThaoLyyy/react-training.git
 ```
-- Step 2: Checkout branch
+    + SSH:
+```bash
+git@github.com:ThaoLyyy/react-training.git
+```
+- Step 2: Go to the folder react practice https://github.com/ThaoLyyy/react-training/tree/develop
 ```bash
 git checkout branch develop
 ```
@@ -139,13 +153,13 @@ npm start
 ```
 - step 6: Open in browser:
 ```
-~http://localhost:3000~
+http://localhost:3000
 ```
 - step 7 : run storybook
 ```bash
 npm run storybook
 ```
-## Author
+###  Author
 
 - Thao Ly
 - Email: thaolydn1805@gmail.com
