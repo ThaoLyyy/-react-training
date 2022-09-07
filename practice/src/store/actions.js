@@ -1,4 +1,4 @@
-import { USER_FUNCTION_LIST } from './constants'
+import { USER_FUNCTION_LIST } from '../constants'
 
 export const addUser = inputs => ({
   type: USER_FUNCTION_LIST.ADD_USER,

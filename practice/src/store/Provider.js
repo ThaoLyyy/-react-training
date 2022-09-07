@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
-import { actions } from '.'
 import Context from './Context'
 import reducer, { initState } from '../reducers'
+import { actions } from '.'
 
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState)
