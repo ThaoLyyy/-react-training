@@ -17,7 +17,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
   const { addUser, updateUser } = useContext(StoreContext)
 
   /**error message*/
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState('')
 
   /**The defaultValue property sets*/
   const [inputs, setInputs] = useState(defaultValue)
@@ -29,29 +29,37 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     setInputs(values => ({ ...values, [name]: value }))
   }
 
+  // let format = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/
   /** validate form */
   const validate = () => {
     const errors = {}
 
     if (!inputs.image) {
-      errors.image = 'Please enter image'
+      errors.image = 'User image is required!'
     }
 
     if (!inputs.name) {
-      errors.name = 'Please enter alphabet characters only'
+      errors.name = 'User name is required!'
     }
+
+    // if (!inputs) {
+    //   errors.phone('Please Enter Phone Number')
+    // } else if (!inputs.phone.match(format)) {
+    //   errors.phone('Phone Number:' + !inputs)
+    // } else {
+    //   errors.phone('Type using correct format')
+    // }
+
+    // if (typeof !inputs.phone) {
+    //   if (!!inputs.phone.match(/^[0-9]{10}$/)) {
+    //     errors.phone('Type using correct format')
+    //     return false
+    //   }
+    // }
+
     if (!inputs.email) {
-      errors.email = 'Please input your email'
+      errors.email = 'User email is required!'
     }
-
-    if (!inputs.phone) {
-      errors.phone('Please enter phone')
-    } else {
-      if (+!inputs.phone > 10) {
-        errors.phone = 'Enter the correct phone number'
-      }
-    }
-
     if (!inputs.address) {
       errors.address = 'Please enter address'
     }
@@ -82,18 +90,15 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     <StyleModalWrapper>
       <StyleModalUser>
         <StyleTitle>{text}</StyleTitle>
-        {/* {errors.map((error, index) => (
-          <StyleError key={index}>Error: {error}</StyleError>
-        ))} */}
-
         <StyleFormSubmit onSubmit={handleSubmit}>
           <StyleInputUser
+            type="url"
             name="image"
             placeholder="Image Url*"
             value={inputs.image || ''}
             onChange={handleChange}
             accept="image/png, image/jpg, image/webp"
-            required
+            // required
           />
           {/* add the error message below the input field */}
           <StyleError>{errors.image}</StyleError>
@@ -103,17 +108,18 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Username*"
             value={inputs.name || ''}
             onChange={handleChange}
-            required
+            // required
           />
           <StyleError>{errors.name}</StyleError>
           <StyleInputUser
-            // type="number"
-            type="text"
+            // type="text"
+            type="tel"
             name="phone"
-            placeholder="Phone*"
+            placeholder="Phone* xxx-xxx-xxxx"
             value={inputs.phone || ''}
             onChange={handleChange}
-            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            // required
           />
           <StyleError>{errors.phone}</StyleError>
           <StyleInputUser
@@ -122,7 +128,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Email*"
             value={inputs.email || ''}
             onChange={handleChange}
-            required
+            // required
           />
           <StyleError>{errors.email}</StyleError>
           <StyleInputUser
@@ -131,7 +137,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Address*"
             value={inputs.address || ''}
             onChange={handleChange}
-            required
+            // required
           />
           <StyleError>{errors.address}</StyleError>
           <StyleBtnWrapper>

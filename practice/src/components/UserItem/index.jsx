@@ -28,7 +28,7 @@ const UserItem = ({ users }) => {
   const handleOpen = id => {
     setSelectedDelUserId(id)
   }
-  /**Close Modal*/
+  /**Close modal*/
   const handleClose = () => {
     setSelectedUpdateUserId(null)
     setSelectedDelUserId(null)
@@ -62,7 +62,7 @@ const UserItem = ({ users }) => {
         </StyleItem>
       ))}
 
-      {/* show update popup */}
+      {/* show update modal */}
       {!!selectedUpdateUserId && (
         <Modal
           text="Edit Users"
@@ -72,7 +72,7 @@ const UserItem = ({ users }) => {
         />
       )}
 
-      {/* show delete popup */}
+      {/* show delete modal */}
       {!!selectedDelUserId && <ConfirmModal onDel={handleDelete} onCloseModal={handleClose} />}
     </StyleListItem>
   )

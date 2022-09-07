@@ -27,8 +27,9 @@ const StyleFormSubmit = styled.form`
   margin: var(--margin) var(--margin-6x-l);
 `
 const StyleError = styled.p`
-  color: #f71e1e;
+  color: var(--cl--red-200);
   line-height: 7px;
+  font-size: var(--font-size-md);
 `
 const StyleTitle = styled.p`
   text-align: center;

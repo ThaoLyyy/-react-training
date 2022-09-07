@@ -33,13 +33,7 @@ const Home = () => {
               <Search onSearch={searchUser} />
               <TitleList>list item user</TitleList>
               <Button className="add" onClicked={handleOpenModal} icon="fa fa-user-plus"></Button>
-              {show && (
-                <Modal
-                  text="Create user"
-                  onCloseModal={handleCloseModal}
-                  // onSubmit={addUser}
-                />
-              )}
+              {show && <Modal text="Create user" onCloseModal={handleCloseModal} />}
               <UserItem users={filteredList.length === 0 ? users : filteredList} />
             </Row>
           </Wrapper>
