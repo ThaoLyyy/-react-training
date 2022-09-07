@@ -22,10 +22,6 @@ const UserItem = ({ users }) => {
 
   useEffect(() => {
     handleClose()
-
-    // return () => {
-    //     handleShowAlert();
-    // }
   }, [])
 
   // Show DeleteModal

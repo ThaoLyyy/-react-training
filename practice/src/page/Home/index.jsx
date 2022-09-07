@@ -11,8 +11,6 @@ import UserItem from '../../components/UserItem'
 const Home = () => {
   const { searchUser, users, filteredList } = useContext(StoreContext)
 
-  // const { users, filteredList, searchUser } = useContext(StoreContext);
-
   const [show, setShow] = useState(false)
 
   /**show Modal */

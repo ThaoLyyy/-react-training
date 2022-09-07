@@ -1,12 +1,14 @@
-import React from "react";
-import Modal from ".";
-
+import React from 'react'
+import Modal from '.'
 
 export default {
-  title: "Modal",
-  common: Modal,
-};
+  title: 'Modal',
+  common: Modal
+}
 
-export const Default = () => {
-  return <Modal />;
-};
+const Template = args => <Modal {...args} />
+export const Default = Template.bind({})
+Default.args = {
+  title: 'Modal',
+  label: 'Input'
+}

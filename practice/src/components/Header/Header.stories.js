@@ -3,9 +3,9 @@ import Header from ".";
 
 export default {
   title: "Components/Header",
-  component: Header,
-};
+  Component: Header,
+}
 
 export const Default = () => {
-  return <Header />;
-};
+  return <Header />
+}
