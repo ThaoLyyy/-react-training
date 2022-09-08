@@ -27,6 +27,7 @@ This document provides information about ReactJS practice. Build List of user ma
 
 - Build an application for manager using React
 - Apply knowledge of React/ React hooks
+- Apply useContext + hooks for state management.
 - Check re-render and using hook to avoid re-render.
 - Apply styled-components
 - Apply Storybook

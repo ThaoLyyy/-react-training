@@ -2,7 +2,7 @@ import { listUser, USER_FUNCTION_LIST } from '../constants'
 import { saveLocalStorage } from '../utils/helper'
 
 /**
- * init state
+ * initState
  */
 const initState = {
   users: listUser,

@@ -61,7 +61,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       errors.email = 'User email is required!'
     }
     if (!inputs.address) {
-      errors.address = 'Please enter address'
+      errors.address = 'User address is required!'
     }
 
     setErrors(errors)
@@ -98,7 +98,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             value={inputs.image || ''}
             onChange={handleChange}
             accept="image/png, image/jpg, image/webp"
-            // required
           />
           {/* add the error message below the input field */}
           <StyleError>{errors.image}</StyleError>
@@ -108,7 +107,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Username*"
             value={inputs.name || ''}
             onChange={handleChange}
-            // required
           />
           <StyleError>{errors.name}</StyleError>
           <StyleInputUser
@@ -119,7 +117,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             value={inputs.phone || ''}
             onChange={handleChange}
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            // required
           />
           <StyleError>{errors.phone}</StyleError>
           <StyleInputUser
@@ -128,7 +125,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Email*"
             value={inputs.email || ''}
             onChange={handleChange}
-            // required
           />
           <StyleError>{errors.email}</StyleError>
           <StyleInputUser
@@ -137,7 +133,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             placeholder="Address*"
             value={inputs.address || ''}
             onChange={handleChange}
-            // required
           />
           <StyleError>{errors.address}</StyleError>
           <StyleBtnWrapper>

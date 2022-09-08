@@ -4,6 +4,7 @@ const USER_FUNCTION_LIST = {
   DELETE_USER: 'delete_user',
   SEARCH_USER: 'search_user'
 }
+
 const KEY = 'listUser'
 const listUser = JSON.parse(localStorage.getItem(KEY)) || []
 

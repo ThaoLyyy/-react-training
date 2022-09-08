@@ -36,7 +36,7 @@ const StyleInforItem = styled.div`
 const StyleDetailInfor = styled.p`
   font-size: var(--font-size-md);
   font-weight: 600;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   line-height: 3;
   width: 240px;
   overflow: hidden;
