@@ -130,12 +130,7 @@ This document provides information about ReactJS practice. Build List of user ma
     + HTTPS:
 ```bash
 https://github.com/ThaoLyyy/react-training.git
-```
-    + SSH:
-    
-```bash
-git@github.com:ThaoLyyy/react-training.git
-```
+```  
 - Step 2: Go to the folder react practice https://github.com/ThaoLyyy/react-training/tree/develop
 ```bash
 git checkout branch develop
