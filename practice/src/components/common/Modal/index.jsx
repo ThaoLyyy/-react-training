@@ -46,6 +46,13 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       errors.email = 'User email is required!'
     }
 
+    if (!inputs.phone) {
+      errors.phone = 'User phone is required!'
+      // errors.phone = inputs.phone.length > 9 ? ' ' : 'Minimum 10 numbers'
+    }
+    // else if(inputs.phone.length > 9 ? ' ' : ' '){
+    //   errors.phone = 'Price must be greater than 0'
+    // }
     // if (!inputs) {
     //   errors.phone('Please Enter Phone Number')
     // } else if (!inputs.phone.match(format)) {
@@ -55,7 +62,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     // }
 
     // if (typeof !inputs.phone) {
-    //   if (!!inputs.phone.match(/^[0-9]{10}$/)) {
+    //   if (!inputs.phone.match(/^[0-9]{10}$/)) {
     //     errors.phone('Type using correct format')
     //     return false
     //   }
