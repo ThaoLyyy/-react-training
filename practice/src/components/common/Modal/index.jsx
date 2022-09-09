@@ -50,23 +50,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       errors.phone = 'User phone is required!'
       // errors.phone = inputs.phone.length > 9 ? ' ' : 'Minimum 10 numbers'
     }
-    // else if(inputs.phone.length > 9 ? ' ' : ' '){
-    //   errors.phone = 'Price must be greater than 0'
-    // }
-    // if (!inputs) {
-    //   errors.phone('Please Enter Phone Number')
-    // } else if (!inputs.phone.match(format)) {
-    //   errors.phone('Phone Number:' + !inputs)
-    // } else {
-    //   errors.phone('Type using correct format')
-    // }
-
-    // if (typeof !inputs.phone) {
-    //   if (!inputs.phone.match(/^[0-9]{10}$/)) {
-    //     errors.phone('Type using correct format')
-    //     return false
-    //   }
-    // }
 
     if (!inputs.address) {
       errors.address = 'User address is required!'

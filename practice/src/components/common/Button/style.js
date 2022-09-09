@@ -18,7 +18,7 @@ const StyleCommonButton = styled.div.attrs(() => ({ tabIndex: 0 }))`
   &.edit {
     position: absolute;
     font-size: var(--font-size-3xl);
-    color: var(--cl--light-yellow-100);
+    color: var(--cl--light-green-100);
     border: none;
     cursor: pointer;
   }

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import ConfirmModal from '../common/ConfirmModal'
 import { useEffect } from 'react'
-import Button from '../common/Button'
-import Modal from '../common/Modal'
 import { useContext } from 'react'
 import { StoreContext } from '../../store'
+import ConfirmModal from '../common/ConfirmModal'
+import Button from '../common/Button'
+import Modal from '../common/Modal'
 import {
   StyleListItem,
   StyleItem,

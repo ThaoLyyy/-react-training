@@ -28,7 +28,7 @@ const StyleFormSubmit = styled.form`
 `
 const StyleError = styled.p`
   color: var(--cl--red-200);
-  line-height: 7px;
+  line-height: 12px;
   font-size: var(--font-size-md);
 `
 const StyleTitle = styled.p`
