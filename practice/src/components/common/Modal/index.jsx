@@ -1,5 +1,9 @@
+import { useState } from 'react'
+import { memo } from 'react'
+import { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { memo, useState } from 'react'
+import { StoreContext } from '../../../store'
+// import { memo, useState } from 'react'
 import {
   StyleModalWrapper,
   StyleModalUser,
@@ -10,8 +14,6 @@ import {
   StyleBtnWrapper,
   StyleButton
 } from './style'
-import { useContext } from 'react'
-import { StoreContext } from '../../../store'
 
 const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
   const { addUser, updateUser } = useContext(StoreContext)
@@ -29,7 +31,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     setInputs(values => ({ ...values, [name]: value }))
   }
 
-  // let format = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/
   /** validate form */
   const validate = () => {
     const errors = {}
@@ -40,6 +41,9 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
 
     if (!inputs.name) {
       errors.name = 'User name is required!'
+    }
+    if (!inputs.email) {
+      errors.email = 'User email is required!'
     }
 
     // if (!inputs) {
@@ -57,9 +61,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     //   }
     // }
 
-    if (!inputs.email) {
-      errors.email = 'User email is required!'
-    }
     if (!inputs.address) {
       errors.address = 'User address is required!'
     }
@@ -91,16 +92,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       <StyleModalUser>
         <StyleTitle>{text}</StyleTitle>
         <StyleFormSubmit onSubmit={handleSubmit}>
-          <StyleInputUser
-            type="url"
-            name="image"
-            placeholder="Image Url*"
-            value={inputs.image || ''}
-            onChange={handleChange}
-            accept="image/png, image/jpg, image/webp"
-          />
           {/* add the error message below the input field */}
-          <StyleError>{errors.image}</StyleError>
           <StyleInputUser
             type="text"
             name="name"
@@ -110,7 +102,14 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.name}</StyleError>
           <StyleInputUser
-            // type="text"
+            type="email"
+            name="email"
+            placeholder="Email*"
+            value={inputs.email || ''}
+            onChange={handleChange}
+          />
+          <StyleError>{errors.email}</StyleError>
+          <StyleInputUser
             type="tel"
             name="phone"
             placeholder="Phone* xxx-xxx-xxxx"
@@ -120,14 +119,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.phone}</StyleError>
           <StyleInputUser
-            type="email"
-            name="email"
-            placeholder="Email*"
-            value={inputs.email || ''}
-            onChange={handleChange}
-          />
-          <StyleError>{errors.email}</StyleError>
-          <StyleInputUser
             type="text"
             name="address"
             placeholder="Address*"
@@ -135,6 +126,15 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             onChange={handleChange}
           />
           <StyleError>{errors.address}</StyleError>
+          <StyleInputUser
+            type="url"
+            name="image"
+            placeholder="Image Url*"
+            value={inputs.image || ''}
+            onChange={handleChange}
+            accept="image/png, image/jpg, image/webp"
+          />
+          <StyleError>{errors.image}</StyleError>
           <StyleBtnWrapper>
             <StyleButton save type="submit" value="Submit" onClicked={handleSubmit}>
               Save Users

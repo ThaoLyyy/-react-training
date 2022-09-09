@@ -11,15 +11,16 @@ import UserItem from '../../components/UserItem'
 const Home = () => {
   const { searchUser, users, filteredList } = useContext(StoreContext)
 
-  const [show, setShow] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
+  // const {isShowing, toggle} = Modal();
   /**show Modal */
   const handleOpenModal = () => {
-    setShow(!show)
+    setShowModal(!showModal)
   }
   /** close Modal */
   const handleCloseModal = () => {
-    setShow(false)
+    setShowModal(false)
   }
 
   return (
@@ -33,7 +34,8 @@ const Home = () => {
               <Search onSearch={searchUser} />
               <TitleList>list item user</TitleList>
               <Button className="add" onClicked={handleOpenModal} icon="fa fa-user-plus"></Button>
-              {show && <Modal text="Create user" onCloseModal={handleCloseModal} />}
+              {/* <Button className="add" isShowing={isShowing} hide={toggle} icon="fa fa-user-plus"></Button> */}
+              {showModal && <Modal text="Create user" onCloseModal={handleCloseModal} />}
               <UserItem users={filteredList.length === 0 ? users : filteredList} />
             </Row>
           </Wrapper>

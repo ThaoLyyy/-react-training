@@ -1,4 +1,4 @@
-import { listUser, USER_FUNCTION_LIST } from '../constants'
+import { listUser, USER_FUNCTIONS } from '../constants'
 import { saveLocalStorage } from '../utils/helper'
 
 /**
@@ -11,7 +11,7 @@ const initState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case USER_FUNCTION_LIST.ADD_USER: {
+    case USER_FUNCTIONS.ADD: {
       const users = [...state.users, action.inputs]
       saveLocalStorage(users)
       return {
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
       }
     }
 
-    case USER_FUNCTION_LIST.UPDATE_USER: {
+    case USER_FUNCTIONS.UPDATE: {
       const updatedUser = action.item
       const updatedUsers = state.users.map(user => (user.id === updatedUser.id ? updatedUser : user))
       saveLocalStorage(updatedUsers)
@@ -30,7 +30,7 @@ const reducer = (state, action) => {
       }
     }
 
-    case USER_FUNCTION_LIST.DELETE_USER: {
+    case USER_FUNCTIONS.DELETE: {
       const filtered = state.users.filter(user => user.id !== action.id)
       saveLocalStorage(filtered)
       return {
@@ -39,7 +39,7 @@ const reducer = (state, action) => {
       }
     }
 
-    case USER_FUNCTION_LIST.SEARCH_USER: {
+    case USER_FUNCTIONS.SEARCH: {
       return {
         ...state,
         users: state.users.filter(user => user.name.toLowerCase().search(action.name.toLowerCase().trim()) !== -1)

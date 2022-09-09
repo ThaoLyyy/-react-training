@@ -134,7 +134,7 @@ https://github.com/ThaoLyyy/react-training.git
 ```  
 - Step 2: Go to the folder react practice https://github.com/ThaoLyyy/react-training/tree/develop
 ```bash
-git checkout branch develop
+git checkout develop
 ```
 - Step 3:cd folder practice
 ```bash

@@ -1,20 +1,20 @@
-import { USER_FUNCTION_LIST } from '../constants'
+import { USER_FUNCTIONS } from '../constants'
 
 export const addUser = inputs => ({
-  type: USER_FUNCTION_LIST.ADD_USER,
+  type: USER_FUNCTIONS.ADD,
   inputs
 })
 
 export const updateUser = item => ({
-  type: USER_FUNCTION_LIST.UPDATE_USER,
+  type: USER_FUNCTIONS.UPDATE,
   item
 })
 export const deleteUser = id => ({
-  type: USER_FUNCTION_LIST.DELETE_USER,
+  type: USER_FUNCTIONS.DELETE,
   id
 })
 
 export const searchUser = name => ({
-  type: USER_FUNCTION_LIST.SEARCH_USER,
+  type: USER_FUNCTIONS.SEARCH,
   name
 })
