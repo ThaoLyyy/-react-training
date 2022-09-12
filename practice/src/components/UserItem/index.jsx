@@ -4,8 +4,6 @@ import { useContext } from 'react'
 import { StoreContext } from '../../store'
 import Button from '../common/Button'
 import ConfirmModal from '../ConfirmModal'
-// import ConfirmModal from '../common/ConfirmModal'
-// import Button from '../common/Button'
 import Modal from '../common/Modal'
 import {
   StyleListItem,
@@ -58,8 +56,8 @@ const UserItem = ({ users }) => {
             <StyleDetailInfor>Phone: {user.phone}</StyleDetailInfor>
             <StyleDetailInfor>Address: {user.address}</StyleDetailInfor>
             <StyleIcon>
-              <Button className='edit' icon='fas fa-edit' onClicked={() => setSelectedUpdateUserId(user)}></Button>
-              <Button onClicked={() => handleOpen(user.id)} className='delete' icon='fas fa-trash-alt'></Button>
+              <Button className="edit" icon="fas fa-edit" onClicked={() => setSelectedUpdateUserId(user)}></Button>
+              <Button onClicked={() => handleOpen(user.id)} className="delete" icon="fas fa-trash-alt"></Button>
             </StyleIcon>
           </StyleInforItem>
         </StyleItem>
@@ -68,7 +66,7 @@ const UserItem = ({ users }) => {
       {/* show update modal */}
       {!!selectedUpdateUserId && (
         <Modal
-          text='Edit Users'
+          text="Edit Users"
           defaultValue={selectedUpdateUserId}
           OnIsUpdate={handleUpdate}
           onCloseModal={handleClose}
