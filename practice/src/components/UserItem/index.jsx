@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { StoreContext } from '../../store'
-import ConfirmModal from '../common/ConfirmModal'
 import Button from '../common/Button'
+import ConfirmModal from '../ConfirmModal'
+// import ConfirmModal from '../common/ConfirmModal'
+// import Button from '../common/Button'
 import Modal from '../common/Modal'
 import {
   StyleListItem,
@@ -74,7 +76,7 @@ const UserItem = ({ users }) => {
       )}
 
       {/* show delete modal */}
-      {!!selectedDelUserId && <ConfirmModal onDel={handleDelete} onCloseModal={handleClose} />}
+      {!!selectedDelUserId && <ConfirmModal onDelete={handleDelete} onCloseModal={handleClose} />}
     </StyleListItem>
   )
 }
