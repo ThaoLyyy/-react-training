@@ -18,7 +18,7 @@ const StyleModal = styled.div`
   font-family: 'Roboto';
   border-radius: 10px;
   left: 50%;
-  top: 25%;
+  top: 30%;
   transform: translate(-50%, -50%);
 `
 const StyleTitle = styled.p`
@@ -48,6 +48,6 @@ const StyleButton = styled.button`
   border-radius: 10px;
   margin: var(--margin-xx-sm);
   border-radius: 10px;
-  background-color: ${props => (props.yes ? 'var(  --cl--red-200)' : 'var( --cl--gray)')};
+  background-color: ${props => (props.backgroundColor ? 'var(  --cl--red-200)' : 'var( --cl--gray)')};
 `
 export { StyleModalWrapper, StyleModal, StyleTitle, StyleContent, StyleButtonWrapper, StyleButton }

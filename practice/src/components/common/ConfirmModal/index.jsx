@@ -1,13 +1,13 @@
 import { StyleModalWrapper, StyleModal, StyleContent, StyleButtonWrapper, StyleTitle, StyleButton } from './style'
 
-const ConfirmModal = ({ onCloseModal, onDel }) => {
+const ConfirmModal = ({ onCloseModal, onDelete }) => {
   return (
     <StyleModalWrapper>
       <StyleModal>
         <StyleTitle>Delete User</StyleTitle>
         <StyleContent>Are you sure delete this users ?</StyleContent>
         <StyleButtonWrapper>
-          <StyleButton yes onClick={onDel}>
+          <StyleButton backgroundColor onClick={onDelete}>
             Delete
           </StyleButton>
           <StyleButton onClick={onCloseModal}>Cancel</StyleButton>

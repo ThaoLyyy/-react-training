@@ -47,9 +47,9 @@ const Home = () => {
             <Row>
               <Search handleChange={handleSearchInput} onSearch={searchUser} />
               <TitleList>list item user</TitleList>
-              <Button className='add' onClicked={handleOpenModal} icon='fa fa-user-plus'></Button>
+              <Button className="add" onClicked={handleOpenModal} icon="fa fa-user-plus"></Button>
               {/* <Button className="add" isShowing={isShowing} hide={toggle} icon="fa fa-user-plus"></Button> */}
-              {showModal && <Modal text='Create user' onCloseModal={handleCloseModal} />}
+              {showModal && <Modal text="Create user" onCloseModal={handleCloseModal} />}
               <UserItem users={filteredList.length === 0 ? users : filteredList} inputValues={inputValues} />
             </Row>
           </Wrapper>
