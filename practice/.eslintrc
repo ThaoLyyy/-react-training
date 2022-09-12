@@ -1,6 +1,19 @@
 {
   "extends": ["react-app", "prettier"],
   "plugins": ["react", "prettier"],
+  "settings": {
+    "ecmascript": 6
+  },
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "jsx": true
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   "rules": {
     "prettier/prettier": [
       "warn",
@@ -13,7 +26,22 @@
         "useTabs": false,
         "singleQuote": true,
         "printWidth": 120,
-        "jsxSingleQuote": false
+        "jsxSingleQuote": false,
+        "prefer-arrow-callback": 1,
+        "strict": 0,
+        "indent": [2, 2],
+        "quotes": [1, "single"],
+        "no-multi-spaces": [
+          1,
+          {
+            "exceptions": {
+              "VariableDeclarator": true,
+              "FunctionExpression": true
+            }
+          }
+        ],
+        "key-spacing": [0, { "align": "value" }],
+        "no-underscore-dangle": 0
       }
     ]
   }

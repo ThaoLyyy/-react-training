@@ -1,9 +1,9 @@
-import React from "react";
-import Header from ".";
+import React from 'react'
+import Header from '.'
 
 export default {
-  title: "Components/Header",
-  Component: Header,
+  title: 'Components/Header',
+  Component: Header
 }
 
 export const Default = () => {

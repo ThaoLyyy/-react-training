@@ -3,7 +3,6 @@ import { memo } from 'react'
 import { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { StoreContext } from '../../../store'
-// import { memo, useState } from 'react'
 import {
   StyleModalWrapper,
   StyleModalUser,
@@ -48,7 +47,6 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
 
     if (!inputs.phone) {
       errors.phone = 'User phone is required!'
-      // errors.phone = inputs.phone.length > 9 ? ' ' : 'Minimum 10 numbers'
     }
 
     if (!inputs.address) {
@@ -84,49 +82,49 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
         <StyleFormSubmit onSubmit={handleSubmit}>
           {/* add the error message below the input field */}
           <StyleInputUser
-            type="text"
-            name="name"
-            placeholder="Username*"
+            type='text'
+            name='name'
+            placeholder='Username*'
             value={inputs.name || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.name}</StyleError>
           <StyleInputUser
-            type="email"
-            name="email"
-            placeholder="Email*"
+            type='email'
+            name='email'
+            placeholder='Email*'
             value={inputs.email || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.email}</StyleError>
           <StyleInputUser
-            type="tel"
-            name="phone"
-            placeholder="Phone* xxx-xxx-xxxx"
+            type='tel'
+            name='phone'
+            placeholder='Phone* xxx-xxx-xxxx'
             value={inputs.phone || ''}
             onChange={handleChange}
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
           />
           <StyleError>{errors.phone}</StyleError>
           <StyleInputUser
-            type="text"
-            name="address"
-            placeholder="Address*"
+            type='text'
+            name='address'
+            placeholder='Address*'
             value={inputs.address || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.address}</StyleError>
           <StyleInputUser
-            type="url"
-            name="image"
-            placeholder="Image Url*"
+            type='url'
+            name='image'
+            placeholder='Image Url*'
             value={inputs.image || ''}
             onChange={handleChange}
-            accept="image/png, image/jpg, image/webp"
+            accept='image/png, image/jpg, image/webp'
           />
           <StyleError>{errors.image}</StyleError>
           <StyleBtnWrapper>
-            <StyleButton save type="submit" value="Submit" onClicked={handleSubmit}>
+            <StyleButton save type='submit' value='Submit' onClicked={handleSubmit}>
               Save Users
             </StyleButton>
             <StyleButton type="button" onClick={onCloseModal}>
