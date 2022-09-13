@@ -58,6 +58,8 @@ This document provides information about ReactJS practice. Build List of user ma
 
 ```
 |-- src/
+    |-- actions/
+        |-- index.js
     |-- assets/
         |-- fonts/
         |-- images/
@@ -82,43 +84,39 @@ This document provides information about ReactJS practice. Build List of user ma
         |-- Header/
             |-- Header.stories.js
             |-- index.jsx
-            |-- style.js 
+            |-- style.js
         |-- Search/
             |-- Search.stories.js
             |-- index.jsx
-            |-- style.js 
+            |-- style.js
         |-- SideBar/
             |-- SideBar.stories.js
             |-- index.jsx
-            |-- style.js 
+            |-- style.js
         |-- UserItem/
             |-- UserItem.stories.js
             |-- index.jsx
-            |-- style.js 
+            |-- style.js
     |-- constants/
+        |-- helper.js
         |-- index.js
     |-- page/
         |-- Home/
-            |-- Home.stories.js
             |-- index.jsx
-            |-- style.js      
+            |-- style.js
     |-- reducers/
         |-- index.js
     |-- store/
-        |-- actions.js
         |-- Context.js
         |-- hooks.js
         |-- index.js
         |-- Provider.js
-    |-- utils/
-        |-- helper.js
-    |-- .editorconfig
-    |-- .eslintignore
-    |-- .eslintrc
-    |-- .prettierrc
-    |-- App.css    
-    |-- App.js    
-    |-- index.js
+|-- App.js
+|-- index.js
+|-- .editorconfig
+|-- .eslintignore
+|-- .eslintrc
+|-- .prettierrc
 |-- .gitignore
 |-- package.json
 |-- README.md
@@ -126,12 +124,12 @@ This document provides information about ReactJS practice. Build List of user ma
 
 ###  Getting started:
 
-- Step 1:clone repository 
+- Step 1:clone repository
   - Main repo: git clone
     + HTTPS:
 ```bash
 https://github.com/ThaoLyyy/react-training.git
-```  
+```
 - Step 2: Go to the folder react practice https://github.com/ThaoLyyy/react-training/tree/develop
 ```bash
 git checkout develop
@@ -140,7 +138,7 @@ git checkout develop
 ```bash
 cd practice
 ```
-- step 4: 
+- step 4:
 ```bash
 npm install
 ```
