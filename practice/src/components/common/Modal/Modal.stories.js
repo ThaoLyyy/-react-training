@@ -2,11 +2,11 @@ import React from 'react'
 import Modal from '.'
 import {
   StyleBtnWrapper,
+  StyleOverlay,
   StyleButton,
   StyleError,
   StyleFormSubmit,
   StyleInputUser,
-  StyleModalUser,
   StyleModalWrapper,
   StyleTitle
 } from './style'
@@ -20,7 +20,7 @@ export const Default = () => {
   return (
     <>
       <StyleModalWrapper>
-        <StyleModalUser>
+        <StyleOverlay>
           <StyleTitle></StyleTitle>
           <StyleFormSubmit>
             <StyleInputUser />
@@ -38,7 +38,7 @@ export const Default = () => {
               <StyleButton>Cancel</StyleButton>
             </StyleBtnWrapper>
           </StyleFormSubmit>
-        </StyleModalUser>
+        </StyleOverlay>
       </StyleModalWrapper>
     </>
   )

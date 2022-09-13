@@ -4,7 +4,7 @@ import Button from '.'
 export default {
   title: 'Button',
   component: Button,
-  argTypes: {
+  arg: {
     handleClick: { action: 'clicked' },
     backgroundColor: { control: 'color' },
     textColor: { control: 'color' }
@@ -46,6 +46,12 @@ Secondary.args = {
 export const Large = Template.bind({})
 Large.args = {
   size: 'large',
+  label: 'Button'
+}
+
+export const medium = Template.bind({})
+medium.args = {
+  size: 'medium',
   label: 'Button'
 }
 
