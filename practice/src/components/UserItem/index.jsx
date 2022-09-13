@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { StoreContext } from '../../store'
 import { memo } from 'react'
 import Button from '../common/Button'
-import ConfirmModal from '../ConfirmModal'
+import ConfirmModal from '../common/ConfirmModal'
 import Modal from '../common/Modal'
 import {
   StyleListItem,

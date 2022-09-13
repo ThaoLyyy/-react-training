@@ -21,37 +21,35 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
   const [errors, setErrors] = useState('')
 
   /**The defaultValue property sets*/
-  const [values, setValues] = useState(defaultValue)
+  const [inputs, setInputs] = useState(defaultValue)
 
   /**get value input */
   const handleChange = e => {
     const name = e.target.name
     const value = e.target.value
-    setValues(values => ({ ...values, [name]: value }))
+    setInputs(values => ({ ...values, [name]: value }))
   }
 
   /** validate form */
   const validate = () => {
     const errors = {}
 
-    if (!values.image) {
+    if (!inputs.image) {
       errors.image = 'User image is required!'
     }
 
-    if (!values.name) {
+    if (!inputs.name) {
       errors.name = 'User name is required!'
     }
-    if (!values.email) {
+    if (!inputs.email) {
       errors.email = 'User email is required!'
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = 'Email is invalid.'
     }
 
-    if (!values.phone) {
-      errors.phone = 'Please enter at least 10 characters!'
+    if (!inputs.phone) {
+      errors.phone = 'User phone is required!'
     }
 
-    if (!values.address) {
+    if (!inputs.address) {
       errors.address = 'User address is required!'
     }
 
@@ -66,27 +64,28 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     if (!isValid) return
 
     /**update data */
-    if (values.id) {
-      updateUser(values)
+    if (inputs.id) {
+      updateUser(inputs)
       onCloseModal()
     } else {
-      values.id = uuidv4()
-      addUser({ ...values })
+      inputs.id = uuidv4()
+      addUser({ ...inputs })
       onCloseModal()
-      setValues('')
+      setInputs('')
     }
   }
 
   return (
     <StyleModalWrapper>
       <StyleOverlay>
-         <StyleTitle>{text}</StyleTitle>
-         <StyleFormSubmit onSubmit={handleSubmit}>
-           {/* add the error message below the input field */}           <StyleInputUser
+        <StyleTitle>{text}</StyleTitle>
+        <StyleFormSubmit onSubmit={handleSubmit}>
+          {/* add the error message below the input field */}
+          <StyleInputUser
             type="text"
             name="name"
             placeholder="Username*"
-            value={values.name || ''}
+            value={inputs.name || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.name}</StyleError>
@@ -94,7 +93,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             type="email"
             name="email"
             placeholder="Email*"
-            value={values.email || ''}
+            value={inputs.email || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.email}</StyleError>
@@ -102,7 +101,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             type="tel"
             name="phone"
             placeholder="Phone* xxx-xxx-xxxx"
-            value={values.phone || ''}
+            value={inputs.phone || ''}
             onChange={handleChange}
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           />
@@ -111,7 +110,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             type="text"
             name="address"
             placeholder="Address*"
-            value={values.address || ''}
+            value={inputs.address || ''}
             onChange={handleChange}
           />
           <StyleError>{errors.address}</StyleError>
@@ -119,13 +118,13 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
             type="url"
             name="image"
             placeholder="Image Url*"
-            value={values.image || ''}
+            value={inputs.image || ''}
             onChange={handleChange}
             accept="image/png, image/jpg, image/webp"
           />
           <StyleError>{errors.image}</StyleError>
           <StyleBtnWrapper>
-            <StyleButton backgroundColor type="submit" value="Submit" onClicked={handleSubmit}>
+            <StyleButton save type="submit" value="Submit" onClicked={handleSubmit}>
               Save Users
             </StyleButton>
             <StyleButton type="button" onClick={onCloseModal}>
