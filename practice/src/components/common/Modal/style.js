@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyleModalWrapper = styled.div`
+const StyleModalWrapper = styled.section`
   background-color: var(--cl--gray-200);
   position: fixed;
   top: 0;
@@ -9,15 +9,16 @@ const StyleModalWrapper = styled.div`
   width: 100vw;
   height: 130vh;
 `
-const StyleModalUser = styled.div`
-  position: absolute;
-  width: 470px;
-  height: 600px;
-  background: var(--cl--light-pink-200);
+const StyleOverlay = styled.div`
   font-family: 'Roboto-Regular';
+  background: var(--cl--light-pink-200);
+  position: absolute;
+  inset: 0;
+  width: 470px;
+  height: 580px;
   z-index: 39;
   border-radius: 10px;
-  left: 55%;
+  left: 50%;
   top: 35%;
   transform: translate(-50%, -50%);
   line-height: 18px;
@@ -51,7 +52,7 @@ const StyleInputUser = styled.input`
   padding: var(--padding-xx-sm);
   font-size: var(--font-size-md);
 `
-const StyleBtnWrapper = styled.div`
+const StyleBtnWrapper = styled.section`
   display: flex;
   justify-content: space-evenly;
   margin-top: var(--margin-5x-l);
@@ -64,7 +65,7 @@ const StyleButton = styled.button`
   border-radius: 10px;
   font-family: 'Roboto-Regular';
   font-size: var(--font-size-md);
-  background-color: ${props => (props.save ? 'var( --cl--light-blue-100)' : 'var( --cl--gray)')};
+  background-color: ${props => (props.backgroundColor ? 'var( --cl--light-blue-100)' : 'var( --cl--gray)')};
   &:hover {
     background: var(--cl--red-100);
   }
@@ -72,7 +73,7 @@ const StyleButton = styled.button`
 
 export {
   StyleModalWrapper,
-  StyleModalUser,
+  StyleOverlay,
   StyleTitle,
   StyleFormSubmit,
   StyleLabel,
