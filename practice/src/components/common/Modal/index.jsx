@@ -124,7 +124,7 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
           />
           <StyleError>{errors.image}</StyleError>
           <StyleBtnWrapper>
-            <StyleButton save type="submit" value="Submit" onClicked={handleSubmit}>
+            <StyleButton backgroundColor type="submit" value="Submit" onClicked={handleSubmit}>
               Save Users
             </StyleButton>
             <StyleButton type="button" onClick={onCloseModal}>
