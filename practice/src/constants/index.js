@@ -6,6 +6,5 @@ const USER_FUNCTIONS = {
 }
 
 const KEY = 'listUser'
-const listUser = JSON.parse(localStorage.getItem(KEY)) || []
 
-export { KEY, USER_FUNCTIONS, listUser }
+export { KEY, USER_FUNCTIONS }
