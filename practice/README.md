@@ -74,12 +74,12 @@ This document provides information about ReactJS practice. Build List of user ma
                 |-- Button.stories.js
                 |-- index.jsx
                 |-- style.js
-            |-- ConfirmModal/
-                |-- ConfirmModal.stories.js
-                |-- index.jsx
-                |-- style.js
             |-- Modal/
                 |-- Modal.stories.js
+                |-- index.jsx
+                |-- style.js
+        |-- ConfirmModal/
+                |-- ConfirmModal.stories.js
                 |-- index.jsx
                 |-- style.js
         |-- Header/
