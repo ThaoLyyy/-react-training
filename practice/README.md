@@ -16,7 +16,6 @@ This document provides information about ReactJS practice. Build List of user ma
     - Actual time: 19 days
 
 - Editor: Visual Studio Code.
-- Support browsers: Chrome 104, Microsoft Edge, Opera 90.
 - Responsive: Not support responsive yet.
 
 ###  Plan
@@ -78,10 +77,10 @@ This document provides information about ReactJS practice. Build List of user ma
                 |-- Modal.stories.js
                 |-- index.jsx
                 |-- style.js
-        |-- ConfirmModal/
-                |-- ConfirmModal.stories.js
-                |-- index.jsx
-                |-- style.js
+            |-- ConfirmModal/
+              |-- ConfirmModal.stories.js
+              |-- index.jsx
+              |-- style.js
         |-- Header/
             |-- Header.stories.js
             |-- index.jsx

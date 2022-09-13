@@ -9,6 +9,7 @@ export const updateUser = item => ({
   type: USER_FUNCTIONS.UPDATE,
   item
 })
+
 export const deleteUser = id => ({
   type: USER_FUNCTIONS.DELETE,
   id
