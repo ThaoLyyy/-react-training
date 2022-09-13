@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "prettier"],
+  "extends": ["react-app", "prettier", "standard", "standard-jsx"],
   "plugins": ["react", "prettier"],
   "settings": {
     "ecmascript": 6
@@ -25,7 +25,7 @@
         "useTabs": false,
         "singleQuote": true,
         "printWidth": 120,
-        "jsxSingleQuote": true,
+        "jsxSingleQuote": false,
         "prefer-arrow-callback": 1,
         "strict": 0,
         "indent": [2, 2],

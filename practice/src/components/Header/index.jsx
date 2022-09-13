@@ -6,7 +6,7 @@ const Header = () => {
     <StylePageHeader>
       <StyleContainerHeader>
         <StyleWrapperLogo>
-          <StyleUserLogo src={StyleUserLogo} alt='UserLogo' />
+          <StyleUserLogo src={StyleUserLogo} alt="UserLogo" />
           <StyleTitle>users manager</StyleTitle>
         </StyleWrapperLogo>
       </StyleContainerHeader>
