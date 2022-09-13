@@ -17,7 +17,7 @@ const Home = () => {
           <StyleWrapper>
             <SideBar users={users} />
             <StyleRow>
-              <Search onSearch={searchUser} />
+              <Search onSearchInput={searchUser} />
               <StyleTitleList>list item user</StyleTitleList>
               <UserItem users={filteredList.length === 0 ? users : filteredList} />
             </StyleRow>

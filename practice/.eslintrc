@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "prettier", "standard", "standard-jsx"],
+  "extends": ["react-app", "prettier"],
   "plugins": ["react", "prettier"],
   "settings": {
     "ecmascript": 6
