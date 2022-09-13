@@ -1,24 +1,24 @@
 import styled from 'styled-components'
 
-const Section = styled.section`
+const StyleSection = styled.section`
   min-height: 100vh;
 `
-const Container = styled.div`
+const StyleContainer = styled.div`
   max-width: 1440px;
   width: 100%;
   margin: var(--margin) auto;
   padding: var(--padding);
 `
-const Wrapper = styled.div`
+const StyleWrapper = styled.div`
   width: 100%;
   display: flex;
 `
-const Row = styled.div`
+const StyleRow = styled.div`
   min-height: 100vh;
   width: 110%;
   position: relative;
 `
-const TitleList = styled.h2`
+const StyleTitleList = styled.h2`
   font-size: var(--font-size-2xlg);
   color: var(--cl--gray-400);
   font-family: 'Roboto-Bold';
@@ -27,4 +27,4 @@ const TitleList = styled.h2`
   margin: var(--margin-md) 0 0 var(--margin-3x-lg);
 `
 
-export { Section, Wrapper, Container, Row, TitleList }
+export { StyleSection, StyleWrapper, StyleContainer, StyleRow, StyleTitleList }

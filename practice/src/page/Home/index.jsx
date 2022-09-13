@@ -3,7 +3,7 @@ import { StoreContext } from '../../store'
 import Search from '../../components/Search'
 import SideBar from '../../components/SideBar'
 import Header from '../../components/Header'
-import { Section, Container, Wrapper, Row, TitleList } from './style'
+import { StyleSection, StyleContainer, StyleWrapper, StyleRow, StyleTitleList } from './style'
 import Button from '../../components/common/Button'
 import Modal from '../../components/common/Modal'
 import UserItem from '../../components/UserItem'
@@ -26,20 +26,20 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Section>
-        <Container>
-          <Wrapper>
+      <StyleSection>
+        <StyleContainer>
+          <StyleWrapper>
             <SideBar users={users} />
-            <Row>
+            <StyleRow>
               <Search onSearch={searchUser} />
-              <TitleList>list item user</TitleList>
+              <StyleTitleList>list item user</StyleTitleList>
               <Button className="add" onClicked={handleOpenModal} icon="fa fa-user-plus"></Button>
               {showModal && <Modal text="Create user" onCloseModal={handleCloseModal} />}
               <UserItem users={filteredList.length === 0 ? users : filteredList} />
-            </Row>
-          </Wrapper>
-        </Container>
-      </Section>
+            </StyleRow>
+          </StyleWrapper>
+        </StyleContainer>
+      </StyleSection>
     </>
   )
 }
