@@ -38,6 +38,7 @@ This document provides information about ReactJS practice. Build List of user ma
 - react: v18.2.0
 - npm: v8.14.0
 - eslint: v8.14.0
+- Storybook: v6.5.10
 
 ###  Main app features:
 
