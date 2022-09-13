@@ -24,20 +24,18 @@ This document provides information about ReactJS practice. Build List of user ma
 
 ###  Targets
 
-- Build an application for manager using React
-- Apply knowledge of React/ React hooks
-- Apply useContext + hooks for state management.
+- Build an application for user manager using React.
+- Apply knowledge of React/ React hooks.
+- Use Context of React Hook to management state.
 - Check re-render and using hook to avoid re-render.
-- Apply styled-components
-- Apply Storybook
+- Apply styled-components.
+- Apply Storybook.
 
 ###  Development environment:
 
 - Node: v16.15.1
 - react: v18.2.0
 - npm: v8.14.0
-- eslint: v8.14.0
-- Storybook: v6.5.10
 
 ###  Main app features:
 
@@ -94,7 +92,6 @@ This document provides information about ReactJS practice. Build List of user ma
             |-- index.jsx
             |-- style.js
         |-- UserItem/
-            |-- UserItem.stories.js
             |-- index.jsx
             |-- style.js
     |-- constants/
