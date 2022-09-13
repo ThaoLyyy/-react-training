@@ -43,10 +43,12 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
     }
     if (!inputs.email) {
       errors.email = 'User email is required!'
+    } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {
+      errors.email = 'Email is invalid.'
     }
 
     if (!inputs.phone) {
-      errors.phone = 'User phone is required!'
+      errors.phone = 'Please enter at least 10 characters!'
     }
 
     if (!inputs.address) {
