@@ -121,32 +121,38 @@ This document provides information about ReactJS practice. Build List of user ma
 
 ###  Getting started:
 
-- Step 1:clone repository
-  - Main repo: git clone
-    + HTTPS:
+- Step 1: Clone repository
+  + HTTPS:
 ```bash
-https://github.com/ThaoLyyy/react-training.git
+git clone https://github.com/ThaoLyyy/react-training.git
 ```
-- Step 2: Go to the folder react practice https://github.com/ThaoLyyy/react-training/tree/develop
-```bash
-git checkout develop
-```
-- Step 3:cd folder practice
+
+- Step 2: Change Folder Directory
 ```bash
 cd practice
 ```
+
+- Step 3: Checkout branch
+```bash
+git checkout develop
+
+```
+
 - step 4:
 ```bash
 npm install
 ```
+
 - step 5 : run project
 ```bash
 npm start
 ```
+
 - step 6: Open in browser:
 ```
 http://localhost:3000
 ```
+
 - step 7 : run storybook
 ```bash
 npm run storybook
