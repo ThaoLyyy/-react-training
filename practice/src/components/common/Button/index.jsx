@@ -1,4 +1,5 @@
 import { StyleCommonButton } from './style'
+import PropTypes from 'prop-types'
 
 const Button = ({ onClicked, text, className, icon }) => {
   return (
@@ -8,6 +9,13 @@ const Button = ({ onClicked, text, className, icon }) => {
       </StyleCommonButton>
     </>
   )
+}
+
+Button.propTypes = {
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  text: PropTypes.string,
+  onClicked: PropTypes.func
 }
 
 export default Button

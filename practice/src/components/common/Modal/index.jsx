@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { memo } from 'react'
 import { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { v4 as uuidv4 } from 'uuid'
 import { StoreContext } from '../../../store'
 import {
@@ -137,6 +138,10 @@ const Modal = ({ onCloseModal, text, defaultValue = {} }) => {
       </StyleOverlay>
     </StyleModalWrapper>
   )
+}
+
+Modal.propTypes = {
+  text: PropTypes.string
 }
 
 export default memo(Modal)

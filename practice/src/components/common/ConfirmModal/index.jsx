@@ -1,4 +1,5 @@
 import { StyleModalWrapper, StyleModal, StyleContent, StyleButtonWrapper, StyleTitle, StyleButton } from './style'
+import PropTypes from 'prop-types'
 
 const ConfirmModal = ({ onCloseModal, onDelete }) => {
   return (
@@ -15,5 +16,10 @@ const ConfirmModal = ({ onCloseModal, onDelete }) => {
       </StyleModal>
     </StyleModalWrapper>
   )
+}
+
+ConfirmModal.propTypes = {
+  onCloseModal: PropTypes.func,
+  onDelete: PropTypes.func
 }
 export default ConfirmModal
